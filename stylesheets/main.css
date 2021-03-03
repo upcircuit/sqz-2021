@@ -1,3 +1,113 @@
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: Akrobat;
+  src: url("../fonts/Akrobat-Regular.otf") format("opentype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+body {
+  margin: 0px;
+}
 
+.nav {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  box-sizing: border-box;
+  padding: 0.5em 0 0.5em 0;
+  vertical-align: center;
+}
+
+.nav-logo {
+  float: left;
+  font-family: Inter;
+  font-weight: 700;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+}
+.nav-logo img {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.75em;
+  width: auto;
+  margin: auto;
+}
+
+.nav-menu {
+  list-style-type: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  float: right;
+  font-family: Montserrat, sans-serif;
+  color: #FFFFFF;
+}
+.nav-menu li {
+  display: inline;
+  border-right: 1px solid #A8A8A8;
+  padding: 0 0.5em 0 0.5em;
+}
+.nav-menu li:last-child {
+  border-right: 0px;
+}
+
+.index-container {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 99.99%, rgba(255, 255, 255, 0) 100%), url("../images/index-bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  padding: 0.5em;
+}
+
+.banner-container {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 300px;
+  color: #FFFFFF;
+}
+.banner-container h2 {
+  margin: 0 auto;
+  text-align: center;
+  font-family: Akrobat, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+}
+.banner-container h1 {
+  margin: 0 auto;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.75em;
+  padding: 0.5em 0 0.5em 0;
+}
+.banner-container div {
+  margin: 0 auto;
+  text-align: center;
+}
+.banner-container div button {
+  border: 1px solid rgba(113, 113, 113, 0.6);
+  border-radius: 25px;
+  display: inline-block;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  background: none;
+  padding: 0.75em 0.5em;
+  color: #FFFFFF;
+}
 
 /*# sourceMappingURL=main.css.map */
