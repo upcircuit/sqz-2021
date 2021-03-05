@@ -128,6 +128,15 @@ body {
   height: 100vh;
 }
 
+.registration-container {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 99.99%, rgba(255, 255, 255, 0) 100%), url("../images/registration-bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
 .banner-container {
   position: relative;
   box-sizing: border-box;
@@ -167,6 +176,10 @@ body {
   padding: 0.75em 0.5em;
   color: #FFFFFF;
   font-size: 1em;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=main.css.map */
