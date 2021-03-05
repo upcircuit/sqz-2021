@@ -10,6 +10,12 @@
 }
 
 @font-face {
+  font-family:Akrobat;
+  src: url('../fonts/Akrobat-Light.otf') format("opentype");
+  font-weight:200;
+}
+
+@font-face {
   font-family:Montserrat;
   src: url('../fonts/Montserrat-Regular.ttf') format("truetype");
   font-weight:400;
@@ -29,12 +35,14 @@ body {
   overflow:hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   box-sizing: border-box;
-  padding:0.5em 0 0.5em 0;
-  vertical-align: center;
+  padding:0.5em 0;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  margin:0 2em;
 }
 
 .nav-logo {
-  float:left;
   font-family: Inter;
   font-weight: 700;
   color:white;
@@ -43,29 +51,77 @@ body {
   img {
     display:inline-block;
     vertical-align: middle;
-    height:1.75em;
+    height:2.5em;
     width:auto;
     margin:auto;
+  }
+  span {
+    display:inline-block;
+    vertical-align: middle;
+    font-size:1.5em;
+    letter-spacing: 0.1em;
   }
 }
 
 .nav-menu {
   list-style-type: none;
-  display:inline-block;
+  display:table-row;
   vertical-align: middle;
   margin: 0;
   padding: 0;
   float:right;
   font-family:Montserrat, sans-serif;
+  font-size:0.65em;
   color: #FFFFFF;
-  li {
-    display:inline;
-    border-right: 1px solid #A8A8A8;
-    padding:0 0.5em 0 0.5em;
-  }
-  li:last-child {
+  font-weight:400;
+  transition: all 0.5s ease-out;
+  opacity:1;
+}
+
+.nav-link {
+  display:table-cell;
+  border-right: 1px solid #A8A8A8;
+  padding:0 1.25em;
+  vertical-align: middle;
+  position:relative;
+  transition: all 0.5s ease-out;
+  &:last-child {
     border-right: 0px;
   }
+}
+
+.nav-link-thin {
+  position:absolute;
+  opacity:1;
+  transition: all 0.5s ease-out;
+  top:0;
+  padding:0 1.25em;
+  left:0;
+  z-index: 1;
+  font-weight:400;
+  color:white;
+}
+
+.nav-link-bold {
+  position:absolute;
+  opacity:1;
+  transition: all 0.5s ease-out;
+  top:0;
+  padding:0 1.25em;
+  left:0;
+  z-index: 2;
+  font-weight:500;
+  color:white;
+}
+
+.hidden-text {
+  color: rgba(0, 0, 0, 0);
+  transition: all 0.5s ease-out;
+}
+
+.hidden {
+  opacity:0;
+  transition: all 0.5s ease-out;
 }
 
 .index-container {
@@ -78,7 +134,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
   height:100vh;
-  padding:0.5em;
 }
 
 .banner-container {
@@ -90,8 +145,10 @@ body {
     margin: 0 auto;
     text-align:center;
     font-family:Akrobat, sans-serif;
-    font-weight:300;
+    font-weight:200;
     letter-spacing: 0.2em;
+    text-indent: 0.2em;
+    font-size:1.5em;
   }
   h1 {
     margin: 0 auto;
@@ -99,7 +156,9 @@ body {
     font-family:Inter, sans-serif;
     font-weight:700;
     letter-spacing: 0.75em;
-    padding: 0.5em 0 0.5em 0;
+    text-indent:0.75em;
+    padding: 0.25em 0 0.25em 0;
+    font-size:3.5em;
   }
   div {
     margin: 0 auto;
@@ -107,13 +166,14 @@ body {
 
     button {
       border: 1px solid rgba(113, 113, 113, 0.6);
-      border-radius:25px;
+      border-radius:20px;
       display:inline-block;
       font-family: Montserrat, sans-serif;
       font-weight: 500;
       background:none;
       padding:0.75em 0.5em;
       color: #FFFFFF;
+      font-size:1em;
     }
   }
 }
