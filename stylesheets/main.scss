@@ -1,3 +1,9 @@
+//GENERAL NOTES
+//->NAVBAR sits at z-index 2 since at least 2 backgrounds may be used.
+//->ALT BG sits at z-index 1.
+//TO REFACTOR: move all h1 and h2 styles to be generic
+//->h1 is inter 700, h2 is akrobat 500
+
 @font-face {
   font-family:Inter;
   src:url('../fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
@@ -16,6 +22,12 @@
 }
 
 @font-face {
+  font-family:Akrobat;
+  src: url('../fonts/Akrobat-Bold.otf') format("opentype");
+  font-weight:600;
+}
+
+@font-face {
   font-family:Montserrat;
   src: url('../fonts/Montserrat-Regular.ttf') format("truetype");
   font-weight:400;
@@ -31,6 +43,71 @@ body {
   margin:0px;
 }
 
+.page-content {
+  position:relative;
+}
+
+h1 {
+  font-family:Inter, serif;
+  font-weight:700;
+  text-align:center;
+  color: #FFFFFF;
+}
+
+h2 {
+  font-family:Akrobat, sans-serif;
+  text-align:center;
+  color: #FFFFFF;
+}
+
+.button-big {
+  border: 1px solid rgba(113, 113, 113, 0.6);
+  border-radius:20px;
+  display:inline-block;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  background:none;
+  padding:0.75em 0.5em;
+  color: #FFFFFF;
+  font-size:1em;
+  min-width: 10em;
+}
+
+.button-small {
+  border: 1px solid rgba(113, 113, 113, 0.6);
+  border-radius:20px;
+  display:inline-block;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  background:none;
+  padding:0.75em 0.5em;
+  color: #FFFFFF;
+  font-size:1em;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+//TRANSITION SHOW/HIDE CLASSES
+.hidden-text {
+  color: rgba(0, 0, 0, 0);
+  transition: all 0.5s ease-out;
+}
+
+.hidden {
+  opacity:0;
+  transition: all 0.5s ease-out;
+}
+
+.disabled {
+  display:none;
+}
+
+//INDEX PAGE STYLES
 .nav {
   overflow:hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
@@ -40,6 +117,8 @@ body {
   align-items: center;
   justify-content: space-between;
   margin:0 2em;
+  position:relative;
+  z-index:2;
 }
 
 .nav-logo {
@@ -90,18 +169,6 @@ body {
   }
 }
 
-.nav-link-thin {
-  position:absolute;
-  opacity:1;
-  transition: all 0.5s ease-out;
-  top:0;
-  padding:0 1.25em;
-  left:0;
-  z-index: 1;
-  font-weight:400;
-  color:white;
-}
-
 .nav-link-bold {
   position:absolute;
   opacity:1;
@@ -109,19 +176,12 @@ body {
   top:0;
   padding:0 1.25em;
   left:0;
-  z-index: 2;
+  z-index: 3;
   font-weight:500;
   color:white;
-}
-
-.hidden-text {
-  color: rgba(0, 0, 0, 0);
-  transition: all 0.5s ease-out;
-}
-
-.hidden {
-  opacity:0;
-  transition: all 0.5s ease-out;
+  &.hidden-text {
+    color: rgba(0, 0, 0, 0);
+  }
 }
 
 .index-container {
@@ -136,36 +196,18 @@ body {
   height:100vh;
 }
 
-.registration-container {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%,
-    rgba(0, 0, 0, 0.75) 99.99%,
-    rgba(255, 255, 255, 0) 100%),
-    url('../images/registration-bg.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  height:100vh;
-}
-
 .banner-container {
   position:relative;
   box-sizing: border-box;
-  padding-top: 300px;
+  padding-top: 200px;
   color: #FFFFFF;
   h2 {
-    margin: 0 auto;
-    text-align:center;
-    font-family:Akrobat, sans-serif;
     font-weight:200;
     letter-spacing: 0.2em;
     text-indent: 0.2em;
     font-size:1.5em;
   }
   h1 {
-    margin: 0 auto;
-    text-align:center;
-    font-family:Inter, sans-serif;
     font-weight:700;
     letter-spacing: 0.75em;
     text-indent:0.75em;
@@ -175,24 +217,107 @@ body {
   div {
     margin: 0 auto;
     text-align:center;
+  }
+}
 
+//REGISTRATION PAGE STYLES
+
+.registration-container {
+  height:100vh;
+  position: relative;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.75) 99.99%,
+    rgba(255, 255, 255, 0) 100%),
+    url('../images/registration-bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.bg-div {
+  height:100%;
+  width:100%;
+  background-color: #222222;
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index:1;
+  transition:opacity 0.5s ease-out;
+  img {
+    transition:opacity 0.5s ease-out;
+    position: fixed;
+    opacity:0.05;
+    top:0%;
+    left:-25%;
+    height:128%;
+    width:auto;
+    -webkit-transform:rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+}
+
+.intro-slide-container {
+  box-sizing: border-box;
+  padding-top:5em;
+  color:#FFFFFF;
+  h1 {
+    text-align: center;
+    font-family:Inter, serif;
+    font-weight:700;
+    letter-spacing:0.4em;
+    font-size:1.5em;
+  }
+  h2 {
+    font-family:Akrobat, sans-serif;
+    font-weight:500;
+    text-align:center;
+    padding-top:2em;
+    font-size:2em;
+  }
+  div {
+    text-align:center;
+    margin: 0 auto;
     button {
-      border: 1px solid rgba(113, 113, 113, 0.6);
-      border-radius:20px;
-      display:inline-block;
-      font-family: Montserrat, sans-serif;
-      font-weight: 500;
-      background:none;
-      padding:0.75em 0.5em;
-      color: #FFFFFF;
-      font-size:1em;
+      margin:0 0.5em;
     }
   }
 }
 
-a {
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
+#college-form {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:2;
+  margin:0 2em;
+  width:100%;
+  h1 {
+    text-align:left;
   }
+}
+
+.form-container {
+  display:flex;
+  justify-content: center;
+}
+
+.reg-menu {
+  flex-basis:20%;
+  list-style-type: none;
+  font-family: Akrobat, sans-serif;
+  font-weight:600;
+  color:#6A6A6A;
+  border-right:1px solid rgba(255, 255, 255, 0.6);
+  padding-left:0;
+  li {
+    box-sizing: border-box;
+    padding: 1em 0;
+  }
+}
+
+.moodle-container {
+  flex-basis:75%;
 }

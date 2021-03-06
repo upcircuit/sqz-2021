@@ -4,7 +4,6 @@
     <title>SquEEEze 2021</title>
     <meta name="description" content="SquEEEze: The National EEE Convention and Competition">
     <link rel="icon" href="./images/logo.png" type="image/png">
-
     <link rel="stylesheet" href="stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
@@ -12,9 +11,14 @@
   </head>
   <body>
     <div class="registration-container">
+      <!-- other bg image, for smooth transition -->
+      <div id="bg-1" class="bg-div hidden disabled">
+        <img src="./images/logo-white.png"></img>
+      </div>
+      <!-- navbar -->
       <div class="nav">
         <div class="nav-logo">
-          <img src="images/sqzlogov2.png"></img>
+          <img src="images/logo.png"></img>
           <span>SQUEEEZE</span>
         </div>
         <ul class="nav-menu">
@@ -32,12 +36,37 @@
           </li>
         </ul>
       </div>
-      <div class="banner-container-reg">
-        <h1>REGISTRATION</h1>
-        <h2>SELECT DIVISION</h2>
-        <div>
-          <button>COLLEGE</button>
-          <button>HIGH SCHOOL</button>
+      <!-- this div ensures that all content comes AFTER nav. -->
+      <div class="page-content">
+        <!-- initially visible menu -->
+        <div class="intro-slide-container">
+          <h1>REGISTRATION</h1>
+          <h2>SELECT DIVISION</h2>
+          <div>
+            <button class="button-big" id="college-select">COLLEGE</button>
+            <button class="button-big">HIGH SCHOOL</button>
+          </div>
+        </div>
+        <!-- college reg form -->
+        <div id="college-form" class="hidden disabled">
+          <h1>COLLEGE DIVISION REGISTRATION</h1>
+          <div class="form-container">
+            <ul class="reg-menu" id="college-menu">
+              <li>CATEGORY</li>
+              <li>QUALIFICATIONS</li>
+              <li>SCHOOL INFORMATION</li>
+              <li>COACH INFORMATION</li>
+              <li>TEAM INFORMATION</li>
+            </ul>
+            <!-- all reg form input slides go into the following div -->
+            <div class="moodle-container">
+              <div class="moodle" id="college-1"></div>
+              <div class="moodle" id="college-2"></div>
+              <div class="moodle" id="college-3"></div>
+              <div class="moodle" id="college-4"></div>
+              <div class="moodle" id="college-5"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
