@@ -351,6 +351,12 @@ a {
   }
 }
 
+.moodle-content {
+  border-left:1px solid rgba(255, 255, 255, 0.6);
+  padding-left: 2em;
+  box-sizing:border-box;
+}
+
 .moodle {
   position:absolute;
   width:100%;
@@ -390,7 +396,6 @@ a {
   font-family: Akrobat, sans-serif;
   font-weight:600;
   color:#6A6A6A;
-  border-right:1px solid rgba(255, 255, 255, 0.6);
   padding-left:0;
   display:flex;
   flex-direction: column;
@@ -405,6 +410,8 @@ a {
 .moodle-container {
   flex-basis:75%;
   position:relative;
+  box-sizing: border-box;
+
 }
 
 .card-container {
