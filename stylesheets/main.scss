@@ -164,6 +164,13 @@ a {
   display:none;
 }
 
+.active {
+  z-index:4;
+}
+
+.phase-out {
+  z-index:3;
+}
 //INDEX PAGE STYLES
 .nav {
   overflow:hidden;
@@ -345,6 +352,11 @@ a {
 }
 
 .moodle {
+  position:absolute;
+  width:100%;
+  top:0%;
+  left:0%;
+  transition: opacity 0.5s ease-out;
   h1 {
     text-align:left;
     font-size:1.25em;
@@ -392,6 +404,7 @@ a {
 
 .moodle-container {
   flex-basis:75%;
+  position:relative;
 }
 
 .card-container {
@@ -422,6 +435,7 @@ a {
 }
 
 .moodle-nav {
+  position:relative;
   text-align:right;
   box-sizing: border-box;
   padding: 0.5em 1em 0 0;

@@ -148,6 +148,14 @@ a:hover {
   display: none;
 }
 
+.active {
+  z-index: 4;
+}
+
+.phase-out {
+  z-index: 3;
+}
+
 .nav {
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
@@ -320,6 +328,11 @@ a:hover {
 }
 
 .moodle {
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  transition: opacity 0.5s ease-out;
   box-sizing: border-box;
   padding: 0 2em;
 }
@@ -367,6 +380,7 @@ a:hover {
 
 .moodle-container {
   flex-basis: 75%;
+  position: relative;
 }
 
 .card-container {
@@ -397,6 +411,7 @@ a:hover {
 }
 
 .moodle-nav {
+  position: relative;
   text-align: right;
   box-sizing: border-box;
   padding: 0.5em 1em 0 0;
