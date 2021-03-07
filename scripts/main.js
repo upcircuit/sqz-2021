@@ -1,3 +1,12 @@
+function showConfimationCollege() {
+  $("#college-confirm").removeClass("disabled");
+  setTimeout(function(){
+    $("#college-confirm").removeClass("hidden");
+    $("#college-input").addClass("disabled");
+    $("#college-input").addClass("hidden");
+  }, 50);
+}
+
 
 
 $( document ).ready(function() {
@@ -28,7 +37,7 @@ $( document ).ready(function() {
 
   $(".next").on("click", function(){
     if (active_modal==5){
-      return;
+      showConfimationCollege();
     }
     //push down current active
     $("#college-"+String(active_modal)).addClass("phase-out");

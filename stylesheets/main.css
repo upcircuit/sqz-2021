@@ -66,6 +66,20 @@ h3 {
   font-weight: 400;
 }
 
+h4 {
+  font-family: Akrobat, sans-serif;
+  text-align: left;
+  color: #FFFFFF;
+  font-weight: 200;
+}
+
+h5 {
+  font-family: Akrobat, sans-serif;
+  text-align: left;
+  color: #FFFFFF;
+  font-weight: 200;
+}
+
 p {
   color: #FFFFFF;
   font-family: Akrobat, sans-serif;
@@ -73,15 +87,23 @@ p {
   font-size: 1em;
 }
 
+table {
+  width: 100%;
+}
+table td {
+  color: #FFFFFF;
+  font-family: Akrobat, sans-serif;
+  font-weight: 200;
+}
+
 label {
   color: #FFFFFF;
   font-family: Akrobat, sans-serif;
   font-weight: 400;
   font-size: 0.75em;
-  display: block;
 }
 
-input {
+input[type=text] {
   background: rgba(237, 239, 242, 0.25);
   border-radius: 5px;
   display: block;
@@ -132,6 +154,10 @@ a:hover {
 .flex-50 {
   flex-basis: 50%;
   box-sizing: border-box;
+}
+
+.relpos-anchor {
+  position: relative;
 }
 
 .hidden-text {
@@ -311,6 +337,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.4em;
   font-size: 1.5em;
+  text-indent: 0.4em;
 }
 .intro-slide-container h2 {
   font-family: Akrobat, sans-serif;
@@ -435,6 +462,9 @@ a:hover {
   margin: 0.5em 0;
 }
 
+#college-4 label {
+  display: block;
+}
 #college-4 .flex-50:first-child {
   padding-right: 0.5em;
 }
@@ -445,6 +475,9 @@ a:hover {
   margin: 0;
 }
 
+#college-5 label {
+  display: block;
+}
 #college-5 .flex-50:first-child {
   padding-right: 0.5em;
 }
@@ -462,6 +495,35 @@ a:hover {
 #addteam {
   text-align: right;
   box-sizing: border-box;
+}
+
+.reg-confirm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  transition: opacity 0.5s ease-out;
+  text-align: center;
+}
+.reg-confirm input[type=checkbox] {
+  margin: 2em 0;
+}
+.reg-confirm table {
+  text-align: left;
+}
+.reg-confirm .flex-container {
+  margin: 0 2em;
+}
+.reg-confirm .flex-50 {
+  padding: 0 2em;
+}
+.reg-confirm .flex-50:last-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.submit-nav {
+  margin-bottom: 2em;
 }
 
 /*# sourceMappingURL=main.css.map */
