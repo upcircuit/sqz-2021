@@ -327,13 +327,13 @@ a:hover {
   margin: 0 0.5em;
 }
 
-.moodle-content {
+.modal-content {
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   padding-left: 2em;
   box-sizing: border-box;
 }
 
-.moodle {
+.modal {
   position: absolute;
   width: 100%;
   top: 0%;
@@ -342,7 +342,7 @@ a:hover {
   box-sizing: border-box;
   padding: 0 2em;
 }
-.moodle h1 {
+.modal h1 {
   text-align: left;
   font-size: 1.25em;
 }
@@ -383,7 +383,7 @@ a:hover {
   padding: 1em 0;
 }
 
-.moodle-container {
+.modal-container {
   flex-basis: 75%;
   position: relative;
   box-sizing: border-box;
@@ -416,14 +416,14 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.moodle-nav {
+.modal-nav {
   position: relative;
   text-align: right;
   box-sizing: border-box;
   padding: 0.5em 1em 0 0;
   margin-left: 2em;
 }
-.moodle-nav button {
+.modal-nav button {
   margin: 1em;
 }
 
