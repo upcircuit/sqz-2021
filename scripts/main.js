@@ -1,6 +1,7 @@
 var active_modal = 1;
 var has_selected_categ = false;
 var is_qb = false;
+var is_mobile = false;
 var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
 var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
 var visible_teams = 1;
@@ -316,9 +317,13 @@ $( document ).ready(function() {
   //BEFORE removing hidden (opacity:0)
   $("#college-select").on("click",function(){
     showRegistrationCollege();
+    if (is_mobile) {
+      alert("We recommend the use of a Laptop/PC when filling up the registration form.")
+    }
   });
 
   if (window.navigator.userAgent.indexOf("Mobile") > -1) {
+    is_mobile = true;
     $(".reg-menu").hide();
     $(".nav-header").hide();
   }
