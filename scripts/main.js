@@ -1,29 +1,29 @@
 function showConfimationCollege() {
-  $("#college-confirm").removeClass("disabled");
-  $(".confirm-buttons").removeClass("disabled");
+  $("#college-confirm").removeClass("no-display");
+  $(".confirm-buttons").removeClass("no-display");
   setTimeout(function(){
     $("#college-confirm").removeClass("hidden");
     $(".confirm-buttons").removeClass("hidden");
     $("#college-input").addClass("hidden");
     $(".modal-nav").addClass("hidden");
     setTimeout(function(){
-      $("#college-input").addClass("disabled");
-      $(".modal-nav").addClass("disabled");
+      $("#college-input").addClass("no-display");
+      $(".modal-nav").addClass("no-display");
     }, 500);
   }, 10);
 }
 
 function hideConfimationCollege() {
-  $(".modal-nav").removeClass("disabled");
-  $("#college-input").removeClass("disabled");
+  $(".modal-nav").removeClass("no-display");
+  $("#college-input").removeClass("no-display");
   setTimeout(function(){
     $(".modal-nav").removeClass("hidden");
     $("#college-input").removeClass("hidden");
     $("#college-confirm").addClass("hidden");
     $(".confirm-buttons").addClass("hidden");
     setTimeout(function(){
-      $("#college-confirm").addClass("disabled");
-      $(".confirm-buttons").addClass("disabled");
+      $("#college-confirm").addClass("no-display");
+      $(".confirm-buttons").addClass("no-display");
     }, 500);
   }, 10);
 }
@@ -49,9 +49,9 @@ $( document ).ready(function() {
   visible_teams = 1;
 
   $("#college-select").on("click", function(){
-    $("#bg-1").removeClass("disabled");
-    $("#college-registration").removeClass("disabled");
-    $("#college-"+active_modal).removeClass("disabled");
+    $("#bg-1").removeClass("no-display");
+    $("#college-registration").removeClass("no-display");
+    $("#college-"+active_modal).removeClass("no-display");
     setTimeout(function(){
       $("#bg-1").removeClass("hidden");
       $("#college-registration").removeClass("hidden");
@@ -63,6 +63,7 @@ $( document ).ready(function() {
   $(".next").attr("disabled", true);
 
   $(".next").on("click", function(){
+    console.log("test")
     if (active_modal==5){
       showConfimationCollege();
       return;
@@ -72,7 +73,7 @@ $( document ).ready(function() {
     $("#college-"+String(active_modal)).removeClass("active");
     //elevate hidden next page and enable
     $("#college-"+String(active_modal+1)).addClass("active");
-    $("#college-"+String(active_modal+1)).removeClass("disabled");
+    $("#college-"+String(active_modal+1)).removeClass("no-display");
     setTimeout(function(){
       $("#college-"+String(active_modal+1)).removeClass("hidden");
       //disable non-visible formerly active page
@@ -80,7 +81,7 @@ $( document ).ready(function() {
       $("#college-"+String(active_modal)).removeClass("phase-out");
 
       setTimeout(function(){
-        $("#college-"+String(active_modal)).addClass("disabled");
+        $("#college-"+String(active_modal)).addClass("no-display");
         active_modal +=1;
       }, 500);
 
@@ -97,14 +98,14 @@ $( document ).ready(function() {
     $("#college-"+String(active_modal)).removeClass("active");
     //elevate hidden next page and enable
     $("#college-"+String(active_modal-1)).addClass("active");
-    $("#college-"+String(active_modal-1)).removeClass("disabled");
+    $("#college-"+String(active_modal-1)).removeClass("no-display");
     setTimeout(function(){
       $("#college-"+String(active_modal-1)).removeClass("hidden");
       //disable non-visible formerly active page
       $("#college-"+String(active_modal)).addClass("hidden");
       $("#college-"+String(active_modal)).removeClass("phase-out");
       setTimeout(function(){
-        $("#college-"+String(active_modal)).addClass("disabled");
+        $("#college-"+String(active_modal)).addClass("no-display");
         active_modal -=1;
       }, 500);
     }, 10);
@@ -142,7 +143,7 @@ $( document ).ready(function() {
     if (visible_teams == 3){
       return;
     }
-    $("#college-team-" + String(visible_teams+1)).removeClass("disabled");
+    $("#college-team-" + String(visible_teams+1)).removeClass("no-display");
     visible_teams+=1;
   });
 
@@ -150,7 +151,7 @@ $( document ).ready(function() {
     if (visible_teams == 1){
       return;
     }
-    $("#college-team-" + String(visible_teams)).addClass("disabled");
+    $("#college-team-" + String(visible_teams)).addClass("no-display");
     visible_teams-=1;
   });
 
