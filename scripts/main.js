@@ -43,6 +43,7 @@ $( document ).ready(function() {
   //BEFORE removing hidden (opacity:0)
 
   active_modal = 1;
+  has_selected_categ = false;
   is_qb = false;
   college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
   college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScLfRcqT95vuxgQ_kpl_-8YQI3sy4gnh1WaIf5hKbJyVdMQQw/formResponse";
@@ -60,32 +61,33 @@ $( document ).ready(function() {
     }, 50);
   });
 
-  $(".next").attr("disabled", true);
-
   $(".next").on("click", function(){
-    if (active_modal==5){
-      showConfimationCollege();
-      return;
-    }
-    //push down current active
-    $("#college-"+String(active_modal)).addClass("phase-out");
-    $("#college-"+String(active_modal)).removeClass("active");
-    //elevate hidden next page and enable
-    $("#college-"+String(active_modal+1)).addClass("active");
-    $("#college-"+String(active_modal+1)).removeClass("disabled");
-    setTimeout(function(){
-      $("#college-"+String(active_modal+1)).removeClass("hidden");
-      //disable non-visible formerly active page
-      $("#college-"+String(active_modal)).addClass("hidden");
-      $("#college-"+String(active_modal)).removeClass("phase-out");
-
+    if (active_modal==1 && has_selected_categ==false){
+      $(".error-message").css({'opacity' : 1});
+    } else {
+      if (active_modal==5){
+        showConfimationCollege();
+        return;
+      }
+      //push down current active
+      $("#college-"+String(active_modal)).addClass("phase-out");
+      $("#college-"+String(active_modal)).removeClass("active");
+      //elevate hidden next page and enable
+      $("#college-"+String(active_modal+1)).addClass("active");
+      $("#college-"+String(active_modal+1)).removeClass("disabled");
       setTimeout(function(){
-        $("#college-"+String(active_modal)).addClass("disabled");
-        active_modal +=1;
-      }, 500);
-
-    }, 10);
-
+        $("#college-"+String(active_modal+1)).removeClass("hidden");
+        //disable non-visible formerly active page
+        $("#college-"+String(active_modal)).addClass("hidden");
+        $("#college-"+String(active_modal)).removeClass("phase-out");
+  
+        setTimeout(function(){
+          $("#college-"+String(active_modal)).addClass("disabled");
+          active_modal +=1;
+        }, 500);
+  
+      }, 10);
+    }
   });
 
   $(".back").on("click", function(){
@@ -116,16 +118,18 @@ $( document ).ready(function() {
 
   $("#college-qb-select").on("click", function(){
     is_qb = true; //use this to set target URL later.
+    has_selected_categ = true;
     $("#quali-qb").css({'opacity' : 1});
     $("#quali-td").css({'opacity' : 0});
-    $(".next").attr("disabled", false); //enable 'Proceed' after selecting category
+    $(".error-message").css({'opacity' : 0});
   });
 
   $("#college-td-select").on("click", function(){
     is_qb = false; //use this to set target URL later.
+    has_selected_categ = true;
     $("#quali-qb").css({'opacity' : 0});
     $("#quali-td").css({'opacity' : 1});
-    $(".next").attr("disabled", false); //enable 'Proceed' after selecting category
+    $(".error-message").css({'opacity' : 0});
   });
 
   $("#college-submit").on("click", function(){
