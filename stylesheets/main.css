@@ -261,11 +261,6 @@ a:hover {
   position: relative;
 }
 
-.hidden-text {
-  color: rgba(0, 0, 0, 0);
-  transition: all 0.5s ease-out;
-}
-
 .hidden {
   opacity: 0;
   transition: all 0.5s ease-out;
@@ -282,6 +277,8 @@ a:hover {
 .phase-out {
   z-index: 3;
 }
+
+/* NAVBAR */
 
 .nav {
   overflow: hidden;
@@ -314,14 +311,14 @@ div.nav-clearance {
 .nav-logo img {
   display: inline-block;
   vertical-align: middle;
-  height: 2.5em;
+  height: 10vh;
   width: auto;
   margin: auto;
 }
-.nav-logo span {
+.nav-logo a, span {
   display: inline-block;
   vertical-align: middle;
-  font-size: 1.5em;
+  font-size: 2em;
   letter-spacing: 0.1em;
 }
 
@@ -333,8 +330,7 @@ div.nav-clearance {
   padding: 0;
   float: right;
   font-family: Montserrat, sans-serif;
-  font-size: 0.65em;
-  color: #FFFFFF;
+  font-size: 1.5em;
   font-weight: 400;
   transition: all 0.5s ease-out;
   opacity: 1;
@@ -346,29 +342,19 @@ div.nav-clearance {
   padding: 0 1.25em;
   vertical-align: middle;
   position: relative;
-  transition: all 0.5s ease-out;
+  transition: all 0.25s ease-out;
+  color: #ffffff;
 }
 .nav-link:last-child {
   border-right: 0px;
 }
 
-.nav-link-bold {
-  position: absolute;
-  opacity: 1;
-  transition: all 0.5s ease-out;
-  top: 0;
-  padding: 0 1.25em;
-  left: 0;
-  z-index: 3;
-  font-weight: 500;
-  text-indent:-0.01em;
-  display:inline-block;
+.nav-link:hover
+{
+  text-shadow: 2px 2px 10px #ffffff; 
 }
 
-.nav-link-bold:hover {
-  color: #FFFFFF;
-  transition: all 0.5s ease-out;
-}
+/* END OF NAVBAR */
 
 .index-container {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 99.99%, rgba(255, 255, 255, 0) 100%), url("../images/index-bg.jpg");
@@ -535,11 +521,6 @@ div.nav-clearance {
   top: 1em;
   left: 0;
   z-index: 3;
-}
-
-.hidden-text{
-  color: rgba(0, 0, 0, 0);
-  transition: all 0.5s ease-out;
 }
 
 .modal-container {
