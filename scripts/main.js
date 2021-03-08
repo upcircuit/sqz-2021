@@ -217,7 +217,7 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod( "address", function( value, element ) {
-  	return this.optional( element ) || / ^[a-z 0-9.]+[,][ ][a-z 0-9.]+[,][ ][a-z 0-9.]+$/i.test( value );
+  	return this.optional( element ) || /^[a-z 0-9.]+[,][ ][a-z 0-9.]+[,][ ][a-z 0-9.]+$/i.test( value );
     }, "Please enter an address in the given format."
   );
 
