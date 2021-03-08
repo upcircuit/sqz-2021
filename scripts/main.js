@@ -86,6 +86,9 @@ function hideRegistrationCollege(){
       $("#college-"+active_modal).removeClass("active");
       $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
       active_modal = 1;
+      furthest_visit = 1;
+      $(".reg-menu").children("li").addClass("unvisited");
+      $("#reg-menu-1").removeClass("unvisited");
     }, 10);
   }, 500);
 }
