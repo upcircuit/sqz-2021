@@ -42,6 +42,21 @@
   src: url("../fonts/Montserrat-SemiBold.ttf") format("truetype");
   font-weight: 600;
 }
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Thin.ttf") format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -142,6 +157,9 @@ input[type=text] {
   width: 100%;
   font-size: 1.75em;
   cursor: pointer;
+  color: #FFFFFF;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
 }
 
 .button-big {
