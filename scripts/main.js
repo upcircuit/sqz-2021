@@ -185,9 +185,9 @@ $( document ).ready(function() {
     }, "Please enter your full name as shown, with commas and spaces to separate."
   );
 
-  $.validator.addMethod( "eeecourse", function( value, element ) {
-  	return value==="BS Computer Engineering" || value==="BS Electrical Engineering" || value==="BS Electronics Engineering";
-    }, "Please choose from given courses and do not edit their names."
+  $.validator.addMethod("course", function( value, element ) {
+    return this.optional( element ) || /^[0-9][ ][-][ ][B][A-Z]?[ ][a-zA-Z ]+$/i.test( value );
+  }, "Please enter your course as shown."
   );
 
   $("#college-form").validate({
@@ -313,7 +313,11 @@ $( document ).ready(function() {
 	});
 
   $("#t1_s1course").rules("add", {
-		required: true
+		required: true,
+    course:true,
+    messages: {
+			required: "Please enter your course."
+		}
 	});
 
   $("#t1_s1no").rules("add", {
