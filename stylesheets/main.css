@@ -176,6 +176,7 @@ input[type=text] {
   transition: background-color 0.3s ease-out;
   position:relative;
   text-align:center;
+  cursor:pointer;
 }
 
 .button-big:hover {
@@ -218,6 +219,7 @@ input[type=text] {
   font-size: 0.8em;
   min-width: 8em;
   transition: background-color 0.3s ease-out;
+  cursor:pointer;
 }
 
 .button-small:hover {
