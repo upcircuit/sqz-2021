@@ -31,12 +31,12 @@ function hideConfimationCollege() {
 
 
 $( document ).ready(function() {
-  $(".nav-link").on("mouseenter", function(){
-    $(this).children(".nav-link-bold").removeClass("hidden-text");
-  });
-  $(".nav-link").on("mouseleave", function(){
-    $(this).children(".nav-link-bold").addClass("hidden-text");
-  });
+  // $(".nav-link").on("mouseenter", function(){
+  //   $(this).children(".nav-link-bold").removeClass("hidden-text");
+  // });
+  // $(".nav-link").on("mouseleave", function(){
+  //   $(this).children(".nav-link-bold").addClass("hidden-text");
+  // });
 
   //REG FORM JS
   //in order to transition properly, need to remove disabled (display:none)
@@ -62,32 +62,6 @@ $( document ).ready(function() {
   });
 
   $(".next").on("click", function(){
-<<<<<<< HEAD
-    console.log("test")
-    if (active_modal==5){
-      showConfimationCollege();
-      return;
-    }
-    //push down current active
-    $("#college-"+String(active_modal)).addClass("phase-out");
-    $("#college-"+String(active_modal)).removeClass("active");
-    //elevate hidden next page and enable
-    $("#college-"+String(active_modal+1)).addClass("active");
-    $("#college-"+String(active_modal+1)).removeClass("no-display");
-    setTimeout(function(){
-      $("#college-"+String(active_modal+1)).removeClass("hidden");
-      //disable non-visible formerly active page
-      $("#college-"+String(active_modal)).addClass("hidden");
-      $("#college-"+String(active_modal)).removeClass("phase-out");
-
-      setTimeout(function(){
-        $("#college-"+String(active_modal)).addClass("no-display");
-        active_modal +=1;
-      }, 500);
-
-    }, 10);
-
-=======
     if (active_modal==1 && has_selected_categ==false){
       $(".error-message").css({'opacity' : 1});
     } else {
@@ -106,15 +80,14 @@ $( document ).ready(function() {
         //disable non-visible formerly active page
         $("#college-"+String(active_modal)).addClass("hidden");
         $("#college-"+String(active_modal)).removeClass("phase-out");
-  
+
         setTimeout(function(){
           $("#college-"+String(active_modal)).addClass("disabled");
           active_modal +=1;
         }, 500);
-  
+
       }, 10);
     }
->>>>>>> a1a16468935bde17e3b2af7f16e5929380d7c921
   });
 
   $(".back").on("click", function(){
@@ -149,6 +122,8 @@ $( document ).ready(function() {
     $("#quali-qb").css({'opacity' : 1});
     $("#quali-td").css({'opacity' : 0});
     $(".error-message").css({'opacity' : 0});
+    $("#college-qb-select").addClass("active-choice")
+    $("#college-td-select").removeClass("active-choice")
   });
 
   $("#college-td-select").on("click", function(){
@@ -157,6 +132,8 @@ $( document ).ready(function() {
     $("#quali-qb").css({'opacity' : 0});
     $("#quali-td").css({'opacity' : 1});
     $(".error-message").css({'opacity' : 0});
+    $("#college-td-select").addClass("active-choice")
+    $("#college-qb-select").removeClass("active-choice")
   });
 
   $("#college-submit").on("click", function(){
