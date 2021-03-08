@@ -6,6 +6,7 @@ var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of
 var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
 var visible_teams = 1;
 var visible_coach = 1;
+var i;
 // Summary of Form Details before Submit
 var ids = [
   "schoolname", "schoolad", "schoolno",
@@ -25,11 +26,6 @@ var ids = [
   "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail", "t3_s2attach",
   "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail", "t3_s3attach"
 ]
-
-var i;
-for (i = 0; i < ids.length; i++) {
-  $("."+ids[i]+"-data").text($("#"+ids[i]).val());
-}
 
 function showConfimationCollege() {
   $("#college-confirm").removeClass("no-display");
@@ -431,6 +427,17 @@ $( document ).ready(function() {
       if (active_modal==5){
         showConfimationCollege();
         return;
+      }
+      //update summary page
+      for (i = 0; i < ids.length; i++) {
+        if (!$("#"+ids[i]).val()) {
+          $("."+ids[i]+"-label").hide();
+          $("."+ids[i]+"-data").hide();
+        } else {
+          $("."+ids[i]+"-label").show();
+          $("."+ids[i]+"-data").show();
+        }
+        $("."+ids[i]+"-data").text($("#"+ids[i]).val());
       }
       //prevent double click
       $(".next").prop("disabled", true);
