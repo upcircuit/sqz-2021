@@ -21,15 +21,15 @@ function showConfimationCollege() {
 
     "t1_s1name", "t1_s1course", "t1_s1no", "t1_s1mail", "t1_s1attach",
     "t1_s2name", "t1_s2course", "t1_s2no", "t1_s2mail", "t1_s2attach",  
-    "t1_s3name", "t1_s3course", "t1_s3no", "t1_s3mail", "t1_s3attach" 
+    "t1_s3name", "t1_s3course", "t1_s3no", "t1_s3mail", "t1_s3attach",
 
-    // "t2_s1name", "t2_s1course", "t2_s1no", "t2_s1mail", "t2_s1attach",
-    // "t2_s2name", "t2_s2course", "t2_s2no", "t2_s2mail", "t2_s2attach",  
-    // "t2_s3name", "t2_s3course", "t2_s3no", "t2_s3mail", "t2_s3attach", 
+    "t2_s1name", "t2_s1course", "t2_s1no", "t2_s1mail", "t2_s1attach",
+    "t2_s2name", "t2_s2course", "t2_s2no", "t2_s2mail", "t2_s2attach",  
+    "t2_s3name", "t2_s3course", "t2_s3no", "t2_s3mail", "t2_s3attach", 
 
-    // "t3_s1name", "t3_s1course", "t3_s1no", "t3_s1mail", "t3_s1attach",
-    // "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail", "t3_s2attach",  
-    // "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail", "t3_s3attach", 
+    "t3_s1name", "t3_s1course", "t3_s1no", "t3_s1mail", "t3_s1attach",
+    "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail", "t3_s2attach",  
+    "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail", "t3_s3attach", 
   ]
   
   var i;
