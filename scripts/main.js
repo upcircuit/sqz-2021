@@ -1,7 +1,9 @@
 function showConfimationCollege() {
   $("#college-confirm").removeClass("disabled");
+  $(".confirm-buttons").removeClass("disabled");
   setTimeout(function(){
     $("#college-confirm").removeClass("hidden");
+    $(".confirm-buttons").removeClass("hidden");
     $("#college-input").addClass("hidden");
     $(".modal-nav").addClass("hidden");
     setTimeout(function(){
@@ -18,8 +20,10 @@ function hideConfimationCollege() {
     $(".modal-nav").removeClass("hidden");
     $("#college-input").removeClass("hidden");
     $("#college-confirm").addClass("hidden");
+    $(".confirm-buttons").addClass("hidden");
     setTimeout(function(){
       $("#college-confirm").addClass("disabled");
+      $(".confirm-buttons").addClass("disabled");
     }, 500);
   }, 10);
 }

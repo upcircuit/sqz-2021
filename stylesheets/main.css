@@ -38,22 +38,18 @@
   font-weight: 500;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #222222;;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.5);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.7);
 }
@@ -567,10 +563,10 @@ a:hover {
   z-index: 5;
   transition: opacity 0.5s ease-out;
   text-align: center;
+  height:70vh;
+  overflow:auto;
 }
-.reg-confirm input[type=checkbox] {
-  margin: 2em 0;
-}
+
 .reg-confirm table {
   text-align: left;
 }
@@ -584,8 +580,21 @@ a:hover {
   border-left: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+.confirm-buttons {
+  position:fixed;
+  bottom:0%;
+  width:100%;
+  text-align:center;
+  z-index:5;
+}
+
+.confirm-buttons input[type=checkbox] {
+  display:inline-block;
+}
+
 .submit-nav {
-  margin-bottom: 2em;
+  margin: 1em 0 2em 0;
+  text-align:center;
 }
 
 IFRAME {
