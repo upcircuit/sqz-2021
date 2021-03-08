@@ -870,11 +870,6 @@ $( document ).ready(function() {
       ){
         return;
       }
-      //case: going to confirmation
-      if (active_modal==5){
-        showConfimationCollege();
-        return;
-      }
       //update summary page
       for (i = 0; i < ids.length; i++) {
         if (!$("#"+ids[i]).val()) {
@@ -885,6 +880,11 @@ $( document ).ready(function() {
           $("."+ids[i]+"-data").show();
         }
         $("."+ids[i]+"-data").text($("#"+ids[i]).val());
+      }
+      //case: going to confirmation
+      if (active_modal==5){
+        showConfimationCollege();
+        return;
       }
       //prevent double click
       $(".next").prop("disabled", true);

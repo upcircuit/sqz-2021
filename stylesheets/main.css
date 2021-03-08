@@ -653,10 +653,12 @@ a:hover {
   z-index: 5;
   transition: opacity 0.5s ease-out;
   text-align: center;
+}
+
+.reg-confirm flex-container {
   height:70vh;
   overflow:auto;
 }
-
 .reg-confirm table {
   text-align: left;
 }
@@ -671,8 +673,6 @@ a:hover {
 }
 
 .confirm-buttons {
-  position:fixed;
-  bottom:0%;
   width:100%;
   text-align:center;
   z-index:5;
