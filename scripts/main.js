@@ -93,15 +93,48 @@ function hideRegistrationCollege(){
 }
 
 function validate_page(page){
+  //yes, it should just be one var &&= to all, but that doesn't work somehow
   if (page == 3){
-    return ($("#college-form").data('validator').element("#schoolname") &&
-      $("#college-form").data('validator').element("#schoolad") &&
-      $("#college-form").data('validator').element("#schoolno"));
+    var a = $("#college-form").data('validator').element("#schoolname");
+    var b = $("#college-form").data('validator').element("#schoolad");
+    var c = $("#college-form").data('validator').element("#schoolno");
+    return (a && b && c);
   }else if (page == 4){
-    return ($("#college-form").data('validator').element("#c1name") &&
-      $("#college-form").data('validator').element("#c1no"));
+    var a = $("#college-form").data('validator').element("#c1name");
+    var b = $("#college-form").data('validator').element("#c1no");
+    return (a && b);
   }else if (page == 5){
+    var valid_3 = true;
+    var valid_2 = true;
+    var valid_1 = true;
+    var a = true;
+    var b = true;
+    var c = true;
+    var d = true;
+    var e = true;
 
+    //student 1
+    a = $("#college-form").data('validator').element("#t1_s1name");
+    b = $("#college-form").data('validator').element("#t1_s1course");
+    c = $("#college-form").data('validator').element("#t1_s1no");
+    d = $("#college-form").data('validator').element("#t1_s1mail");
+    e = $("#college-form").data('validator').element("#t1_s1attach");
+    valid_1 = (a && b && c && d && e);
+    //student 2
+    a = $("#college-form").data('validator').element("#t1_s2name");
+    b = $("#college-form").data('validator').element("#t1_s2course");
+    c = $("#college-form").data('validator').element("#t1_s2no");
+    d = $("#college-form").data('validator').element("#t1_s2mail");
+    e = $("#college-form").data('validator').element("#t1_s2attach");
+    valid_1 &&= (a && b && c && d && e);
+    //student 3
+    a = $("#college-form").data('validator').element("#t1_s3name");
+    b = $("#college-form").data('validator').element("#t1_s3course");
+    c = $("#college-form").data('validator').element("#t1_s3no");
+    d = $("#college-form").data('validator').element("#t1_s3mail");
+    e = $("#college-form").data('validator').element("#t1_s3attach");
+    valid_1 &&= (a && b && c && d && e);
+    return valid_1;
   }
 
 }
@@ -164,10 +197,119 @@ $( document ).ready(function() {
 		fullname: true,
 		messages: {
 			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format",
 			minlength: "Please enter a valid name with at least 2 characters.",
 		}
 	});
 
+  $("#c1no").rules("add", {
+		required: true,
+		phphonenumber: true,
+		messages: {
+			phphonenumber: "Please enter a valid contact number in the given format."
+		}
+	});
+
+  $("#c1mail").rules("add", {
+		required: true,
+		email: true
+	});
+
+  $("#t1_s1name").rules("add", {
+		required: true,
+		minlength:2,
+		fullname: true,
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format",
+			minlength: "Please enter a valid name with at least 2 characters.",
+		}
+	});
+
+  $("#t1_s1course").rules("add", {
+		required: true
+	});
+
+  $("#t1_s1no").rules("add", {
+		required: true,
+		phphonenumber: true,
+		messages: {
+			phphonenumber: "Please enter your Full Name."
+		}
+	});
+
+  $("#t1_s1mail").rules("add", {
+		required: true,
+		email: true
+	});
+
+  $("#t1_s1attach").rules("add", {
+    required: true
+  });
+
+  $("#t1_s2name").rules("add", {
+		required: true,
+		minlength:2,
+		fullname: true,
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format",
+			minlength: "Please enter a valid name with at least 2 characters.",
+		}
+	});
+
+  $("#t1_s2course").rules("add", {
+		required: true
+	});
+
+  $("#t1_s2no").rules("add", {
+		required: true,
+		phphonenumber: true,
+		messages: {
+			phphonenumber: "Please enter your Full Name."
+		}
+	});
+
+  $("#t1_s2mail").rules("add", {
+		required: true,
+		email: true
+	});
+
+  $("#t1_s2attach").rules("add", {
+    required: true
+  });
+
+  $("#t1_s3name").rules("add", {
+		required: true,
+		minlength:2,
+		fullname: true,
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format",
+			minlength: "Please enter a valid name with at least 2 characters.",
+		}
+	});
+
+  $("#t1_s3course").rules("add", {
+		required: true
+	});
+
+  $("#t1_s3no").rules("add", {
+		required: true,
+		phphonenumber: true,
+		messages: {
+			phphonenumber: "Please enter your Full Name."
+		}
+	});
+
+  $("#t1_s3mail").rules("add", {
+		required: true,
+		email: true
+	});
+
+  $("#t1_s3attach").rules("add", {
+    required: true
+  });
 
   //REG FORM JS
   //in order to transition properly, need to remove disabled (display:none)
@@ -185,15 +327,15 @@ $( document ).ready(function() {
     if (active_modal==1 && has_selected_categ==false){
       $(".error-message").css({'opacity' : 1});
     } else {
-      //case: going to confirmation
-      if (active_modal==5){
-        showConfimationCollege();
-        return;
-      }
       //case: incorrect form
       if (active_modal > 2 &&
         !validate_page(active_modal)
       ){
+        return;
+      }
+      //case: going to confirmation
+      if (active_modal==5){
+        showConfimationCollege();
         return;
       }
       //prevent double click
@@ -315,7 +457,11 @@ $( document ).ready(function() {
       $(".error-message").css({'opacity' : 1});
       return;
     }
-    var item_no = String($(this).prop("id")).split("-").pop();
+    var item_no = parseInt(String($(this).prop("id")).split("-").pop());
+    //if already there, do nothing.
+    if (active_modal==item_no){
+      return;
+    }
     //prevent double click
     reg_menu_click = true;
     //update reg menu
@@ -335,7 +481,7 @@ $( document ).ready(function() {
 
       setTimeout(function(){
         $("#college-"+String(active_modal)).addClass("no-display");
-        active_modal = item_no;
+        active_modal = parseInt(item_no);
         reg_menu_click = false;
       }, 500);
 

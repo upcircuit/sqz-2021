@@ -677,6 +677,10 @@ a:hover {
   color: #ba0d12
 }
 
+.error {
+  margin: 0.5em 0;
+}
+
 IFRAME {
   display: none;
 }
