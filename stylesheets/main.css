@@ -507,6 +507,7 @@ a:hover {
 #addteam {
   text-align: right;
   box-sizing: border-box;
+  display:inline-block;
 }
 
 .reg-confirm {

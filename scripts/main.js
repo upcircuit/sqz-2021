@@ -37,8 +37,9 @@ $( document ).ready(function() {
 
   active_modal = 1;
   is_qb = false;
-  college_qb_target = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
-  college_td_target = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScLfRcqT95vuxgQ_kpl_-8YQI3sy4gnh1WaIf5hKbJyVdMQQw/formResponse";
+  college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
+  college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScLfRcqT95vuxgQ_kpl_-8YQI3sy4gnh1WaIf5hKbJyVdMQQw/formResponse";
+  visible_teams = 1;
 
   $("#college-select").on("click", function(){
     $("#bg-1").removeClass("disabled");
@@ -114,12 +115,28 @@ $( document ).ready(function() {
 
   $("#college-submit").on("click", function(){
     if (is_qb){
-      $("#college-form").prop("action", college_qb_target);
+      $("#college-form").prop("action", college_qb_action);
     }else {
-      $("#college-form").prop("action", college_td_target);
+      $("#college-form").prop("action", college_td_action);
     }
     console.log($('#college-form').serialize());
     $("#college-form").submit();
+  });
+
+  $("#addteam").on('click', function(){
+    if (visible_teams == 3){
+      return;
+    }
+    $("#college-team-" + String(visible_teams+1)).removeClass("disabled");
+    visible_teams+=1;
+  });
+
+  $("#removeteam").on('click', function(){
+    if (visible_teams == 1){
+      return;
+    }
+    $("#college-team-" + String(visible_teams)).removeClass("disabled");
+    visible_teams-=1;
   });
 
 });
