@@ -627,6 +627,18 @@ a:hover {
   cursor:pointer;
 }
 
+#addcoach {
+  text-align: right;
+  box-sizing: border-box;
+  cursor:pointer;
+}
+
+#removecoach {
+  text-align: right;
+  box-sizing: border-box;
+  cursor:pointer;
+}
+
 .reg-confirm {
   position: absolute;
   top: 0;

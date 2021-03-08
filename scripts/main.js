@@ -5,7 +5,7 @@ var is_mobile = false;
 var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
 var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
 var visible_teams = 1;
-
+var visible_coach = 1;
 // Summary of Form Details before Submit
 var ids = [
   "schoolname", "schoolad", "schoolno",
@@ -468,6 +468,22 @@ $( document ).ready(function() {
     }
     $("#college-team-" + String(visible_teams)).addClass("no-display");
     visible_teams-=1;
+  });
+
+  $("#addcoach").on('click', function(){
+    if (visible_coach == 2){
+      return;
+    }
+    $("#college-coach-" + String(visible_coach+1)).removeClass("no-display");
+    visible_coach+=1;
+  });
+
+  $("#removecoach").on('click', function(){
+    if (visible_coach == 1){
+      return;
+    }
+    $("#college-coach-" + String(visible_coach)).addClass("no-display");
+    visible_coach-=1;
   });
 
   var reg_menu_click = false;
