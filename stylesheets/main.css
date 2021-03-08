@@ -344,6 +344,7 @@ div.nav-clearance {
   z-index: 3;
   font-weight: 500;
   text-indent:-0.01em;
+  display:inline-block;
 }
 
 .nav-link-bold:hover {
@@ -423,6 +424,7 @@ div.nav-clearance {
   box-sizing: border-box;
   padding-top: 5em;
   color: #FFFFFF;
+  transition:all 0.5s ease-out;
 }
 .intro-slide-container h1 {
   text-align: center;
@@ -502,6 +504,7 @@ div.nav-clearance {
   box-sizing: border-box;
   padding: 1em 0;
   position:relative;
+  cursor:pointer;
 }
 
 .reg-menu-bold {
@@ -514,6 +517,11 @@ div.nav-clearance {
   top: 1em;
   left: 0;
   z-index: 3;
+}
+
+.hidden-text{
+  color: rgba(0, 0, 0, 0);
+  transition: all 0.5s ease-out;
 }
 
 .modal-container {
