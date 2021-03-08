@@ -29,7 +29,7 @@ function showConfimationCollege() {
 
     "t3_s1name", "t3_s1course", "t3_s1no", "t3_s1mail", "t3_s1attach",
     "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail", "t3_s2attach",  
-    "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail", "t3_s3attach", 
+    "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail", "t3_s3attach" 
   ]
   
   var i;
