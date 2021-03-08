@@ -254,10 +254,10 @@ $( document ).ready(function() {
 
   $("#schoolad").rules("add", {
 		required: true,
-		minlength:2,
+		address:true,
 		messages: {
 			required: "Please enter your school address.",
-			minlength: "Please enter a valid name with at least 2 characters.",
+			address: "Please enter a valid address following the format.",
 		}
 	});
 
