@@ -72,7 +72,7 @@ $( document ).ready(function() {
   var has_selected_categ = false;
   var is_qb = false;
   var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
-  var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScLfRcqT95vuxgQ_kpl_-8YQI3sy4gnh1WaIf5hKbJyVdMQQw/formResponse";
+  var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
   var visible_teams = 1;
   $("#college-select").on("click", function(){
     $("#bg-1").removeClass("no-display");
@@ -81,6 +81,7 @@ $( document ).ready(function() {
     setTimeout(function(){
       $("#bg-1").removeClass("hidden");
       $("#college-registration").removeClass("hidden");
+      $(".intro-slide-container").addClass("no-display");
       $("#college-"+active_modal).removeClass("hidden");
       $("#college-"+active_modal).addClass("active");
     }, 50);

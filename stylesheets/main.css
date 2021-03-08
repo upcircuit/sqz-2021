@@ -184,6 +184,8 @@ input[type=text] {
 
 .button-link-bold:hover {
   opacity:1;
+  color: #FFFFFF;
+  transition: all 0.5s ease-out;
 }
 
 .button-small {
@@ -243,11 +245,6 @@ a:hover {
 
 .hidden-text {
   color: rgba(0, 0, 0, 0);
-  transition: all 0.5s ease-out;
-}
-
-.hidden-text:hover {
-  color: #FFFFFF;
   transition: all 0.5s ease-out;
 }
 
@@ -346,6 +343,11 @@ div.nav-clearance {
   left: 0;
   z-index: 3;
   font-weight: 500;
+}
+
+.nav-link-bold:hover {
+  color: #FFFFFF;
+  transition: all 0.5s ease-out;
 }
 
 .index-container {
@@ -494,9 +496,23 @@ div.nav-clearance {
   justify-content: space-around;
   justify-content: space-evenly;
 }
+
 .reg-menu li {
   box-sizing: border-box;
   padding: 1em 0;
+  position:relative;
+}
+
+.reg-menu-bold {
+  font-weight:600;
+  text-indent:0.01em;
+  color:#FFFFFF;
+  position: absolute;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  top: 1em;
+  left: 0;
+  z-index: 3;
 }
 
 .modal-container {
