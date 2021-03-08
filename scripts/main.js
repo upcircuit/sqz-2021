@@ -176,10 +176,10 @@ $( document ).ready(function() {
     showRegistrationCollege();
   });
 
-  if (window.navigator.userAgent.indexOf("Mobile") > -1) { 
-    $(".reg-menu").hide(); 
+  if (window.navigator.userAgent.indexOf("Mobile") > -1) {
+    $(".reg-menu").hide();
     $(".nav-header").hide();
-  }      
+  }
 
   $(".next").on("click", function(){
     if (active_modal==1 && has_selected_categ==false){
@@ -192,7 +192,7 @@ $( document ).ready(function() {
       }
       //case: incorrect form
       if (active_modal > 2 &&
-        !
+        !validate_page(active_modal)
       ){
         return;
       }
