@@ -655,7 +655,7 @@ a:hover {
   text-align: center;
 }
 
-.reg-confirm flex-container {
+.scroll-confirm {
   height:70vh;
   overflow:auto;
 }
@@ -685,6 +685,12 @@ a:hover {
 .submit-nav {
   margin: 1em 0 2em 0;
   text-align:center;
+}
+
+#college-feedback {
+  position:absolute;
+  width:100%;
+  z-index:6;
 }
 
 .error-message {

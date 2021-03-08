@@ -973,15 +973,6 @@ $( document ).ready(function() {
     $("#college-td-select").addClass("active-choice")
   });
 
-  $("#college-submit").on("click", function(){
-    if (is_qb){
-      $("#college-form").prop("action", college_qb_action);
-    }else {
-      $("#college-form").prop("action", college_td_action);
-    }
-    $("#college-form").submit();
-  });
-
   $("#addteam").on('click', function(){
     if (visible_teams == 3){
       return;
@@ -1058,5 +1049,31 @@ $( document ).ready(function() {
       }, 500);
 
     }, 10);
+  });
+
+  $("#college-submit").on("click", function(){
+    //prevent double click
+    $("#college-submit").prop("disabled", true);
+    if (is_qb){
+      $("#college-form").prop("action", college_qb_action);
+    }else {
+      $("#college-form").prop("action", college_td_action);
+    }
+    if($("#college-form").valid() &&
+        $("#checkbox").prop("checked", true)){
+      $("#college-form").submit();
+      console.log($("#college-form").serialize());
+      //transition here.
+      $("#college-feedback").removeClass("no-display");
+      setTimeout(function(){
+        $("#college-confirm").addClass("hidden");
+        $("#college-feedback").removeClass("hidden");
+        setTimeout(function(){
+          $("#college-confirm").addClass("no-display");
+        }, 500);
+      }, 10);
+    }
+
+
   });
 });
