@@ -37,6 +37,27 @@
   src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
   font-weight: 500;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222222;;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.7);
+}
+
 body {
   margin: 0px;
 }
