@@ -696,8 +696,9 @@ a:hover {
 
 }
 #college-feedback p {
-  text-align:justify;
+  text-align:center;
   margin: auto;
+  width:80%;
 }
 .error-message {
   opacity: 0;
