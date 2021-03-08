@@ -15,17 +15,17 @@ var ids = [
   "c1name", "c1no", "c1mail",
   "c2name", "c2no", "c2mail",
 
-  "t1_s1name", "t1_s1course", "t1_s1no", "t1_s1mail", "t1_s1attach",
-  "t1_s2name", "t1_s2course", "t1_s2no", "t1_s2mail", "t1_s2attach",
-  "t1_s3name", "t1_s3course", "t1_s3no", "t1_s3mail", "t1_s3attach",
+  "t1_s1name", "t1_s1course", "t1_s1no", "t1_s1mail",
+  "t1_s2name", "t1_s2course", "t1_s2no", "t1_s2mail",
+  "t1_s3name", "t1_s3course", "t1_s3no", "t1_s3mail",
 
-  "t2_s1name", "t2_s1course", "t2_s1no", "t2_s1mail", "t2_s1attach",
-  "t2_s2name", "t2_s2course", "t2_s2no", "t2_s2mail", "t2_s2attach",
-  "t2_s3name", "t2_s3course", "t2_s3no", "t2_s3mail", "t2_s3attach",
+  "t2_s1name", "t2_s1course", "t2_s1no", "t2_s1mail",
+  "t2_s2name", "t2_s2course", "t2_s2no", "t2_s2mail",
+  "t2_s3name", "t2_s3course", "t2_s3no", "t2_s3mail",
 
-  "t3_s1name", "t3_s1course", "t3_s1no", "t3_s1mail", "t3_s1attach",
-  "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail", "t3_s2attach",
-  "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail", "t3_s3attach"
+  "t3_s1name", "t3_s1course", "t3_s1no", "t3_s1mail",
+  "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail",
+  "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail",
 ]
 
 function showConfimationCollege() {
@@ -132,44 +132,44 @@ function validate_page(page){
     b = $("#college-form").data('validator').element("#t1_s1course");
     c = $("#college-form").data('validator').element("#t1_s1no");
     d = $("#college-form").data('validator').element("#t1_s1mail");
-    e = $("#college-form").data('validator').element("#t1_s1attach");
+    // e = $("#college-form").data('validator').element("#t1_s1attach");
     valid_1 = (a && b && c && d && e);
     //student 2
     a = $("#college-form").data('validator').element("#t1_s2name");
     b = $("#college-form").data('validator').element("#t1_s2course");
     c = $("#college-form").data('validator').element("#t1_s2no");
     d = $("#college-form").data('validator').element("#t1_s2mail");
-    e = $("#college-form").data('validator').element("#t1_s2attach");
-    valid_1 &&= (a && b && c && d && e);
+    // e = $("#college-form").data('validator').element("#t1_s2attach");
+    valid_1 &&= (a && b && c && d);
     //student 3
     a = $("#college-form").data('validator').element("#t1_s3name");
     b = $("#college-form").data('validator').element("#t1_s3course");
     c = $("#college-form").data('validator').element("#t1_s3no");
     d = $("#college-form").data('validator').element("#t1_s3mail");
-    e = $("#college-form").data('validator').element("#t1_s3attach");
-    valid_1 &&= (a && b && c && d && e);
+    // e = $("#college-form").data('validator').element("#t1_s3attach");
+    valid_1 &&= (a && b && c && d);
 
     if (visible_teams >= 2){
       a = $("#college-form").data('validator').element("#t2_s1name");
       b = $("#college-form").data('validator').element("#t2_s1course");
       c = $("#college-form").data('validator').element("#t2_s1no");
       d = $("#college-form").data('validator').element("#t2_s1mail");
-      e = $("#college-form").data('validator').element("#t2_s1attach");
-      valid_2 = (a && b && c && d && e);
+      // e = $("#college-form").data('validator').element("#t2_s1attach");
+      valid_2 = (a && b && c && d);
       //student 2
       a = $("#college-form").data('validator').element("#t2_s2name");
       b = $("#college-form").data('validator').element("#t2_s2course");
       c = $("#college-form").data('validator').element("#t2_s2no");
       d = $("#college-form").data('validator').element("#t2_s2mail");
-      e = $("#college-form").data('validator').element("#t2_s2attach");
-      valid_2 &&= (a && b && c && d && e);
+      // e = $("#college-form").data('validator').element("#t2_s2attach");
+      valid_2 &&= (a && b && c && d);
       //student 3
       a = $("#college-form").data('validator').element("#t2_s3name");
       b = $("#college-form").data('validator').element("#t2_s3course");
       c = $("#college-form").data('validator').element("#t2_s3no");
       d = $("#college-form").data('validator').element("#t2_s3mail");
-      e = $("#college-form").data('validator').element("#t2_s3attach");
-      valid_2 &&= (a && b && c && d && e);
+      // e = $("#college-form").data('validator').element("#t2_s3attach");
+      valid_2 &&= (a && b && c && d);
     }
 
     if (visible_teams == 3){
@@ -177,22 +177,22 @@ function validate_page(page){
       b = $("#college-form").data('validator').element("#t3_s1course");
       c = $("#college-form").data('validator').element("#t3_s1no");
       d = $("#college-form").data('validator').element("#t3_s1mail");
-      e = $("#college-form").data('validator').element("#t3_s1attach");
-      valid_3 = (a && b && c && d && e);
+      // e = $("#college-form").data('validator').element("#t3_s1attach");
+      valid_3 = (a && b && c && d);
       //student 2
       a = $("#college-form").data('validator').element("#t3_s2name");
       b = $("#college-form").data('validator').element("#t3_s2course");
       c = $("#college-form").data('validator').element("#t3_s2no");
       d = $("#college-form").data('validator').element("#t3_s2mail");
-      e = $("#college-form").data('validator').element("#t3_s2attach");
-      valid_3 &&= (a && b && c && d && e);
+      // e = $("#college-form").data('validator').element("#t3_s2attach");
+      valid_3 &&= (a && b && c && d);
       //student 3
       a = $("#college-form").data('validator').element("#t3_s3name");
       b = $("#college-form").data('validator').element("#t3_s3course");
       c = $("#college-form").data('validator').element("#t3_s3no");
       d = $("#college-form").data('validator').element("#t3_s3mail");
-      e = $("#college-form").data('validator').element("#t3_s3attach");
-      valid_3 &&= (a && b && c && d && e);
+      // e = $("#college-form").data('validator').element("#t3_s3attach");
+      valid_3 &&= (a && b && c && d);
     }
     return valid_1 && valid_2 && valid_3;
   }
@@ -378,10 +378,10 @@ $( document ).ready(function() {
 		required: true,
 		email: true
 	});
-
-  $("#t1_s1attach").rules("add", {
-    required: true
-  });
+  //
+  // $("#t1_s1attach").rules("add", {
+  //   required: true
+  // });
 
   $("#t1_s2name").rules("add", {
 		required: true,
@@ -410,9 +410,9 @@ $( document ).ready(function() {
 		email: true
 	});
 
-  $("#t1_s2attach").rules("add", {
-    required: true
-  });
+  // $("#t1_s2attach").rules("add", {
+  //   required: true
+  // });
 
   $("#t1_s3name").rules("add", {
 		required: true,
@@ -438,9 +438,9 @@ $( document ).ready(function() {
 		email: true
 	});
 
-  $("#t1_s3attach").rules("add", {
-    required: true
-  });
+  // $("#t1_s3attach").rules("add", {
+  //   required: true
+  // });
 
   //TEAM 2
   $("#t2_s1name").rules("add", {
@@ -505,13 +505,13 @@ $( document ).ready(function() {
     }
 	});
 
-  $("#t2_s1attach").rules("add", {
-    required: {
-      depends:function(element){
-        return (visible_teams >= 2);
-      }
-    }
-  });
+  // $("#t2_s1attach").rules("add", {
+  //   required: {
+  //     depends:function(element){
+  //       return (visible_teams >= 2);
+  //     }
+  //   }
+  // });
 
   $("#t2_s2name").rules("add", {
 		required: {
@@ -572,13 +572,13 @@ $( document ).ready(function() {
     }
 	});
 
-  $("#t2_s2attach").rules("add", {
-    required: {
-      depends:function(element){
-        return (visible_teams >= 2);
-      }
-    }
-  });
+  // $("#t2_s2attach").rules("add", {
+  //   required: {
+  //     depends:function(element){
+  //       return (visible_teams >= 2);
+  //     }
+  //   }
+  // });
 
   $("#t2_s3name").rules("add", {
 		required: {
@@ -636,13 +636,13 @@ $( document ).ready(function() {
     }
 	});
 
-  $("#t2_s3attach").rules("add", {
-    required: {
-      depends:function(element){
-        return (visible_teams >= 2);
-      }
-    }
-  });
+  // $("#t2_s3attach").rules("add", {
+  //   required: {
+  //     depends:function(element){
+  //       return (visible_teams >= 2);
+  //     }
+  //   }
+  // });
 
   $("#t3_s1name").rules("add", {
 		required: {
@@ -706,13 +706,13 @@ $( document ).ready(function() {
     }
 	});
 
-  $("#t3_s1attach").rules("add", {
-    required: {
-      depends:function(element){
-        return (visible_teams == 3);
-      }
-    }
-  });
+  // $("#t3_s1attach").rules("add", {
+  //   required: {
+  //     depends:function(element){
+  //       return (visible_teams == 3);
+  //     }
+  //   }
+  // });
 
   $("#t3_s2name").rules("add", {
 		required: {
@@ -773,13 +773,13 @@ $( document ).ready(function() {
     }
 	});
 
-  $("#t3_s2attach").rules("add", {
-    required: {
-      depends:function(element){
-        return (visible_teams == 3);
-      }
-    }
-  });
+  // $("#t3_s2attach").rules("add", {
+  //   required: {
+  //     depends:function(element){
+  //       return (visible_teams == 3);
+  //     }
+  //   }
+  // });
 
   $("#t3_s3name").rules("add", {
 		required: {
@@ -837,13 +837,13 @@ $( document ).ready(function() {
     }
 	});
 
-  $("#t3_s3attach").rules("add", {
-    required: {
-      depends:function(element){
-        return (visible_teams == 3);
-      }
-    }
-  });
+  // $("#t3_s3attach").rules("add", {
+  //   required: {
+  //     depends:function(element){
+  //       return (visible_teams == 3);
+  //     }
+  //   }
+  // });
   //REG FORM JS
   //in order to transition properly, need to remove disabled (display:none)
   //BEFORE removing hidden (opacity:0)
