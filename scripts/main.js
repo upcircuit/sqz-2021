@@ -3,16 +3,19 @@ function showConfimationCollege() {
   setTimeout(function(){
     $("#college-confirm").removeClass("hidden");
     $("#college-input").addClass("hidden");
+    $(".modal-nav").addClass("hidden");
     setTimeout(function(){
       $("#college-input").addClass("disabled");
+      $(".modal-nav").addClass("disabled");
     }, 500);
   }, 10);
 }
 
 function hideConfimationCollege() {
-
+  $(".modal-nav").removeClass("disabled");
   $("#college-input").removeClass("disabled");
   setTimeout(function(){
+    $(".modal-nav").removeClass("hidden");
     $("#college-input").removeClass("hidden");
     $("#college-confirm").addClass("hidden");
     setTimeout(function(){
