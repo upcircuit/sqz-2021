@@ -11,33 +11,36 @@
     <title>SQUEEEZE</title>
   </head>
   <body>
-    <div class="registration-container">
+    <div class="registration-container relpos-anchor">
       <!-- other bg image, for smooth transition -->
       <div id="bg-1" class="bg-div hidden disabled">
         <img src="./images/logo-white.png"></img>
       </div>
       <!-- navbar -->
-      <div class="nav">
-        <div class="nav-logo">
-          <img src="images/logo.png"></img>
-          <span>SQUEEEZE</span>
+      <div class="nav-positioner">
+        <div class="nav">
+          <div class="nav-logo">
+            <img src="images/logo.png"></img>
+            <span>SQUEEEZE</span>
+          </div>
+          <ul class="nav-menu">
+            <li class="nav-link">HOME
+              <a class="nav-link-bold hidden-text">HOME</a>
+            </li>
+            <li class="nav-link">ABOUT US
+              <a class="nav-link-bold hidden-text">ABOUT US</a>
+            </li>
+            <li class="nav-link">MECHANICS
+              <a class="nav-link-bold hidden-text">MECHANICS</a>
+            </li>
+            <li class="nav-link">REGISTRATION
+              <a href="registration.html" class="nav-link-bold hidden-text">REGISTRATION</a>
+            </li>
+          </ul>
         </div>
-        <ul class="nav-menu">
-          <li class="nav-link">HOME
-            <a class="nav-link-bold hidden-text">HOME</a>
-          </li>
-          <li class="nav-link">ABOUT US
-            <a class="nav-link-bold hidden-text">ABOUT US</a>
-          </li>
-          <li class="nav-link">MECHANICS
-            <a class="nav-link-bold hidden-text">MECHANICS</a>
-          </li>
-          <li class="nav-link">REGISTRATION
-            <a class="nav-link-bold hidden-text">REGISTRATION</a>
-          </li>
-        </ul>
       </div>
       <!-- this div ensures that all content comes AFTER nav. -->
+      <div class="nav-clearance"></div>
       <div class="relpos-anchor">
         <!-- initially visible menu -->
         <div class="intro-slide-container">

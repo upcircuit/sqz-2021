@@ -231,11 +231,19 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 2em;
-  position: relative;
-  z-index: 2;
+  margin:0 2em;
 }
 
+.nav-positioner {
+  position:fixed;
+  width:100%;
+  top:0%;
+  z-index: 5;
+}
+
+div.nav-clearance {
+  height:3.563em;
+}
 .nav-logo {
   font-family: Inter;
   font-weight: 700;
