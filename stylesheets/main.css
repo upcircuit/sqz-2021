@@ -129,7 +129,7 @@ p {
   color: #FFFFFF;
   font-family: Akrobat, sans-serif;
   font-weight: 300;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 table {
@@ -146,7 +146,7 @@ label {
   color: #FFFFFF;
   font-family: Akrobat, sans-serif;
   font-weight: 400;
-  font-size: 0.75em;
+  font-size: 1em;
 }
 
 input[type=text] {
@@ -494,6 +494,7 @@ a:hover {
   flex-direction: column;
   justify-content: space-around;
   justify-content: space-evenly;
+  font-size: 1.3em;
 }
 
 .reg-menu li {
@@ -554,6 +555,7 @@ a:hover {
 .college-cat-card p {
   font-family: Akrobat, sans-serif;
   font-weight: 200;
+  font-size: 1.5em;
   box-sizing: border-box;
   text-align: justify;
   min-height: 15em;
