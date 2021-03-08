@@ -68,13 +68,12 @@ $( document ).ready(function() {
   //in order to transition properly, need to remove disabled (display:none)
   //BEFORE removing hidden (opacity:0)
 
-  active_modal = 1;
-  has_selected_categ = false;
-  is_qb = false;
-  college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
-  college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScLfRcqT95vuxgQ_kpl_-8YQI3sy4gnh1WaIf5hKbJyVdMQQw/formResponse";
-  visible_teams = 1;
-
+  var active_modal = 1;
+  var has_selected_categ = false;
+  var is_qb = false;
+  var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
+  var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScLfRcqT95vuxgQ_kpl_-8YQI3sy4gnh1WaIf5hKbJyVdMQQw/formResponse";
+  var visible_teams = 1;
   $("#college-select").on("click", function(){
     $("#bg-1").removeClass("no-display");
     $("#college-registration").removeClass("no-display");
@@ -87,7 +86,9 @@ $( document ).ready(function() {
     }, 50);
   });
 
+
   $(".next").on("click", function(){
+
     if (active_modal==1 && has_selected_categ==false){
       $(".error-message").css({'opacity' : 1});
     } else {
@@ -95,6 +96,8 @@ $( document ).ready(function() {
         showConfimationCollege();
         return;
       }
+      //prevent double click
+      $(".next").prop("disabled", true);
       //push down current active
       $("#college-"+String(active_modal)).addClass("phase-out");
       $("#college-"+String(active_modal)).removeClass("active");
@@ -110,6 +113,7 @@ $( document ).ready(function() {
         setTimeout(function(){
           $("#college-"+String(active_modal)).addClass("no-display");
           active_modal +=1;
+          $(".next").prop("disabled", false);
         }, 500);
 
       }, 10);
@@ -120,6 +124,8 @@ $( document ).ready(function() {
     if (active_modal==1){
       return;
     }
+    //prevent double click
+    $(".back").prop("disabled", true);
     //push down current active
     $("#college-"+String(active_modal)).addClass("phase-out");
     $("#college-"+String(active_modal)).removeClass("active");
@@ -134,6 +140,7 @@ $( document ).ready(function() {
       setTimeout(function(){
         $("#college-"+String(active_modal)).addClass("no-display");
         active_modal -=1;
+        $(".back").prop("disabled", false);
       }, 500);
     }, 10);
   });
