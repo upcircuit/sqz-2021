@@ -93,6 +93,50 @@ function hideRegistrationCollege(){
 }
 
 $( document ).ready(function() {
+
+  $.validator.addMethod( "lettersonly", function( value, element ) {
+  	return this.optional( element ) || /^[a-z]+$/i.test( value );
+    }, "Letters only please."
+  );
+
+  $.validator.addMethod( "phphonenumber", function( value, element ) {
+  	return this.optional( element ) || /^[0][9]\d{9}$/i.test( value );
+    }, "Please enter a phone number in the given PH format."
+  );
+
+  $.validator.addMethod( "studentnumber", function( value, element ) {
+  	return this.optional( element ) || /^[2][0]\d{2}-\d{5}$/i.test( value );
+    }, "Please enter a student number in the given format."
+  );
+
+  $.validator.addMethod( "fullname", function( value, element ) {
+  	return this.optional( element ) || /^[a-z 0-9.]+[,][ ][a-z 0-9.]+[,][ ][a-z 0-9.]+$/i.test( value );
+    }, "Please enter your full name as shown, with commas and spaces to separate."
+  );
+
+  $.validator.addMethod( "eeecourse", function( value, element ) {
+  	return value==="BS Computer Engineering" || value==="BS Electrical Engineering" || value==="BS Electronics Engineering";
+    }, "Please choose from given courses and do not edit their names."
+  );
+
+  $("#college-form").validate({
+		wrapper:"div",
+		errorPlacement:function(error, element) {
+			error.insertAfter(element);
+		}
+	});
+
+  $("#c1name").rules("add", {
+		required: true,
+		minlength:2,
+		fullname: true,
+		messages: {
+			required: "Please enter your Full Name.",
+			minlength: "Please enter a valid name with at least 2 characters.",
+		}
+	});
+
+
   //REG FORM JS
   //in order to transition properly, need to remove disabled (display:none)
   //BEFORE removing hidden (opacity:0)
