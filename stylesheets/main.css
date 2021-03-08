@@ -673,7 +673,7 @@ a:hover {
   opacity: 0;
 }
 
-.error-message p {
+.error, .error-message p {
   color: #ba0d12
 }
 
