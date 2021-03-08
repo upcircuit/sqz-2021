@@ -520,6 +520,11 @@ a:hover {
   z-index: 3;
 }
 
+.hidden-text {
+  color: rgba(0, 0, 0, 0);
+  transition: all 0.5s ease-out;
+}
+
 .modal-container {
   flex-basis: 75%;
   position: relative;
