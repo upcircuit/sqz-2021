@@ -606,6 +606,14 @@ div.nav-clearance {
   text-align:center;
 }
 
+.error-message {
+  opacity: 0;
+}
+
+.error-message p {
+  color: #ba0d12
+}
+
 IFRAME {
   display: none;
 }
