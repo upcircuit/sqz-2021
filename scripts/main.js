@@ -92,6 +92,20 @@ function hideRegistrationCollege(){
   }, 500);
 }
 
+function validate_page(page){
+  if (page == 3){
+    return ($("#college-form").data('validator').element("#schoolname") &&
+      $("#college-form").data('validator').element("#schoolad") &&
+      $("#college-form").data('validator').element("#schoolno"));
+  }else if (page == 4){
+    return ($("#college-form").data('validator').element("#c1name") &&
+      $("#college-form").data('validator').element("#c1no"));
+  }else if (page == 5){
+
+  }
+
+}
+
 $( document ).ready(function() {
 
   $.validator.addMethod( "lettersonly", function( value, element ) {
@@ -126,6 +140,24 @@ $( document ).ready(function() {
 		}
 	});
 
+  $("#schoolname").rules("add", {
+		required: true,
+		minlength:2,
+		messages: {
+			required: "Please enter your school name.",
+			minlength: "Please enter a valid name with at least 2 characters.",
+		}
+	});
+
+  $("#schoolad").rules("add", {
+		required: true,
+		minlength:2,
+		messages: {
+			required: "Please enter your school address.",
+			minlength: "Please enter a valid name with at least 2 characters.",
+		}
+	});
+
   $("#c1name").rules("add", {
 		required: true,
 		minlength:2,
@@ -149,8 +181,15 @@ $( document ).ready(function() {
     if (active_modal==1 && has_selected_categ==false){
       $(".error-message").css({'opacity' : 1});
     } else {
+      //case: going to confirmation
       if (active_modal==5){
         showConfimationCollege();
+        return;
+      }
+      //case: incorrect form
+      if (active_modal > 2 &&
+        !
+      ){
         return;
       }
       //prevent double click
