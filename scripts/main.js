@@ -11,6 +11,32 @@ function showConfimationCollege() {
       $(".modal-nav").addClass("no-display");
     }, 500);
   }, 10);
+
+  // Summary of Form Details before Submit
+  var ids = [
+    "schoolname", "schoolad", "schoolno",
+
+    "c1name", "c1no", "c1mail",
+    "c2name", "c2no", "c2mail",
+
+    "t1_s1name", "t1_s1course", "t1_s1no", "t1_s1mail", "t1_s1attach",
+    "t1_s2name", "t1_s2course", "t1_s2no", "t1_s2mail", "t1_s2attach",
+    "t1_s3name", "t1_s3course", "t1_s3no", "t1_s3mail", "t1_s3attach",
+
+    "t2_s1name", "t2_s1course", "t2_s1no", "t2_s1mail", "t2_s1attach",
+    "t2_s2name", "t2_s2course", "t2_s2no", "t2_s2mail", "t2_s2attach",
+    "t2_s3name", "t2_s3course", "t2_s3no", "t2_s3mail", "t2_s3attach",
+
+    "t3_s1name", "t3_s1course", "t3_s1no", "t3_s1mail", "t3_s1attach",
+    "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail", "t3_s2attach",
+    "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail", "t3_s3attach"
+  ]
+
+  var i;
+  for (i = 0; i < ids.length; i++) {
+    $("."+ids[i]+"-data").text($("#"+ids[i]).val());
+  }
+
 }
 
 function hideConfimationCollege() {
@@ -74,7 +100,7 @@ $( document ).ready(function() {
       $("#college-"+String(active_modal)).removeClass("active");
       //elevate hidden next page and enable
       $("#college-"+String(active_modal+1)).addClass("active");
-      $("#college-"+String(active_modal+1)).removeClass("disabled");
+      $("#college-"+String(active_modal+1)).removeClass("no-display");
       setTimeout(function(){
         $("#college-"+String(active_modal+1)).removeClass("hidden");
         //disable non-visible formerly active page
@@ -82,7 +108,7 @@ $( document ).ready(function() {
         $("#college-"+String(active_modal)).removeClass("phase-out");
 
         setTimeout(function(){
-          $("#college-"+String(active_modal)).addClass("disabled");
+          $("#college-"+String(active_modal)).addClass("no-display");
           active_modal +=1;
         }, 500);
 
@@ -122,6 +148,7 @@ $( document ).ready(function() {
     $("#quali-qb").css({'opacity' : 1});
     $("#quali-td").css({'opacity' : 0});
     $(".error-message").css({'opacity' : 0});
+    $(".event-data").text("College Quiz Bee")
     $("#college-qb-select").addClass("active-choice")
     $("#college-td-select").removeClass("active-choice")
   });
@@ -132,8 +159,9 @@ $( document ).ready(function() {
     $("#quali-qb").css({'opacity' : 0});
     $("#quali-td").css({'opacity' : 1});
     $(".error-message").css({'opacity' : 0});
-    $("#college-td-select").addClass("active-choice")
+    $(".event-data").text("Technological Design Contest")
     $("#college-qb-select").removeClass("active-choice")
+    $("#college-td-select").addClass("active-choice")
   });
 
   $("#college-submit").on("click", function(){
