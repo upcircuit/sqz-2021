@@ -45,6 +45,14 @@ body {
   position: relative;
 }
 
+span {
+  display:block;
+  color: #FFFFFF;
+  font-family: Akrobat, sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+}
+
 h1 {
   font-family: Inter, serif;
   font-weight: 700;
@@ -507,7 +515,13 @@ a:hover {
 #addteam {
   text-align: right;
   box-sizing: border-box;
-  display:inline-block;
+  cursor:pointer;
+}
+
+#removeteam {
+  text-align: right;
+  box-sizing: border-box;
+  cursor:pointer;
 }
 
 .reg-confirm {

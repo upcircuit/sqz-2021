@@ -135,7 +135,7 @@ $( document ).ready(function() {
     if (visible_teams == 1){
       return;
     }
-    $("#college-team-" + String(visible_teams)).removeClass("disabled");
+    $("#college-team-" + String(visible_teams)).addClass("disabled");
     visible_teams-=1;
   });
 
