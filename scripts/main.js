@@ -60,6 +60,8 @@ $( document ).ready(function() {
     }, 50);
   });
 
+  $(".next").attr("disabled", true);
+
   $(".next").on("click", function(){
     if (active_modal==5){
       showConfimationCollege();
@@ -116,12 +118,14 @@ $( document ).ready(function() {
     is_qb = true; //use this to set target URL later.
     $("#quali-qb").css({'opacity' : 1});
     $("#quali-td").css({'opacity' : 0});
+    $(".next").attr("disabled", false); //enable 'Proceed' after selecting category
   });
 
   $("#college-td-select").on("click", function(){
     is_qb = false; //use this to set target URL later.
     $("#quali-qb").css({'opacity' : 0});
     $("#quali-td").css({'opacity' : 1});
+    $(".next").attr("disabled", false); //enable 'Proceed' after selecting category
   });
 
   $("#college-submit").on("click", function(){
