@@ -152,6 +152,16 @@ $( document ).ready(function() {
     }, "Please enter a phone number in the given PH format."
   );
 
+  $.validator.addMethod( "phlandline", function( value, element ) {
+  	return this.optional( element ) || /^[0][2][ ]\d{8}|\d{3}[ ]\d{7}$/i.test( value );
+    }, "Please enter a phone number in the given PH format."
+  );
+
+  $.validator.addMethod( "address", function( value, element ) {
+  	return this.optional( element ) || / ^[a-z 0-9.]+[,][ ][a-z 0-9.]+[,][ ][a-z 0-9.]+$/i.test( value );
+    }, "Please enter an address in the given format."
+  );
+
   $.validator.addMethod( "studentnumber", function( value, element ) {
   	return this.optional( element ) || /^[2][0]\d{2}-\d{5}$/i.test( value );
     }, "Please enter a student number in the given format."
@@ -189,6 +199,14 @@ $( document ).ready(function() {
 		messages: {
 			required: "Please enter your school address.",
 			minlength: "Please enter a valid name with at least 2 characters.",
+		}
+	});
+
+  $("#schoolno").rules("add", {
+    required: true,
+		phlandline: true,
+		messages: {
+			phphonenumber: "Please enter a valid contact number in the given format."
 		}
 	});
 
@@ -235,7 +253,7 @@ $( document ).ready(function() {
 		required: true,
 		phphonenumber: true,
 		messages: {
-			phphonenumber: "Please enter your Full Name."
+			phphonenumber: "Please enter a valid contact number in the given format."
 		}
 	});
 
@@ -267,7 +285,7 @@ $( document ).ready(function() {
 		required: true,
 		phphonenumber: true,
 		messages: {
-			phphonenumber: "Please enter your Full Name."
+			phphonenumber: "Please enter a valid contact number in the given format."
 		}
 	});
 
