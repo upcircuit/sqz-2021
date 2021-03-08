@@ -155,6 +155,7 @@ input[type=text] {
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   margin: 1em;
+  cursor:pointer;
 }
 
 input[type=file] {
