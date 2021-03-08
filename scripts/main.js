@@ -95,15 +95,28 @@ function hideRegistrationCollege(){
 
 function validate_page(page){
   //yes, it should just be one var &&= to all, but that doesn't work somehow
+  //we will fix this later.
   if (page == 3){
     var a = $("#college-form").data('validator').element("#schoolname");
     var b = $("#college-form").data('validator').element("#schoolad");
     var c = $("#college-form").data('validator').element("#schoolno");
     return (a && b && c);
   }else if (page == 4){
+    var valid_flag_1 = true;
+    var valid_flag_2 = true;
     var a = $("#college-form").data('validator').element("#c1name");
     var b = $("#college-form").data('validator').element("#c1no");
-    return (a && b);
+    var c = $("#college-form").data('validator').element("#c1mail");
+    valid_flag_1 = a && b && c;
+    if (visible_coach == 2){
+      console.log("Test");
+      a = $("#college-form").data('validator').element("#c2name");
+      console.log(a)
+      b = $("#college-form").data('validator').element("#c2no");
+      c = $("#college-form").data('validator').element("#c2mail");
+      valid_flag_2 = (a && b && c);
+    }
+    return valid_flag_1 && valid_flag_2;
   }else if (page == 5){
     var valid_3 = true;
     var valid_2 = true;
@@ -206,6 +219,7 @@ $( document ).ready(function() {
     required: true,
 		phlandline: true,
 		messages: {
+      required: "Please enter your school phone number.",
 			phphonenumber: "Please enter a valid contact number in the given format."
 		}
 	});
@@ -216,8 +230,7 @@ $( document ).ready(function() {
 		fullname: true,
 		messages: {
 			required: "Please enter your Full Name.",
-      fullname: "Please follow the provided format",
-			minlength: "Please enter a valid name with at least 2 characters.",
+      fullname: "Please follow the provided format"
 		}
 	});
 
@@ -231,8 +244,62 @@ $( document ).ready(function() {
 
   $("#c1mail").rules("add", {
 		required: true,
-		email: true
+		email: true,
+    messages: {
+      required: "Please enter your email address.",
+			mail: "Please enter a valid email address in the given format."
+		}
 	});
+
+  $("#c2name").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_coach == 2);
+      }
+    },
+    fullname: {
+      depends:function(element){
+        return (visible_coach == 2);
+      }
+    },
+    messages: {
+      required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format"
+    }
+  });
+
+  $("#c2no").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_coach == 2);
+      }
+    },
+    phphonenumber: {
+      depends:function(element){
+        return (visible_coach == 2);
+      }
+    },
+    messages: {
+      phphonenumber: "Please enter a valid contact number in the given format."
+    }
+  });
+
+  $("#c2mail").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_coach == 2);
+      }
+    },
+    email: {
+      depends:function(element){
+        return (visible_coach == 2);
+      }
+    },
+    messages: {
+      required: "Please enter your email address.",
+      mail: "Please enter a valid email address in the given format."
+    }
+  });
 
   $("#t1_s1name").rules("add", {
 		required: true,
