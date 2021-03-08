@@ -62,32 +62,6 @@ $( document ).ready(function() {
   });
 
   $(".next").on("click", function(){
-<<<<<<< HEAD
-    console.log("test")
-    if (active_modal==5){
-      showConfimationCollege();
-      return;
-    }
-    //push down current active
-    $("#college-"+String(active_modal)).addClass("phase-out");
-    $("#college-"+String(active_modal)).removeClass("active");
-    //elevate hidden next page and enable
-    $("#college-"+String(active_modal+1)).addClass("active");
-    $("#college-"+String(active_modal+1)).removeClass("no-display");
-    setTimeout(function(){
-      $("#college-"+String(active_modal+1)).removeClass("hidden");
-      //disable non-visible formerly active page
-      $("#college-"+String(active_modal)).addClass("hidden");
-      $("#college-"+String(active_modal)).removeClass("phase-out");
-
-      setTimeout(function(){
-        $("#college-"+String(active_modal)).addClass("no-display");
-        active_modal +=1;
-      }, 500);
-
-    }, 10);
-
-=======
     if (active_modal==1 && has_selected_categ==false){
       $(".error-message").css({'opacity' : 1});
     } else {
@@ -100,7 +74,7 @@ $( document ).ready(function() {
       $("#college-"+String(active_modal)).removeClass("active");
       //elevate hidden next page and enable
       $("#college-"+String(active_modal+1)).addClass("active");
-      $("#college-"+String(active_modal+1)).removeClass("disabled");
+      $("#college-"+String(active_modal+1)).removeClass("no-display");
       setTimeout(function(){
         $("#college-"+String(active_modal+1)).removeClass("hidden");
         //disable non-visible formerly active page
@@ -108,13 +82,12 @@ $( document ).ready(function() {
         $("#college-"+String(active_modal)).removeClass("phase-out");
   
         setTimeout(function(){
-          $("#college-"+String(active_modal)).addClass("disabled");
+          $("#college-"+String(active_modal)).addClass("no-display");
           active_modal +=1;
         }, 500);
   
       }, 10);
     }
->>>>>>> a1a16468935bde17e3b2af7f16e5929380d7c921
   });
 
   $(".back").on("click", function(){
