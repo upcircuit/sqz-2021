@@ -482,6 +482,10 @@ a:hover {
   text-align: left;
 }
 
+#quali-qb {
+  position: absolute;
+}
+
 #college-3 input {
   margin: 0.5em 0;
 }

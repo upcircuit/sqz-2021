@@ -107,10 +107,14 @@ $( document ).ready(function() {
 
   $("#college-qb-select").on("click", function(){
     is_qb = true; //use this to set target URL later.
+    $("#quali-qb").css({'opacity' : 1});
+    $("#quali-td").css({'opacity' : 0});
   });
 
   $("#college-td-select").on("click", function(){
     is_qb = false; //use this to set target URL later.
+    $("#quali-qb").css({'opacity' : 0});
+    $("#quali-td").css({'opacity' : 1});
   });
 
   $("#college-submit").on("click", function(){
