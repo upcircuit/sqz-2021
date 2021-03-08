@@ -129,7 +129,7 @@ p {
   color: #FFFFFF;
   font-family: Akrobat, sans-serif;
   font-weight: 300;
-  font-size: 1.5em;
+  font-size: 1.35em;
 }
 
 table {
@@ -555,7 +555,7 @@ a:hover {
 .college-cat-card p {
   font-family: Akrobat, sans-serif;
   font-weight: 200;
-  font-size: 1.5em;
+  font-size: 1.35em;
   box-sizing: border-box;
   text-align: justify;
   min-height: 15em;
@@ -567,8 +567,8 @@ a:hover {
   position: fixed;
   text-align: right;
   box-sizing: border-box;
-  bottom:0;
-  right:0;
+  bottom:3vh;
+  right:3vw;
   padding: 0 1em 0 0;
   margin-left: 2em;
 }
