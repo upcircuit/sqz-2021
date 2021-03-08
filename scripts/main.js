@@ -92,6 +92,16 @@ function hideRegistrationCollege(){
   }, 500);
 }
 
+var $window = $(window);
+
+function checkWidth() {
+  var windowsize = $window.width();
+  if (windowsize < 768) {
+    $(".reg-menu").hide(); 
+    $(".nav-header").hide();
+  }
+}
+
 $( document ).ready(function() {
 
   $.validator.addMethod( "lettersonly", function( value, element ) {
@@ -144,6 +154,8 @@ $( document ).ready(function() {
     showRegistrationCollege();
   });
 
+  checkWidth();
+  $(window).resize(checkWidth);
 
   $(".next").on("click", function(){
     if (active_modal==1 && has_selected_categ==false){

@@ -308,7 +308,7 @@ a:hover {
 .nav-logo a, span {
   display: inline-block;
   vertical-align: middle;
-  font-size: 2em;
+  font-size: 1.75em;
   letter-spacing: 0.1em;
 }
 
@@ -320,7 +320,7 @@ a:hover {
   padding: 0;
   float: right;
   font-family: Montserrat, sans-serif;
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 400;
   transition: all 0.5s ease-out;
   opacity: 1;
