@@ -39,7 +39,7 @@
 }
 @font-face {
   font-family: Montserrat;
-  src: url("../fonts/Montserrat-SemiBold.ttf") format("truetype");
+  src: url("../fonts/Montserrat-SemiBold.otf") format("opentype");
   font-weight: 600;
 }
 @font-face {
@@ -298,9 +298,6 @@ a:hover {
   z-index: 5;
 }
 
-div.nav-clearance {
-  height:3.563em;
-}
 .nav-logo {
   font-family: Inter;
   font-weight: 700;
