@@ -125,6 +125,7 @@ input[type="text"] {
   border:none;
   width:100%;
   font-size:1.75em;
+  cursor: pointer;
 }
 
 .button-big {
@@ -151,6 +152,20 @@ input[type="text"] {
   color: #FFFFFF;
   font-size:0.8em;
   min-width: 8em;
+}
+
+.upload-button {
+  border: 1px solid rgba(113, 113, 113, 0.6);
+  border-radius:20px;
+  display:inline-block;
+  padding:0.75em 0.5em;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  margin:1em;
+}
+
+input[type="file"] {
+  display:none;
 }
 
 a {
@@ -399,7 +414,7 @@ a {
   padding: 0 2em;
 }
 
-#college-form {
+#college-registration {
   position:absolute;
   top:0;
   left:0;
@@ -506,9 +521,6 @@ a {
 }
 
 #college-5 {
-  label {
-    display:block;
-  }
   .flex-50:first-child {
     padding-right:0.5em;
   }
@@ -559,5 +571,9 @@ a {
 }
 
 .reg-input {
+  transition: opacity 0.5s ease-out;
+}
 
+IFRAME {
+  display:none;
 }
