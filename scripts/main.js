@@ -906,7 +906,7 @@ $( document ).ready(function() {
           $(".next").prop("disabled", false);
           //update reg menu visit locations
           furthest_visit = Math.max(active_modal, furthest_visit);
-          $("#reg-menu"+active_modal).removeClass("unvisited");
+          $("#reg-menu-"+active_modal).removeClass("unvisited");
         }, 500);
 
       }, 10);
