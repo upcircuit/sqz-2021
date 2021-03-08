@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SquEEEze 2021</title>
+
+    <meta property="og:title" content="SquEEEze 2021">
+    <meta property="og:description" content="The National EEE Competition and Convention">
+    <meta property="og:image" content="./images/logo.png">
+
+    <link rel="icon" href="./images/logo.png" type="image/png">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+  </head>
+  <body>
+    <div class="registration-container relpos-anchor">
+      <!-- other bg image, for smooth transition -->
+      <div id="bg-1" class="bg-div hidden no-display">
+        <img src="./images/logo-white.png"></img>
+      </div>
+      <!-- navbar -->
+      <div class="nav-positioner">
+        <div class="nav">
+          <div class="nav-logo">
+            <img src="images/logo.png"></img>
+            <a class="nav-header" href="index.html"><span>SQU</span><span style="color: #ba0d12;">E</span><span style="color: #17bc32;">E</span><span style="color: #002ac5;">E</span><span>ZE</span></a>
+          </div>
+          <div class="nav-menu">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="about.html" class="nav-link">ABOUT US</a>
+            <a href="mechanics.html" class="nav-link">MECHANICS</a>
+            <a href="register.html" class="nav-link">REGISTRATION</a>
+          </ul>
+        </div>
+      </div>
+      <div class="relpos-anchor">
+        <!-- initially visible menu -->
+        <div class="intro-slide-container">
+          <h1>REGISTRATION</h1>
+          <h2>SELECT DIVISION</h2>
+          <div>
+            <button class="button-big" id="college-select">COLLEGE
+              <a href="javascript:void(0);" class="button-link-bold hidden-text">COLLEGE</a>
+            </button>
+            <button class="button-big">HIGH SCHOOL</button>
+          </div>
+        </div>
+        <!-- college reg form -->
+        <form name="college-form" id="college-form"
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse"
+          method="post" target="hidden-form" novalidate="novalidate">
+          <div id="college-registration" class="hidden no-display">
+            <h1>COLLEGE DIVISION REGISTRATION</h1>
+            <div class="relpos-anchor">
+              <div id="college-input" class="flex-container reg-input">
+                <ul class="reg-menu" id="college-menu">
+                  <li class="reg-menu-item" id="reg-menu-1">CATEGORY
+                    <a class="reg-menu-bold hidden-text">CATEGORY</a>
+                  </li>
+                  <li class="reg-menu-item" id="reg-menu-2">QUALIFICATIONS
+                    <a class="reg-menu-bold hidden-text">QUALIFICATIONS</a>
+                  </li>
+                  <li class="reg-menu-item" id="reg-menu-3">SCHOOL INFORMATION
+                    <a class="reg-menu-bold hidden-text">SCHOOL INFORMATION</a>
+                  </li>
+                  <li class="reg-menu-item" id="reg-menu-4">COACH INFORMATION
+                    <a class="reg-menu-bold hidden-text">COACH INFORMATION</a>
+                  </li>
+                  <li class="reg-menu-item" id="reg-menu-5">TEAM INFORMATION
+                    <a class="reg-menu-bold hidden-text">TEAM INFORMATION</a>
+                  </li>
+                </ul>
+                <!-- all reg form input slides go into the following div -->
+                <div class="modal-container">
+                  <div class="modal no-display hidden" id="college-1">
+                    <div class="modal-content">
+                      <h1>CATEGORY</h1>
+                      <div class="flex-container card-container">
+                        <div class="flex-50 college-cat-card">
+                          <button type="button" id="college-qb-select" class="button-big">QUIZ BEE
+                          </button>
+                          <p>Teams from top colleges and universities nationwide will compete once more in this year’s EEE Virtual Quiz Show. In this competition, each team's abilities, strategy, and teamwork will be thoroughly tested and only the best will win.</p>
+                        </div>
+                        <div class="flex-50 college-cat-card">
+                          <button type="button" id="college-td-select" class="button-big">TECH DECON
+                          </button>
+                          <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
+                        </div>
+                      </div>
+                      <div class="flex-container card-container error-message">
+                        <p>Please choose a category.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal no-display hidden" id="college-2">
+                    <div class="modal-content" id="quali-qb">
+                      <h1>QUALIFICATIONS</h1>
+                      <p>1. A maximum of three (3) teams are allowed to join per school.</p>
+                      <p>2. Each team shall be composed of three (3) students from the same school. The students must be currently enrolled and taking BS Electronics and Communications Engineering (ECE), BS Computer Engineering (CoE), or BS Electrical Engineering (EE) during the term that the students join the 24th SquEEEze.</p>
+                      <p>3. A maximum of two (2) coaches are allowed per school.</p>
+                      <p>a. The coaches must be bonafide faculty members of the same school the students of the team are enrolled in.</p>
+                      <p>b. Coaches are allowed to register for more than one team in their school.</p>
+                      <p>4. Letters of certification of the coaches' and participants' qualifications from the Dean of their respective schoos, colleges, or universities shall be submitted on or prior to the registration period on May 21, 2021, 11:59 PM.</p>
+                    </div>
+                    <div class="modal-content" id="quali-td">
+                      <h1>ELIGIBILITY</h1>
+                      <p>&bull; Each team may be made up of one, two, or three student Team Members. All participating Team Members must be currently enrolled in an undergraduate degree program in the field of electrical and electronics engineering (BS Electronics Engineering, BS Computer Engineering, BS Electrical Engineering).</p>
+                      <p>&bull; Eligibility may be verified at any time by the organizers; decisions concerning eligibility made by the Organizers are final. A student may only participate in one Team. Teams may edit their Member information by emailing the Organizers until two weeks before the competition.</p>
+                      <p>&bull; The official language of the competition is English. All competition requirements including registration, correspondence, and project proposal submission, must be accomplished in English. At least one student Team Member must speak fluently, and that member must be present during the event in order to conduct their team's presentation if they are selected as one of the Finalist Teams.</p>
+                    </div>
+                    <div class="modal-nav">
+                      <button type="button" class="button-small back">BACK</button>
+                      <button type="button" class="button-small next">PROCEED</button>
+                    </div>
+                  </div>
+                  <div class="modal no-display hidden" id="college-3">
+                    <div class="modal-content">
+                      <h1>SCHOOL INFORMATION</h1>
+                      <label for="schoolname">School Name</label>
+                      <input type="text" id="schoolname" name="entry.2049534640"></input>
+                      <label for="schoolad">School Address</label>
+                      <input type="text" id="schoolad" name="entry.1821648462"></input>
+                      <label for="schoolno">School Number/Fax</label>
+                      <input type="text" id="schoolno" name="entry.1652273826"></input>
+                    </div>
+                  </div>
+                  <div class="modal no-display hidden" id="college-4">
+                    <div class="modal-content">
+                      <h1>COACH INFORMATION</h2>
+                      <h3>COACH 1</h3>
+                      <div class="flex-container">
+                        <div class="flex-50">
+                          <label for="c1name">Name:</label>
+                          <input type="text" id="c1name" name="entry.1229630823"></input>
+                          <label for="c1no">Contact Number:</label>
+                          <input type="text" id="c1no" name="entry.1612026445"></input>
+                        </div>
+                        <div class="flex-50">
+                          <label for="c1mail">Email Address:</label>
+                          <input type="text" id="c1mail" name="entry.1321410288"></input>
+                        </div>
+                      </div>
+                      <h3>COACH 2 (OPTIONAL)</h3>
+                      <div class="flex-container">
+                        <div class="flex-50">
+                          <label for="c2name">Name:</label>
+                          <input type="text" id="c2name" name="entry.1694757799"></input>
+                          <label for="c2no">Contact Number:</label>
+                          <input type="text" id="c2no" name="entry.1823997648"></input>
+                        </div>
+                        <div class="flex-50">
+                          <label for="c2mail">Email Address:</label>
+                          <input type="text" id="c2mail" name="entry.292351539"></input>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal no-display hidden" id="college-5">
+                    <div class="modal-content">
+                      <div id="college-team-1" class="team-input">
+                        <h1>TEAM INFORMATION</h1>
+                        <h3>STUDENT 1</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t1_s1name">Name:</label>
+                            <input type="text" id="t1_s1name" name="entry.497767286"></input>
+                            <label for="t1_s1course">Year and Course:</label>
+                            <input type="text" id="t1_s1course" name="entry.31399836"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t1_s1no">Contact Number:</label>
+                            <input type="text" id="t1_s1no" name="entry.1389111026"></input>
+                            <label for="t1_s1mail">Email Address:</label>
+                            <input type="text" id="t1_s1mail"name="entry.1880086416"></input>
+                          </div>
+                        </div>
+                        <label for="t1_s1attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t1_s1attach" name="entry.1990082488"></input>
+                        <h3>STUDENT 2</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t1_s2name">Name:</label>
+                            <input type="text" id="t1_s2name" name="entry.1296149886"></input>
+                            <label for="t1_s2course">Year and Course:</label>
+                            <input type="text" id="t1_s2course" name="entry.517176879"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t1_s2no">Contact Number:</label>
+                            <input type="text" id="t1_s2no" name="entry.368127506"></input>
+                            <label for="t1_s2mail">Email Address:</label>
+                            <input type="text" id="t1_s2mail" name="entry.48592523"></input>
+                          </div>
+                        </div>
+                        <label for="t1_s2attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t1_s2attach" name="entry.278320788"></input>
+                        <h3>STUDENT 3</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t1_s3name">Name:</label>
+                            <input type="text" id="t1_s3name" name="entry.522965291"></input>
+                            <label for="t1_s3course">Year and Course:</label>
+                            <input type="text" id="t1_s3course" name="entry.2120230022"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t1_s3no">Contact Number:</label>
+                            <input type="text" id="t1_s3no" name="entry.1543726684"></input>
+                            <label for="t1_s3mail">Email Address:</label>
+                            <input type="text" id="t1_s3mail" name="entry.455014131"></input>
+                          </div>
+                        </div>
+                        <label for="t1_s3attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t1_s3attach" name="entry.2101063035"></input>
+                      </div>
+                      <div id="college-team-2" class="team-input no-display">
+                        <h1>TEAM INFORMATION</h1>
+                        <h3>STUDENT 1</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t2_s1name">Name:</label>
+                            <input type="text" id="t2_s1name" name="entry.1787871543"></input>
+                            <label for="t2_s1course">Year and Course:</label>
+                            <input type="text" id="t2_s1course" name="entry.919255285"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t2_s1no">Contact Number:</label>
+                            <input type="text" id="t2_s1no" name="entry.1120998672"></input>
+                            <label for="t2_s1mail">Email Address:</label>
+                            <input type="text" id="t2_s1mail"name="entry.425396455"></input>
+                          </div>
+                        </div>
+                        <label for="t2_s1attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t2_s1attach" name="entry.872571123"></input>
+                        <h3>STUDENT 2</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t2_s2name">Name:</label>
+                            <input type="text" id="t2_s2name" name="entry.1557996973"></input>
+                            <label for="t2_s2course">Year and Course:</label>
+                            <input type="text" id="t2_s2course" name="entry.137912384"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t2_s2no">Contact Number:</label>
+                            <input type="text" id="t2_s2no" name="entry.883648645"></input>
+                            <label for="t2_s2mail">Email Address:</label>
+                            <input type="text" id="t2_s2mail" name="entry.1524484625"></input>
+                          </div>
+                        </div>
+                        <label for="t2_s2attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t2_s2attach" name="entry.865501927"></input>
+                        <h3>STUDENT 3</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t2_s3name">Name:</label>
+                            <input type="text" id="t2_s3name" name="entry.2063127305"></input>
+                            <label for="t2_s3course">Year and Course:</label>
+                            <input type="text" id="t2_s3course" name="entry.1380933259"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t2_s3no">Contact Number:</label>
+                            <input type="text" id="t2_s3no" name="entry.1215080701"></input>
+                            <label for="t2_s3mail">Email Address:</label>
+                            <input type="text" id="t2_s3mail" name="entry.1464805540"></input>
+                          </div>
+                        </div>
+                        <label for="t2_s3attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t2_s3attach" name="entry.335994304"></input>
+                      </div>
+                      <div id="college-team-3" class="team-input no-display">
+                        <h1>TEAM INFORMATION</h1>
+                        <h3>STUDENT 1</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t3_s1name">Name:</label>
+                            <input type="text" id="t3_s1name" name="entry.683317077"></input>
+                            <label for="t3_s1course">Year and Course:</label>
+                            <input type="text" id="t3_s1course" name="entry.2040053651"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t3_s1no">Contact Number:</label>
+                            <input type="text" id="t3_s1no" name="entry.769420929"></input>
+                            <label for="t3_s1mail">Email Address:</label>
+                            <input type="text" id="t3_s1mail"name="entry.942321118"></input>
+                          </div>
+                        </div>
+                        <label for="t3_s1attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t3_s1attach" name="entry.382035801"></input>
+                        <h3>STUDENT 2</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t3_s2name">Name:</label>
+                            <input type="text" id="t3_s2name" name="entry.1351815566"></input>
+                            <label for="t3_s2course">Year and Course:</label>
+                            <input type="text" id="t3_s2course" name="entry.536435643"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t3_s2no">Contact Number:</label>
+                            <input type="text" id="t3_s2no" name="entry.1924055303"></input>
+                            <label for="t3_s2mail">Email Address:</label>
+                            <input type="text" id="t3_s2mail" name="entry.797323407"></input>
+                          </div>
+                        </div>
+                        <label for="t3_s2attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t3_s2attach" name="entry.948989382"></input>
+                        <h3>STUDENT 3</h3>
+                        <div class="flex-container">
+                          <div class="flex-50">
+                            <label for="t3_s3name">Name:</label>
+                            <input type="text" id="t3_s3name" name="entry.434224587"></input>
+                            <label for="t3_s3course">Year and Course:</label>
+                            <input type="text" id="t3_s3course" name="entry.1954562207"></input>
+                          </div>
+                          <div class="flex-50">
+                            <label for="t3_s3no">Contact Number:</label>
+                            <input type="text" id="t3_s3no" name="entry.137562992"></input>
+                            <label for="t3_s3mail">Email Address:</label>
+                            <input type="text" id="t3_s3mail" name="entry.1216725466"></input>
+                          </div>
+                        </div>
+                        <label for="t3_s3attach" class="upload-button button-small">Upload Scanned School ID</label>
+                        <input type="file" multiple id="t3_s3attach" name="entry.348738223"></input>
+                      </div>
+                      <span id="addteam">+ Add Another Team</span>
+                      <span id="removeteam">- Remove A Team</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-nav">
+                <button type="button" class="button-small back">BACK</button>
+                <button type="button" class="button-small next">PROCEED</button>
+              </div>
+              <div id="college-confirm" class="reg-confirm hidden no-display">
+                <h2>SUMMARY</h2>
+                <div class="flex-container">
+                  <div class="flex-50">
+                    <!--Will be filled with JS -->
+                    <h4>CATEGORY</h4>
+                    <table>
+                      <tr>
+                        <td>EVENT:</td>
+                        <td class="event-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h4>SCHOOL INFORMATION</h4>
+                    <table>
+                      <tr>
+                        <td>SCHOOL:</td>
+                        <td class="schoolname-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>SCHOOL ADDRESS:</td>
+                        <td class="schoolad-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>SCHOOL NUMBER/FAX:</td>
+                        <td class="schoolno-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h4>COACH INFORMATION</h4>
+                    <h5>COACH 1</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="c1name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="c1no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="c1mail-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h5>COACH 2</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="c2name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="c2no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="c2mail-data">NONE</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="flex-50 team-data">
+                    <!--Will be filled with JS -->
+                    <h4>TEAM INFORMATION</h4>
+                    <h5>TEAM 1</h5>
+                    <h5>STUDENT 1</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t1_s1name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t1_s1course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t1_s1no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t1_s1mail-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h5>STUDENT 2</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t1_s2name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t1_s2course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t1_s2no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t1_s2mail-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h5>STUDENT 3</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t1_s3name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t1_s3course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t1_s3no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t1_s3mail-data">NONE</td>
+                      </tr>
+                    </table>
+
+                    <h5>TEAM 2</h5>
+                    <h5>STUDENT 1</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t2_s1name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t2_s1course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t2_s1no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t2_s1mail-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h5>STUDENT 2</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t2_s2name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t2_s2course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t2_s2no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t2_s2mail-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h5>STUDENT 3</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t2_s3name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t2_s3course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t2_s3no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t2_s3mail-data">NONE</td>
+                      </tr>
+                    </table>
+
+                    <h5>TEAM 3</h5>
+                    <h5>STUDENT 1</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t3_s1name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t3_s1course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t3_s1no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t3_s1mail-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h5>STUDENT 2</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t3_s2name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t3_s2course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t3_s2no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t3_s2mail-data">NONE</td>
+                      </tr>
+                    </table>
+                    <h5>STUDENT 3</h5>
+                    <table>
+                      <tr>
+                        <td>NAME:</td>
+                        <td class="t3_s3name-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>YEAR AND COURSE:</td>
+                        <td class="t3_s3course-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>CONTACT NUMBER:</td>
+                        <td class="t3_s3no-data">NONE</td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td class="t3_s3mail-data">NONE</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="confirm-buttons hidden no-display">
+                <input type="checkbox" id="verifycheck" name="vehicle1" value="Verified">
+                <label for="verifycheck">This is to verify that all information above is correct.</label>
+                <div class="submit-nav">
+                  <button type="button" class="button-small back-confirm">BACK</button>
+                  <button type="button" class="button-small" id="college-submit">SUBMIT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <iframe name="hidden-form"></iframe>
+  </body>
+</html>
