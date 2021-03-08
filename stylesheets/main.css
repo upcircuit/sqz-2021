@@ -689,10 +689,16 @@ a:hover {
 
 #college-feedback {
   position:absolute;
+  top:0;
+  left:0;
   width:100%;
   z-index:6;
-}
 
+}
+#college-feedback p {
+  text-align:justify;
+  margin: auto;
+}
 .error-message {
   opacity: 0;
 }

@@ -109,9 +109,7 @@ function validate_page(page){
     var c = $("#college-form").data('validator').element("#c1mail");
     valid_flag_1 = a && b && c;
     if (visible_coach == 2){
-      console.log("Test");
       a = $("#college-form").data('validator').element("#c2name");
-      console.log(a)
       b = $("#college-form").data('validator').element("#c2no");
       c = $("#college-form").data('validator').element("#c2mail");
       valid_flag_2 = (a && b && c);
@@ -1060,9 +1058,8 @@ $( document ).ready(function() {
       $("#college-form").prop("action", college_td_action);
     }
     if($("#college-form").valid() &&
-        $("#checkbox").prop("checked", true)){
+        document.getElementById('verifycheck').checked){
       $("#college-form").submit();
-      console.log($("#college-form").serialize());
       //transition here.
       $("#college-feedback").removeClass("no-display");
       setTimeout(function(){
@@ -1072,6 +1069,8 @@ $( document ).ready(function() {
           $("#college-confirm").addClass("no-display");
         }, 500);
       }, 10);
+    }else{
+      $("#college-submit").prop("disabled", false);
     }
 
 
