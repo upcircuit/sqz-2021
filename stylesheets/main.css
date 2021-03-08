@@ -37,6 +37,11 @@
   src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
   font-weight: 500;
 }
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -168,16 +173,18 @@ input[type=text] {
   opacity: 0;
   transition: all 0.3s ease-out;
   top: 0;
+  left:0;
   padding: 0.75em 0.5em;
-  left: 6%;
   z-index: 3;
   font-weight: 600;
+  box-sizing: border-box;
+  min-width:10em;
+  text-indent:-0.1em;
 }
 
 .button-link-bold:hover {
   opacity:1;
 }
-
 
 .button-small {
   border: 1px solid rgba(113, 113, 113, 0.6);
@@ -190,6 +197,11 @@ input[type=text] {
   color: #FFFFFF;
   font-size: 0.8em;
   min-width: 8em;
+  transition: background-color 0.3s ease-out;
+}
+
+.button-small:hover {
+  background-color:rgba(0, 0, 0, 0.6);
 }
 
 .upload-button {
