@@ -7,6 +7,7 @@ var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNP
 var visible_teams = 1;
 var visible_coach = 1;
 var i;
+var furthest_visit = 1;
 // Summary of Form Details before Submit
 var ids = [
   "schoolname", "schoolad", "schoolno",
@@ -144,7 +145,53 @@ function validate_page(page){
     d = $("#college-form").data('validator').element("#t1_s3mail");
     e = $("#college-form").data('validator').element("#t1_s3attach");
     valid_1 &&= (a && b && c && d && e);
-    return valid_1;
+
+    if (visible_teams >= 2){
+      a = $("#college-form").data('validator').element("#t2_s1name");
+      b = $("#college-form").data('validator').element("#t2_s1course");
+      c = $("#college-form").data('validator').element("#t2_s1no");
+      d = $("#college-form").data('validator').element("#t2_s1mail");
+      e = $("#college-form").data('validator').element("#t2_s1attach");
+      valid_2 = (a && b && c && d && e);
+      //student 2
+      a = $("#college-form").data('validator').element("#t2_s2name");
+      b = $("#college-form").data('validator').element("#t2_s2course");
+      c = $("#college-form").data('validator').element("#t2_s2no");
+      d = $("#college-form").data('validator').element("#t2_s2mail");
+      e = $("#college-form").data('validator').element("#t2_s2attach");
+      valid_2 &&= (a && b && c && d && e);
+      //student 3
+      a = $("#college-form").data('validator').element("#t2_s3name");
+      b = $("#college-form").data('validator').element("#t2_s3course");
+      c = $("#college-form").data('validator').element("#t2_s3no");
+      d = $("#college-form").data('validator').element("#t2_s3mail");
+      e = $("#college-form").data('validator').element("#t2_s3attach");
+      valid_2 &&= (a && b && c && d && e);
+    }
+
+    if (visible_teams == 3){
+      a = $("#college-form").data('validator').element("#t3_s1name");
+      b = $("#college-form").data('validator').element("#t3_s1course");
+      c = $("#college-form").data('validator').element("#t3_s1no");
+      d = $("#college-form").data('validator').element("#t3_s1mail");
+      e = $("#college-form").data('validator').element("#t3_s1attach");
+      valid_3 = (a && b && c && d && e);
+      //student 2
+      a = $("#college-form").data('validator').element("#t3_s2name");
+      b = $("#college-form").data('validator').element("#t3_s2course");
+      c = $("#college-form").data('validator').element("#t3_s2no");
+      d = $("#college-form").data('validator').element("#t3_s2mail");
+      e = $("#college-form").data('validator').element("#t3_s2attach");
+      valid_3 &&= (a && b && c && d && e);
+      //student 3
+      a = $("#college-form").data('validator').element("#t3_s3name");
+      b = $("#college-form").data('validator').element("#t3_s3course");
+      c = $("#college-form").data('validator').element("#t3_s3no");
+      d = $("#college-form").data('validator').element("#t3_s3mail");
+      e = $("#college-form").data('validator').element("#t3_s3attach");
+      valid_3 &&= (a && b && c && d && e);
+    }
+    return valid_1 && valid_2 && valid_3;
   }
 
 }
@@ -297,14 +344,14 @@ $( document ).ready(function() {
     }
   });
 
+  //TEAM 1
+
   $("#t1_s1name").rules("add", {
 		required: true,
-		minlength:2,
 		fullname: true,
 		messages: {
 			required: "Please enter your Full Name.",
-      fullname: "Please follow the provided format",
-			minlength: "Please enter a valid name with at least 2 characters.",
+      fullname: "Please follow the provided format"
 		}
 	});
 
@@ -335,17 +382,16 @@ $( document ).ready(function() {
 
   $("#t1_s2name").rules("add", {
 		required: true,
-		minlength:2,
 		fullname: true,
 		messages: {
 			required: "Please enter your Full Name.",
-      fullname: "Please follow the provided format",
-			minlength: "Please enter a valid name with at least 2 characters.",
+      fullname: "Please follow the provided format"
 		}
 	});
 
   $("#t1_s2course").rules("add", {
-		required: true
+		required: true,
+    course:true
 	});
 
   $("#t1_s2no").rules("add", {
@@ -367,25 +413,21 @@ $( document ).ready(function() {
 
   $("#t1_s3name").rules("add", {
 		required: true,
-		minlength:2,
 		fullname: true,
 		messages: {
 			required: "Please enter your Full Name.",
-      fullname: "Please follow the provided format",
-			minlength: "Please enter a valid name with at least 2 characters.",
+      fullname: "Please follow the provided format"
 		}
 	});
 
   $("#t1_s3course").rules("add", {
-		required: true
+		required: true,
+    course:true
 	});
 
   $("#t1_s3no").rules("add", {
 		required: true,
 		phphonenumber: true,
-		messages: {
-			phphonenumber: "Please enter your Full Name."
-		}
 	});
 
   $("#t1_s3mail").rules("add", {
@@ -397,6 +439,408 @@ $( document ).ready(function() {
     required: true
   });
 
+  //TEAM 2
+  $("#t2_s1name").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		fullname: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format"
+		}
+	});
+
+  $("#t2_s1course").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+    course:{
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+    messages: {
+			required: "Please enter your course."
+		}
+	});
+
+  $("#t2_s1no").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		phphonenumber: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		messages: {
+			phphonenumber: "Please enter a valid contact number in the given format."
+		}
+	});
+
+  $("#t2_s1mail").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		email: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+	});
+
+  $("#t2_s1attach").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+  });
+
+  $("#t2_s2name").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		fullname: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format"
+		}
+	});
+
+  $("#t2_s2course").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+    course:{
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+	});
+
+  $("#t2_s2no").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		phphonenumber: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		messages: {
+			phphonenumber: "Please enter a valid contact number in the given format."
+		}
+	});
+
+  $("#t2_s2mail").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		email: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+	});
+
+  $("#t2_s2attach").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+  });
+
+  $("#t2_s3name").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		fullname: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format"
+		}
+	});
+
+  $("#t2_s3course").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+    course:{
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+	});
+
+  $("#t2_s3no").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		phphonenumber: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+	});
+
+  $("#t2_s3mail").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    },
+		email: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+	});
+
+  $("#t2_s3attach").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_teams >= 2);
+      }
+    }
+  });
+
+  $("#t3_s1name").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		fullname: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format"
+		}
+	});
+
+  $("#t3_s1course").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+    course:{
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+    messages: {
+			required: "Please enter your course."
+		}
+	});
+
+  $("#t3_s1no").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		phphonenumber: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		messages: {
+			phphonenumber: "Please enter a valid contact number in the given format."
+		}
+	});
+
+  $("#t3_s1mail").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		email: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+	});
+
+  $("#t3_s1attach").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+  });
+
+  $("#t3_s2name").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		fullname: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format"
+		}
+	});
+
+  $("#t3_s2course").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+    course:{
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+	});
+
+  $("#t3_s2no").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		phphonenumber: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		messages: {
+			phphonenumber: "Please enter a valid contact number in the given format."
+		}
+	});
+
+  $("#t3_s2mail").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		email: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+	});
+
+  $("#t3_s2attach").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+  });
+
+  $("#t3_s3name").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		fullname: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		messages: {
+			required: "Please enter your Full Name.",
+      fullname: "Please follow the provided format"
+		}
+	});
+
+  $("#t3_s3course").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+    course:{
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+	});
+
+  $("#t3_s3no").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		phphonenumber: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+	});
+
+  $("#t3_s3mail").rules("add", {
+		required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    },
+		email: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+	});
+
+  $("#t3_s3attach").rules("add", {
+    required: {
+      depends:function(element){
+        return (visible_teams == 3);
+      }
+    }
+  });
   //REG FORM JS
   //in order to transition properly, need to remove disabled (display:none)
   //BEFORE removing hidden (opacity:0)
@@ -567,6 +1011,7 @@ $( document ).ready(function() {
   var reg_menu_click = false;
   //reg menu navigation
   $(".reg-menu-item").on("click", function(){
+    //if in progress, do not interrupt.
     if (reg_menu_click) {
       return;
     }
@@ -579,6 +1024,10 @@ $( document ).ready(function() {
     if (active_modal==item_no){
       return;
     }
+    //do not skip.
+    // if (item_no > furthest_visit){
+    //   return;
+    // }
     //prevent double click
     reg_menu_click = true;
     //update reg menu
