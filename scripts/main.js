@@ -904,6 +904,9 @@ $( document ).ready(function() {
           $("#college-"+String(active_modal)).addClass("no-display");
           active_modal +=1;
           $(".next").prop("disabled", false);
+          //update reg menu visit locations
+          furthest_visit = Math.max(active_modal, furthest_visit);
+          $("#reg-menu"+active_modal).removeClass("unvisited");
         }, 500);
 
       }, 10);
@@ -1025,9 +1028,9 @@ $( document ).ready(function() {
       return;
     }
     //do not skip.
-    // if (item_no > furthest_visit){
-    //   return;
-    // }
+    if (item_no > furthest_visit){
+      return;
+    }
     //prevent double click
     reg_menu_click = true;
     //update reg menu

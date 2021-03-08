@@ -517,6 +517,11 @@ a:hover {
   z-index: 3;
 }
 
+.unvisited {
+  color:#383838;
+  cursor:default;
+}
+
 .hidden-text {
   color: rgba(0, 0, 0, 0);
   transition: all 0.5s ease-out;
