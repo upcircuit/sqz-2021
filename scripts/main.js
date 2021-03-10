@@ -29,10 +29,10 @@ var ids = [
 ]
 
 function showConfimationCollege() {
-  $("#college-confirm").removeClass("no-display");
+  $("#reg-confirm").removeClass("no-display");
   $(".confirm-buttons").removeClass("no-display");
   setTimeout(function(){
-    $("#college-confirm").removeClass("hidden");
+    $("#reg-confirm").removeClass("hidden");
     $(".confirm-buttons").removeClass("hidden");
     $("#college-input").addClass("hidden");
     $(".modal-nav").addClass("hidden");
@@ -49,10 +49,10 @@ function hideConfimationCollege() {
   setTimeout(function(){
     $(".modal-nav").removeClass("hidden");
     $("#college-input").removeClass("hidden");
-    $("#college-confirm").addClass("hidden");
+    $("#reg-confirm").addClass("hidden");
     $(".confirm-buttons").addClass("hidden");
     setTimeout(function(){
-      $("#college-confirm").addClass("no-display");
+      $("#reg-confirm").addClass("no-display");
       $(".confirm-buttons").addClass("no-display");
     }, 500);
   }, 10);
@@ -60,30 +60,30 @@ function hideConfimationCollege() {
 
 function showRegistrationCollege(){
   $("#bg-1").removeClass("no-display");
-  $("#college-registration").removeClass("no-display");
-  $("#college-"+active_modal).removeClass("no-display");
+  $("#registration").removeClass("no-display");
+  $("#modal-"+active_modal).removeClass("no-display");
   setTimeout(function(){
     $("#bg-1").removeClass("hidden");
-    $("#college-registration").removeClass("hidden");
+    $("#registration").removeClass("hidden");
     $(".intro-slide-container").addClass("no-display");
     $(".intro-slide-container").addClass("hidden");
-    $("#college-"+active_modal).removeClass("hidden");
-    $("#college-"+active_modal).addClass("active");
+    $("#modal-"+active_modal).removeClass("hidden");
+    $("#modal-"+active_modal).addClass("active");
     $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").removeClass("hidden-text");
   }, 50);
 }
 
 function hideRegistrationCollege(){
   $("#bg-1").addClass("hidden");
-  $("#college-registration").addClass("hidden");
-  $("#college-"+active_modal).addClass("hidden");
+  $("#registration").addClass("hidden");
+  $("#modal-"+active_modal).addClass("hidden");
   setTimeout(function(){
     $("#bg-1").addClass("no-display");
-    $("#college-registration").addClass("no-display");
+    $("#registration").addClass("no-display");
     $(".intro-slide-container").removeClass("no-display");
     setTimeout(function(){
       $(".intro-slide-container").removeClass("hidden");
-      $("#college-"+active_modal).removeClass("active");
+      $("#modal-"+active_modal).removeClass("active");
       $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
       active_modal = 1;
       furthest_visit = 1;
@@ -97,21 +97,21 @@ function validate_page(page){
   //yes, it should just be one var &&= to all, but that doesn't work somehow
   //we will fix this later.
   if (page == 3){
-    var a = $("#college-form").data('validator').element("#schoolname");
-    var b = $("#college-form").data('validator').element("#schoolad");
-    var c = $("#college-form").data('validator').element("#schoolno");
+    var a = $("#reg-form").data('validator').element("#schoolname");
+    var b = $("#reg-form").data('validator').element("#schoolad");
+    var c = $("#reg-form").data('validator').element("#schoolno");
     return (a && b && c);
   }else if (page == 4){
     var valid_flag_1 = true;
     var valid_flag_2 = true;
-    var a = $("#college-form").data('validator').element("#c1name");
-    var b = $("#college-form").data('validator').element("#c1no");
-    var c = $("#college-form").data('validator').element("#c1mail");
+    var a = $("#reg-form").data('validator').element("#c1name");
+    var b = $("#reg-form").data('validator').element("#c1no");
+    var c = $("#reg-form").data('validator').element("#c1mail");
     valid_flag_1 = a && b && c;
     if (visible_coach == 2){
-      a = $("#college-form").data('validator').element("#c2name");
-      b = $("#college-form").data('validator').element("#c2no");
-      c = $("#college-form").data('validator').element("#c2mail");
+      a = $("#reg-form").data('validator').element("#c2name");
+      b = $("#reg-form").data('validator').element("#c2no");
+      c = $("#reg-form").data('validator').element("#c2mail");
       valid_flag_2 = (a && b && c);
     }
     return valid_flag_1 && valid_flag_2;
@@ -126,70 +126,70 @@ function validate_page(page){
     var e = true;
 
     //student 1
-    a = $("#college-form").data('validator').element("#t1_s1name");
-    b = $("#college-form").data('validator').element("#t1_s1course");
-    c = $("#college-form").data('validator').element("#t1_s1no");
-    d = $("#college-form").data('validator').element("#t1_s1mail");
-    // e = $("#college-form").data('validator').element("#t1_s1attach");
+    a = $("#reg-form").data('validator').element("#t1_s1name");
+    b = $("#reg-form").data('validator').element("#t1_s1course");
+    c = $("#reg-form").data('validator').element("#t1_s1no");
+    d = $("#reg-form").data('validator').element("#t1_s1mail");
+    // e = $("#reg-form").data('validator').element("#t1_s1attach");
     valid_1 = (a && b && c && d && e);
     //student 2
-    a = $("#college-form").data('validator').element("#t1_s2name");
-    b = $("#college-form").data('validator').element("#t1_s2course");
-    c = $("#college-form").data('validator').element("#t1_s2no");
-    d = $("#college-form").data('validator').element("#t1_s2mail");
-    // e = $("#college-form").data('validator').element("#t1_s2attach");
+    a = $("#reg-form").data('validator').element("#t1_s2name");
+    b = $("#reg-form").data('validator').element("#t1_s2course");
+    c = $("#reg-form").data('validator').element("#t1_s2no");
+    d = $("#reg-form").data('validator').element("#t1_s2mail");
+    // e = $("#reg-form").data('validator').element("#t1_s2attach");
     valid_1 &&= (a && b && c && d);
     //student 3
-    a = $("#college-form").data('validator').element("#t1_s3name");
-    b = $("#college-form").data('validator').element("#t1_s3course");
-    c = $("#college-form").data('validator').element("#t1_s3no");
-    d = $("#college-form").data('validator').element("#t1_s3mail");
-    // e = $("#college-form").data('validator').element("#t1_s3attach");
+    a = $("#reg-form").data('validator').element("#t1_s3name");
+    b = $("#reg-form").data('validator').element("#t1_s3course");
+    c = $("#reg-form").data('validator').element("#t1_s3no");
+    d = $("#reg-form").data('validator').element("#t1_s3mail");
+    // e = $("#reg-form").data('validator').element("#t1_s3attach");
     valid_1 &&= (a && b && c && d);
 
     if (visible_teams >= 2){
-      a = $("#college-form").data('validator').element("#t2_s1name");
-      b = $("#college-form").data('validator').element("#t2_s1course");
-      c = $("#college-form").data('validator').element("#t2_s1no");
-      d = $("#college-form").data('validator').element("#t2_s1mail");
-      // e = $("#college-form").data('validator').element("#t2_s1attach");
+      a = $("#reg-form").data('validator').element("#t2_s1name");
+      b = $("#reg-form").data('validator').element("#t2_s1course");
+      c = $("#reg-form").data('validator').element("#t2_s1no");
+      d = $("#reg-form").data('validator').element("#t2_s1mail");
+      // e = $("#reg-form").data('validator').element("#t2_s1attach");
       valid_2 = (a && b && c && d);
       //student 2
-      a = $("#college-form").data('validator').element("#t2_s2name");
-      b = $("#college-form").data('validator').element("#t2_s2course");
-      c = $("#college-form").data('validator').element("#t2_s2no");
-      d = $("#college-form").data('validator').element("#t2_s2mail");
-      // e = $("#college-form").data('validator').element("#t2_s2attach");
+      a = $("#reg-form").data('validator').element("#t2_s2name");
+      b = $("#reg-form").data('validator').element("#t2_s2course");
+      c = $("#reg-form").data('validator').element("#t2_s2no");
+      d = $("#reg-form").data('validator').element("#t2_s2mail");
+      // e = $("#reg-form").data('validator').element("#t2_s2attach");
       valid_2 &&= (a && b && c && d);
       //student 3
-      a = $("#college-form").data('validator').element("#t2_s3name");
-      b = $("#college-form").data('validator').element("#t2_s3course");
-      c = $("#college-form").data('validator').element("#t2_s3no");
-      d = $("#college-form").data('validator').element("#t2_s3mail");
-      // e = $("#college-form").data('validator').element("#t2_s3attach");
+      a = $("#reg-form").data('validator').element("#t2_s3name");
+      b = $("#reg-form").data('validator').element("#t2_s3course");
+      c = $("#reg-form").data('validator').element("#t2_s3no");
+      d = $("#reg-form").data('validator').element("#t2_s3mail");
+      // e = $("#reg-form").data('validator').element("#t2_s3attach");
       valid_2 &&= (a && b && c && d);
     }
 
     if (visible_teams == 3){
-      a = $("#college-form").data('validator').element("#t3_s1name");
-      b = $("#college-form").data('validator').element("#t3_s1course");
-      c = $("#college-form").data('validator').element("#t3_s1no");
-      d = $("#college-form").data('validator').element("#t3_s1mail");
-      // e = $("#college-form").data('validator').element("#t3_s1attach");
+      a = $("#reg-form").data('validator').element("#t3_s1name");
+      b = $("#reg-form").data('validator').element("#t3_s1course");
+      c = $("#reg-form").data('validator').element("#t3_s1no");
+      d = $("#reg-form").data('validator').element("#t3_s1mail");
+      // e = $("#reg-form").data('validator').element("#t3_s1attach");
       valid_3 = (a && b && c && d);
       //student 2
-      a = $("#college-form").data('validator').element("#t3_s2name");
-      b = $("#college-form").data('validator').element("#t3_s2course");
-      c = $("#college-form").data('validator').element("#t3_s2no");
-      d = $("#college-form").data('validator').element("#t3_s2mail");
-      // e = $("#college-form").data('validator').element("#t3_s2attach");
+      a = $("#reg-form").data('validator').element("#t3_s2name");
+      b = $("#reg-form").data('validator').element("#t3_s2course");
+      c = $("#reg-form").data('validator').element("#t3_s2no");
+      d = $("#reg-form").data('validator').element("#t3_s2mail");
+      // e = $("#reg-form").data('validator').element("#t3_s2attach");
       valid_3 &&= (a && b && c && d);
       //student 3
-      a = $("#college-form").data('validator').element("#t3_s3name");
-      b = $("#college-form").data('validator').element("#t3_s3course");
-      c = $("#college-form").data('validator').element("#t3_s3no");
-      d = $("#college-form").data('validator').element("#t3_s3mail");
-      // e = $("#college-form").data('validator').element("#t3_s3attach");
+      a = $("#reg-form").data('validator').element("#t3_s3name");
+      b = $("#reg-form").data('validator').element("#t3_s3course");
+      c = $("#reg-form").data('validator').element("#t3_s3no");
+      d = $("#reg-form").data('validator').element("#t3_s3mail");
+      // e = $("#reg-form").data('validator').element("#t3_s3attach");
       valid_3 &&= (a && b && c && d);
     }
     return valid_1 && valid_2 && valid_3;
@@ -234,7 +234,7 @@ $( document ).ready(function() {
   }, "Please enter your course as shown."
   );
 
-  $("#college-form").validate({
+  $("#reg-form").validate({
 		wrapper:"div",
 		errorPlacement:function(error, element) {
 			error.insertAfter(element);
@@ -890,19 +890,19 @@ $( document ).ready(function() {
       $("#reg-menu-"+String(active_modal+1)).children(".reg-menu-bold").removeClass("hidden-text");
       $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
       //push down current active
-      $("#college-"+String(active_modal)).addClass("phase-out");
-      $("#college-"+String(active_modal)).removeClass("active");
+      $("#modal-"+String(active_modal)).addClass("phase-out");
+      $("#modal-"+String(active_modal)).removeClass("active");
       //elevate hidden next page and enable
-      $("#college-"+String(active_modal+1)).addClass("active");
-      $("#college-"+String(active_modal+1)).removeClass("no-display");
+      $("#modal-"+String(active_modal+1)).addClass("active");
+      $("#modal-"+String(active_modal+1)).removeClass("no-display");
       setTimeout(function(){
-        $("#college-"+String(active_modal+1)).removeClass("hidden");
+        $("#modal-"+String(active_modal+1)).removeClass("hidden");
         //disable non-visible formerly active page
-        $("#college-"+String(active_modal)).addClass("hidden");
-        $("#college-"+String(active_modal)).removeClass("phase-out");
+        $("#modal-"+String(active_modal)).addClass("hidden");
+        $("#modal-"+String(active_modal)).removeClass("phase-out");
 
         setTimeout(function(){
-          $("#college-"+String(active_modal)).addClass("no-display");
+          $("#modal-"+String(active_modal)).addClass("no-display");
           active_modal +=1;
           $(".next").prop("disabled", false);
           //update reg menu visit locations
@@ -927,18 +927,18 @@ $( document ).ready(function() {
     $("#reg-menu-"+String(active_modal-1)).children(".reg-menu-bold").removeClass("hidden-text");
     $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
     //push down current active
-    $("#college-"+String(active_modal)).addClass("phase-out");
-    $("#college-"+String(active_modal)).removeClass("active");
+    $("#modal-"+String(active_modal)).addClass("phase-out");
+    $("#modal-"+String(active_modal)).removeClass("active");
     //elevate hidden next page and enable
-    $("#college-"+String(active_modal-1)).addClass("active");
-    $("#college-"+String(active_modal-1)).removeClass("no-display");
+    $("#modal-"+String(active_modal-1)).addClass("active");
+    $("#modal-"+String(active_modal-1)).removeClass("no-display");
     setTimeout(function(){
-      $("#college-"+String(active_modal-1)).removeClass("hidden");
+      $("#modal-"+String(active_modal-1)).removeClass("hidden");
       //disable non-visible formerly active page
-      $("#college-"+String(active_modal)).addClass("hidden");
-      $("#college-"+String(active_modal)).removeClass("phase-out");
+      $("#modal-"+String(active_modal)).addClass("hidden");
+      $("#modal-"+String(active_modal)).removeClass("phase-out");
       setTimeout(function(){
-        $("#college-"+String(active_modal)).addClass("no-display");
+        $("#modal-"+String(active_modal)).addClass("no-display");
         active_modal -=1;
         $(".back").prop("disabled", false);
       }, 500);
@@ -975,7 +975,7 @@ $( document ).ready(function() {
     if (visible_teams == 3){
       return;
     }
-    $("#college-team-" + String(visible_teams+1)).removeClass("no-display");
+    $("#team-" + String(visible_teams+1)).removeClass("no-display");
     visible_teams+=1;
   });
 
@@ -983,7 +983,7 @@ $( document ).ready(function() {
     if (visible_teams == 1){
       return;
     }
-    $("#college-team-" + String(visible_teams)).addClass("no-display");
+    $("#team-" + String(visible_teams)).addClass("no-display");
     visible_teams-=1;
   });
 
@@ -991,7 +991,7 @@ $( document ).ready(function() {
     if (visible_coach == 2){
       return;
     }
-    $("#college-coach-" + String(visible_coach+1)).removeClass("no-display");
+    $("#coach-" + String(visible_coach+1)).removeClass("no-display");
     visible_coach+=1;
   });
 
@@ -999,7 +999,7 @@ $( document ).ready(function() {
     if (visible_coach == 1){
       return;
     }
-    $("#college-coach-" + String(visible_coach)).addClass("no-display");
+    $("#coach-" + String(visible_coach)).addClass("no-display");
     visible_coach-=1;
   });
 
@@ -1029,19 +1029,19 @@ $( document ).ready(function() {
     $("#reg-menu-"+String(item_no)).children(".reg-menu-bold").removeClass("hidden-text");
     $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
     //push down current active
-    $("#college-"+String(active_modal)).addClass("phase-out");
-    $("#college-"+String(active_modal)).removeClass("active");
+    $("#modal-"+String(active_modal)).addClass("phase-out");
+    $("#modal-"+String(active_modal)).removeClass("active");
     //elevate hidden next page and enable
-    $("#college-"+String(item_no)).addClass("active");
-    $("#college-"+String(item_no)).removeClass("no-display");
+    $("#modal-"+String(item_no)).addClass("active");
+    $("#modal-"+String(item_no)).removeClass("no-display");
     setTimeout(function(){
-      $("#college-"+String(item_no)).removeClass("hidden");
+      $("#modal-"+String(item_no)).removeClass("hidden");
       //disable non-visible formerly active page
-      $("#college-"+String(active_modal)).addClass("hidden");
-      $("#college-"+String(active_modal)).removeClass("phase-out");
+      $("#modal-"+String(active_modal)).addClass("hidden");
+      $("#modal-"+String(active_modal)).removeClass("phase-out");
 
       setTimeout(function(){
-        $("#college-"+String(active_modal)).addClass("no-display");
+        $("#modal-"+String(active_modal)).addClass("no-display");
         active_modal = parseInt(item_no);
         reg_menu_click = false;
       }, 500);
@@ -1049,28 +1049,28 @@ $( document ).ready(function() {
     }, 10);
   });
 
-  $("#college-submit").on("click", function(){
+  $("#submit").on("click", function(){
     //prevent double click
-    $("#college-submit").prop("disabled", true);
+    $("#submit").prop("disabled", true);
     if (is_qb){
-      $("#college-form").prop("action", college_qb_action);
+      $("#reg-form").prop("action", college_qb_action);
     }else {
-      $("#college-form").prop("action", college_td_action);
+      $("#reg-form").prop("action", college_td_action);
     }
-    if($("#college-form").valid() &&
+    if($("#reg-form").valid() &&
         document.getElementById('verifycheck').checked){
-      $("#college-form").submit();
+      $("#reg-form").submit();
       //transition here.
-      $("#college-feedback").removeClass("no-display");
+      $("#feedback").removeClass("no-display");
       setTimeout(function(){
-        $("#college-confirm").addClass("hidden");
-        $("#college-feedback").removeClass("hidden");
+        $("#reg-confirm").addClass("hidden");
+        $("#feedback").removeClass("hidden");
         setTimeout(function(){
-          $("#college-confirm").addClass("no-display");
+          $("#reg-confirm").addClass("no-display");
         }, 500);
       }, 10);
     }else{
-      $("#college-submit").prop("disabled", false);
+      $("#submit").prop("disabled", false);
     }
 
 

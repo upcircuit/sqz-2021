@@ -48,14 +48,14 @@
           </div>
         </div>
         <!-- college reg form -->
-        <form name="college-form" id="college-form"
+        <form name="reg-form" id="reg-form"
           action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse"
           method="post" target="hidden-form" novalidate="novalidate">
-          <div id="college-registration" class="hidden no-display">
+          <div id="registration" class="hidden no-display">
             <h1>COLLEGE DIVISION REGISTRATION</h1>
             <div class="relpos-anchor">
-              <div id="college-input" class="flex-container reg-input">
-                <ul class="reg-menu" id="college-menu">
+              <div class="flex-container reg-input">
+                <ul class="reg-menu">
                   <li class="reg-menu-item" id="reg-menu-1">CATEGORY
                     <a class="reg-menu-bold hidden-text">CATEGORY</a>
                   </li>
@@ -74,16 +74,16 @@
                 </ul>
                 <!-- all reg form input slides go into the following div -->
                 <div class="modal-container">
-                  <div class="modal no-display hidden" id="college-1">
+                  <div class="modal no-display hidden" id="modal-1">
                     <div class="modal-content">
                       <h1>CATEGORY</h1>
                       <div class="flex-container card-container">
-                        <div class="flex-50 college-cat-card">
+                        <div class="flex-50 cat-card">
                           <button type="button" id="college-qb-select" class="button-big">QUIZ BEE
                           </button>
                           <p>Teams from top colleges and universities nationwide will compete once more in this year’s EEE Virtual Quiz Show. In this competition, each team's abilities, strategy, and teamwork will be thoroughly tested and only the best will win.</p>
                         </div>
-                        <div class="flex-50 college-cat-card">
+                        <div class="flex-50 cat-card">
                           <button type="button" id="college-td-select" class="button-big">TECH DECON
                           </button>
                           <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
@@ -94,7 +94,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="modal no-display hidden" id="college-2">
+                  <div class="modal no-display hidden" id="modal-2">
                     <div class="modal-content" id="quali-qb">
                       <h1>QUALIFICATIONS</h1>
                       <p>1. A maximum of three (3) teams are allowed to join per school.</p>
@@ -115,7 +115,7 @@
                       <button type="button" class="button-small next">PROCEED</button>
                     </div>
                   </div>
-                  <div class="modal no-display hidden" id="college-3">
+                  <div class="modal no-display hidden" id="modal-3">
                     <div class="modal-content">
                       <h1>SCHOOL INFORMATION</h1>
                       <label for="schoolname">School Name</label>
@@ -126,9 +126,9 @@
                       <input placeholder="02 XXXXYYYY or ZZZ XXX YYYY" type="text" id="schoolno" name="entry.1652273826"></input>
                     </div>
                   </div>
-                  <div class="modal no-display hidden" id="college-4">
+                  <div class="modal no-display hidden" id="modal-4">
                     <div class="modal-content">
-                      <div id="college-coach-1">
+                      <div id="coach-1">
                         <h1>COACH INFORMATION</h2>
                         <h3>COACH 1</h3>
                         <div class="flex-container">
@@ -144,7 +144,7 @@
                           </div>
                         </div>
                       </div>
-                      <div id="college-coach-2" class="no-display">
+                      <div id="coach-2" class="no-display">
                         <h3>COACH 2 (OPTIONAL)</h3>
                         <div class="flex-container">
                           <div class="flex-50">
@@ -163,9 +163,9 @@
                       <span id="removecoach">- Remove A Coach</span>
                     </div>
                   </div>
-                  <div class="modal no-display hidden" id="college-5">
+                  <div class="modal no-display hidden" id="modal-5">
                     <div class="modal-content">
-                      <div id="college-team-1" class="team-input">
+                      <div id="team-1" class="team-input">
                         <h1>TEAM INFORMATION</h1>
                         <h3>STUDENT 1</h3>
                         <div class="flex-container">
@@ -219,7 +219,7 @@
                         <!-- <label for="t1_s3attach" class="upload-button button-small">Upload Scanned School ID</label> -->
                         <!-- <input type="file" id="t1_s3attach" name="entry.2101063035"></input> -->
                       </div>
-                      <div id="college-team-2" class="team-input no-display">
+                      <div id="team-2" class="team-input no-display">
                         <h1>TEAM INFORMATION</h1>
                         <h3>STUDENT 1</h3>
                         <div class="flex-container">
@@ -273,7 +273,7 @@
                         <!-- <label for="t2_s3attach" class="upload-button button-small">Upload Scanned School ID</label> -->
                         <!-- <input type="file" id="t2_s3attach" name="entry.335994304"></input> -->
                       </div>
-                      <div id="college-team-3" class="team-input no-display">
+                      <div id="team-3" class="team-input no-display">
                         <h1>TEAM INFORMATION</h1>
                         <h3>STUDENT 1</h3>
                         <div class="flex-container">
@@ -337,7 +337,7 @@
                 <button type="button" class="button-small back">BACK</button>
                 <button type="button" class="button-small next">PROCEED</button>
               </div>
-              <div id="college-confirm" class="reg-confirm hidden no-display">
+              <div id="reg-confirm" class="hidden no-display">
                 <div class="scroll-confirm">
                   <h2>SUMMARY</h2>
                   <div class="flex-container">
@@ -584,11 +584,11 @@
                   <label for="verifycheck">This is to verify that all information above is correct.</label>
                   <div class="submit-nav">
                     <button type="button" class="button-small back-confirm">BACK</button>
-                    <button type="button" class="button-small" id="college-submit">SUBMIT</button>
+                    <button type="button" class="button-small" id="submit">SUBMIT</button>
                   </div>
                 </div>
               </div>
-              <div id="college-feedback" class="hidden no-display">
+              <div id="feedback" class="hidden no-display">
                 <p>Thank you for registering for the 24th SquEEEze! We will be sending an email to your coach's email for the confirmation of your registration.
                   <br><br>
                   Please stay tuned to your emails and to https://www.facebook.com/upcircuit.squeeeze for any further announcements regarding SquEEEze.

@@ -465,7 +465,7 @@ a:hover {
   font-size: 1.25em;
 }
 
-#college-registration {
+#registration {
   position: absolute;
   top: 0;
   left: 0;
@@ -473,7 +473,7 @@ a:hover {
   width: 100%;
   transition: all 0.5s ease-out;
 }
-#college-registration h1 {
+#registration h1 {
   font-size: 1.5em;
   text-align: left;
   margin-left: 3em;
@@ -548,19 +548,19 @@ a:hover {
   justify-content: space-evenly;
 }
 
-.college-cat-card {
+.cat-card {
   color: #FFFFFF;
   padding: 0 1em;
   box-sizing: border-box;
   text-align: center;
 }
-.college-cat-card h2 {
+.cat-card h2 {
   border: 1px solid rgba(113, 113, 113, 0.6);
   box-sizing: border-box;
   border-radius: 25px;
   margin-bottom: 1em;
 }
-.college-cat-card p {
+.cat-card p {
   font-family: Akrobat, sans-serif;
   font-weight: 200;
   font-size: 1.35em;
@@ -584,7 +584,7 @@ a:hover {
   margin: 1em;
 }
 
-#college-2 {
+#modal-2 {
   text-align: left;
 }
 
@@ -592,33 +592,33 @@ a:hover {
   position: absolute;
 }
 
-#college-3 input {
+#modal-3 input {
   margin: 0.5em 0;
 }
 
-#college-4 label {
+#modal-4 label {
   display: block;
 }
-#college-4 .flex-50:first-child {
+#modal-4 .flex-50:first-child {
   padding-right: 0.5em;
 }
-#college-4 .flex-50:last-child {
+#modal-4 .flex-50:last-child {
   padding-left: 0.5em;
 }
-#college-4 input {
+#modal-4 input {
   margin: 0;
 }
 
-#college-5 .flex-50:first-child {
+#modal-5 .flex-50:first-child {
   padding-right: 0.5em;
 }
-#college-5 .flex-50:last-child {
+#modal-5 .flex-50:last-child {
   padding-left: 0.5em;
 }
-#college-5 .flex-container {
+#modal-5 .flex-container {
   justify-content: space-between;
 }
-#college-5 input {
+#modal-5 input {
   margin: 0;
   font-size: 1.5em;
 }
@@ -647,7 +647,7 @@ a:hover {
   cursor:pointer;
 }
 
-.reg-confirm {
+#reg-confirm {
   position: absolute;
   top: 0;
   left: 0;
@@ -661,16 +661,16 @@ a:hover {
   height:70vh;
   overflow:auto;
 }
-.reg-confirm table {
+#reg-confirm table {
   text-align: left;
 }
-.reg-confirm .flex-container {
+#reg-confirm .flex-container {
   margin: 0 2em;
 }
-.reg-confirm .flex-50 {
+#reg-confirm .flex-50 {
   padding: 0 2em;
 }
-.reg-confirm .flex-50:last-child {
+#reg-confirm .flex-50:last-child {
   border-left: 1px solid rgba(255, 255, 255, 0.6);
 }
 
@@ -689,7 +689,7 @@ a:hover {
   text-align:center;
 }
 
-#college-feedback {
+#feedback {
   position:absolute;
   top:0;
   left:0;
@@ -697,7 +697,7 @@ a:hover {
   z-index:6;
 
 }
-#college-feedback p {
+#feedback p {
   text-align:center;
   margin: auto;
   width:80%;
