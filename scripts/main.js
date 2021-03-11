@@ -34,7 +34,7 @@ function showConfimationCollege() {
   setTimeout(function(){
     $("#reg-confirm").removeClass("hidden");
     $(".confirm-buttons").removeClass("hidden");
-    $("#college-input").addClass("hidden");
+    $(".reg-input").addClass("hidden");
     $(".modal-nav").addClass("hidden");
     setTimeout(function(){
       $("#college-input").addClass("no-display");
@@ -95,106 +95,27 @@ function hideRegistrationCollege(){
 
 function validate_page(page){
   //yes, it should just be one var &&= to all, but that doesn't work somehow
-  //we will fix this later.
+  var temp = true;
+  var i = 0;
+  var flag = true;
   if (page == 3){
-    var a = $("#reg-form").data('validator').element("#schoolname");
-    var b = $("#reg-form").data('validator').element("#schoolad");
-    var c = $("#reg-form").data('validator').element("#schoolno");
-    return (a && b && c);
+    for (i = 0; i <= 2; i++){
+      temp = $("#reg-form").data('validator').element("#"+ids[i]);
+      flag &&=temp;
+    }
   }else if (page == 4){
-    var valid_flag_1 = true;
-    var valid_flag_2 = true;
-    var a = $("#reg-form").data('validator').element("#c1name");
-    var b = $("#reg-form").data('validator').element("#c1no");
-    var c = $("#reg-form").data('validator').element("#c1mail");
-    valid_flag_1 = a && b && c;
-    if (visible_coach == 2){
-      a = $("#reg-form").data('validator').element("#c2name");
-      b = $("#reg-form").data('validator').element("#c2no");
-      c = $("#reg-form").data('validator').element("#c2mail");
-      valid_flag_2 = (a && b && c);
+    //if both coaches are visible, validate all coach fields.
+    for (i = 3; i <= (visible_coach==2 ? 8 : 5); i++){
+      temp = $("#reg-form").data('validator').element("#"+ids[i]);
+      flag &&=temp;
     }
-    return valid_flag_1 && valid_flag_2;
   }else if (page == 5){
-    var valid_3 = true;
-    var valid_2 = true;
-    var valid_1 = true;
-    var a = true;
-    var b = true;
-    var c = true;
-    var d = true;
-    var e = true;
-
-    //student 1
-    a = $("#reg-form").data('validator').element("#t1_s1name");
-    b = $("#reg-form").data('validator').element("#t1_s1course");
-    c = $("#reg-form").data('validator').element("#t1_s1no");
-    d = $("#reg-form").data('validator').element("#t1_s1mail");
-    // e = $("#reg-form").data('validator').element("#t1_s1attach");
-    valid_1 = (a && b && c && d && e);
-    //student 2
-    a = $("#reg-form").data('validator').element("#t1_s2name");
-    b = $("#reg-form").data('validator').element("#t1_s2course");
-    c = $("#reg-form").data('validator').element("#t1_s2no");
-    d = $("#reg-form").data('validator').element("#t1_s2mail");
-    // e = $("#reg-form").data('validator').element("#t1_s2attach");
-    valid_1 &&= (a && b && c && d);
-    //student 3
-    a = $("#reg-form").data('validator').element("#t1_s3name");
-    b = $("#reg-form").data('validator').element("#t1_s3course");
-    c = $("#reg-form").data('validator').element("#t1_s3no");
-    d = $("#reg-form").data('validator').element("#t1_s3mail");
-    // e = $("#reg-form").data('validator').element("#t1_s3attach");
-    valid_1 &&= (a && b && c && d);
-
-    if (visible_teams >= 2){
-      a = $("#reg-form").data('validator').element("#t2_s1name");
-      b = $("#reg-form").data('validator').element("#t2_s1course");
-      c = $("#reg-form").data('validator').element("#t2_s1no");
-      d = $("#reg-form").data('validator').element("#t2_s1mail");
-      // e = $("#reg-form").data('validator').element("#t2_s1attach");
-      valid_2 = (a && b && c && d);
-      //student 2
-      a = $("#reg-form").data('validator').element("#t2_s2name");
-      b = $("#reg-form").data('validator').element("#t2_s2course");
-      c = $("#reg-form").data('validator').element("#t2_s2no");
-      d = $("#reg-form").data('validator').element("#t2_s2mail");
-      // e = $("#reg-form").data('validator').element("#t2_s2attach");
-      valid_2 &&= (a && b && c && d);
-      //student 3
-      a = $("#reg-form").data('validator').element("#t2_s3name");
-      b = $("#reg-form").data('validator').element("#t2_s3course");
-      c = $("#reg-form").data('validator').element("#t2_s3no");
-      d = $("#reg-form").data('validator').element("#t2_s3mail");
-      // e = $("#reg-form").data('validator').element("#t2_s3attach");
-      valid_2 &&= (a && b && c && d);
+    for (i = 9; i <= 8 + 12*visible_teams; i++){
+      temp = $("#reg-form").data('validator').element("#"+ids[i]);
+      flag &&=temp;
     }
-
-    if (visible_teams == 3){
-      a = $("#reg-form").data('validator').element("#t3_s1name");
-      b = $("#reg-form").data('validator').element("#t3_s1course");
-      c = $("#reg-form").data('validator').element("#t3_s1no");
-      d = $("#reg-form").data('validator').element("#t3_s1mail");
-      // e = $("#reg-form").data('validator').element("#t3_s1attach");
-      valid_3 = (a && b && c && d);
-      //student 2
-      a = $("#reg-form").data('validator').element("#t3_s2name");
-      b = $("#reg-form").data('validator').element("#t3_s2course");
-      c = $("#reg-form").data('validator').element("#t3_s2no");
-      d = $("#reg-form").data('validator').element("#t3_s2mail");
-      // e = $("#reg-form").data('validator').element("#t3_s2attach");
-      valid_3 &&= (a && b && c && d);
-      //student 3
-      a = $("#reg-form").data('validator').element("#t3_s3name");
-      b = $("#reg-form").data('validator').element("#t3_s3course");
-      c = $("#reg-form").data('validator').element("#t3_s3no");
-      d = $("#reg-form").data('validator').element("#t3_s3mail");
-      // e = $("#reg-form").data('validator').element("#t3_s3attach");
-      valid_3 &&= (a && b && c && d);
-    }
-    return valid_1 && valid_2 && valid_3;
   }
-
+  return flag;
 }
 
 $( document ).ready(function() {
@@ -835,16 +756,6 @@ $( document ).ready(function() {
     }
 	});
 
-  // $("#t3_s3attach").rules("add", {
-  //   required: {
-  //     depends:function(element){
-  //       return (visible_teams == 3);
-  //     }
-  //   }
-  // });
-  //REG FORM JS
-  //in order to transition properly, need to remove disabled (display:none)
-  //BEFORE removing hidden (opacity:0)
   $("#college-select").on("click",function(){
     showRegistrationCollege();
     if (is_mobile) {
@@ -984,6 +895,7 @@ $( document ).ready(function() {
       return;
     }
     $("#team-" + String(visible_teams)).addClass("no-display");
+    $("#team-" + String(visible_teams)).find("input").val('');
     visible_teams-=1;
   });
 
@@ -999,6 +911,7 @@ $( document ).ready(function() {
     if (visible_coach == 1){
       return;
     }
+    $("#coach-" + String(visible_coach)).find("input").val('');
     $("#coach-" + String(visible_coach)).addClass("no-display");
     visible_coach-=1;
   });
@@ -1072,7 +985,5 @@ $( document ).ready(function() {
     }else{
       $("#submit").prop("disabled", false);
     }
-
-
   });
 });

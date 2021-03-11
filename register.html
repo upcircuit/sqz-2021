@@ -52,7 +52,8 @@
           action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse"
           method="post" target="hidden-form" novalidate="novalidate">
           <div id="registration" class="hidden no-display">
-            <h1>COLLEGE DIVISION REGISTRATION</h1>
+            <h1 id="college-reg-header">COLLEGE DIVISION REGISTRATION</h1>
+            <h1 id="hs-reg-header" class="no-display">HIGH SCHOOL DIVISION REGISTRATION</h1>
             <div class="relpos-anchor">
               <div class="flex-container reg-input">
                 <ul class="reg-menu">
@@ -85,6 +86,16 @@
                         </div>
                         <div class="flex-50 cat-card">
                           <button type="button" id="college-td-select" class="button-big">TECH DECON
+                          </button>
+                          <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
+                        </div>
+                        <div class="flex-50 cat-card no-display">
+                          <button type="button" id="highschool-qb-select" class="button-big">QUIZ BEE
+                          </button>
+                          <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
+                        </div>
+                        <div class="flex-50 cat-card no-display">
+                          <button type="button" id="highschool-ws-select" class="button-big">WORKSHOP
                           </button>
                           <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
                         </div>
@@ -343,15 +354,17 @@
                   <div class="flex-container">
                     <div class="flex-50">
                       <!--Will be filled with JS -->
-                      <h4>CATEGORY</h4>
                       <table>
+                        <tr>
+                          <td><h4>CATEGORY</h4></td>
+                        </tr>
                         <tr>
                           <td>EVENT:</td>
                           <td class="event-data">NONE</td>
                         </tr>
-                      </table>
-                      <h4>SCHOOL INFORMATION</h4>
-                      <table>
+                        <tr>
+                          <td><h4>SCHOOL INFORMATION</h4></td>
+                        </tr>
                         <tr>
                           <td>SCHOOL:</td>
                           <td class="schoolname-data">NONE</td>
@@ -364,10 +377,12 @@
                           <td>SCHOOL NUMBER/FAX:</td>
                           <td class="schoolno-data">NONE</td>
                         </tr>
-                      </table>
-                      <h4>COACH INFORMATION</h4>
-                      <h5>COACH 1</h5>
-                      <table>
+                        <tr>
+                          <td><h4>COACH INFORMATION</h4></td>
+                        </tr>
+                        <tr>
+                          <td><h5>COACH 1</h5></td>
+                        </tr>
                         <tr>
                           <td>NAME:</td>
                           <td class="c1name-data">NONE</td>
@@ -380,9 +395,9 @@
                           <td>EMAIL:</td>
                           <td class="c1mail-data">NONE</td>
                         </tr>
-                      </table>
-                      <h5 class="c2name-label">COACH 2</h5>
-                      <table>
+                        <tr>
+                          <td><h5 class="c2name-label">COACH 2</h5></td>
+                        </tr>
                         <tr>
                           <td class="c2name-label">NAME:</td>
                           <td class="c2name-data">NONE</td>
@@ -399,10 +414,16 @@
                     </div>
                     <div class="flex-50 team-data">
                       <!--Will be filled with JS -->
-                      <h4>TEAM INFORMATION</h4>
-                      <h5>TEAM 1</h5>
-                      <h5>STUDENT 1</h5>
                       <table>
+                        <tr>
+                          <td><h4>TEAM INFORMATION</h4></td>
+                        </tr>
+                        <tr>
+                          <td><h5>TEAM 1</h5></td>
+                        </tr>
+                        <tr>
+                          <td><h5>STUDENT 1</h5></td>
+                        </tr>
                         <tr>
                           <td>NAME:</td>
                           <td class="t1_s1name-data">NONE</td>
@@ -419,9 +440,9 @@
                           <td>EMAIL:</td>
                           <td class="t1_s1mail-data">NONE</td>
                         </tr>
-                      </table>
-                      <h5>STUDENT 2</h5>
-                      <table>
+                        <tr>
+                          <td><h5>STUDENT 2</h5></td>
+                        </tr>
                         <tr>
                           <td>NAME:</td>
                           <td class="t1_s2name-data">NONE</td>
@@ -438,9 +459,9 @@
                           <td>EMAIL:</td>
                           <td class="t1_s2mail-data">NONE</td>
                         </tr>
-                      </table>
-                      <h5>STUDENT 3</h5>
-                      <table>
+                        <tr>
+                          <td><h5>STUDENT 3</h5></td>
+                        </tr>
                         <tr>
                           <td>NAME:</td>
                           <td class="t1_s3name-data">NONE</td>
@@ -459,9 +480,13 @@
                         </tr>
                       </table>
 
-                      <h5 class="t2_s1name-label">TEAM 2</h5>
-                      <h5 class="t2_s1name-label">STUDENT 1</h5>
                       <table>
+                        <tr>
+                          <td><h5>TEAM 2</h5></td>
+                        </tr>
+                        <tr>
+                          <td><h5>STUDENT 1</h5></td>
+                        </tr>
                         <tr>
                           <td class="t2_s1name-label">NAME:</td>
                           <td class="t2_s1name-data">NONE</td>
@@ -478,9 +503,9 @@
                           <td class="t2_s1mail-label">EMAIL:</td>
                           <td class="t2_s1mail-data">NONE</td>
                         </tr>
-                      </table>
-                      <h5 class="t2_s2name-label">STUDENT 2</h5>
-                      <table>
+                        <tr>
+                          <td><h5>STUDENT 2</h5></td>
+                        </tr>
                         <tr>
                           <td class="t2_s2name-label">NAME:</td>
                           <td class="t2_s2name-data">NONE</td>
@@ -497,9 +522,9 @@
                           <td class="t2_s2mail-label">EMAIL:</td>
                           <td class="t2_s2mail-data">NONE</td>
                         </tr>
-                      </table>
-                      <h5 class="t2_s3name-label">STUDENT 3</h5>
-                      <table>
+                        <tr>
+                          <td><h5>STUDENT 3</h5></td>
+                        </tr>
                         <tr>
                           <td class="t2_s3name-label">NAME:</td>
                           <td class="t2_s3name-data">NONE</td>
@@ -518,9 +543,13 @@
                         </tr>
                       </table>
 
-                      <h5 class="t3_s1name-label">TEAM 3</h5>
-                      <h5 class="t3_s1name-label">STUDENT 1</h5>
                       <table>
+                        <tr>
+                          <td><h5>TEAM 3</h5></td>
+                        </tr>
+                        <tr>
+                          <td><h5>STUDENT 1</h5></td>
+                        </tr>
                         <tr>
                           <td class="t3_s1name-label">NAME:</td>
                           <td class="t3_s1name-data">NONE</td>
