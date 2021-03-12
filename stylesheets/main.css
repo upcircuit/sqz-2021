@@ -592,6 +592,22 @@ a:hover {
   position: absolute;
 }
 
+#quali-qb-hs {
+  position: absolute;
+}
+
+#quali-qb-ws {
+  position: absolute;
+}
+
+#quali-td {
+  position: absolute;
+}
+
+#student-reg {
+  position:absolute;
+}
+
 #modal-3 input {
   margin: 0.5em 0;
 }
@@ -717,5 +733,3 @@ a:hover {
 IFRAME {
   display: none;
 }
-
-/*# sourceMappingURL=main.css.map */

@@ -2,6 +2,7 @@ var active_modal = 1;
 var has_selected_categ = false;
 var is_qb = false;
 var is_mobile = false;
+var is_college = true;
 var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
 var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
 var visible_teams = 1;
@@ -27,71 +28,6 @@ var ids = [
   "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail",
   "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail",
 ]
-
-function showConfimationCollege() {
-  $("#reg-confirm").removeClass("no-display");
-  $(".confirm-buttons").removeClass("no-display");
-  setTimeout(function(){
-    $("#reg-confirm").removeClass("hidden");
-    $(".confirm-buttons").removeClass("hidden");
-    $(".reg-input").addClass("hidden");
-    $(".modal-nav").addClass("hidden");
-    setTimeout(function(){
-      $("#college-input").addClass("no-display");
-      $(".modal-nav").addClass("no-display");
-    }, 500);
-  }, 10);
-}
-
-function hideConfimationCollege() {
-  $(".modal-nav").removeClass("no-display");
-  $("#college-input").removeClass("no-display");
-  setTimeout(function(){
-    $(".modal-nav").removeClass("hidden");
-    $("#college-input").removeClass("hidden");
-    $("#reg-confirm").addClass("hidden");
-    $(".confirm-buttons").addClass("hidden");
-    setTimeout(function(){
-      $("#reg-confirm").addClass("no-display");
-      $(".confirm-buttons").addClass("no-display");
-    }, 500);
-  }, 10);
-}
-
-function showRegistrationCollege(){
-  $("#bg-1").removeClass("no-display");
-  $("#registration").removeClass("no-display");
-  $("#modal-"+active_modal).removeClass("no-display");
-  setTimeout(function(){
-    $("#bg-1").removeClass("hidden");
-    $("#registration").removeClass("hidden");
-    $(".intro-slide-container").addClass("no-display");
-    $(".intro-slide-container").addClass("hidden");
-    $("#modal-"+active_modal).removeClass("hidden");
-    $("#modal-"+active_modal).addClass("active");
-    $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").removeClass("hidden-text");
-  }, 50);
-}
-
-function hideRegistrationCollege(){
-  $("#bg-1").addClass("hidden");
-  $("#registration").addClass("hidden");
-  $("#modal-"+active_modal).addClass("hidden");
-  setTimeout(function(){
-    $("#bg-1").addClass("no-display");
-    $("#registration").addClass("no-display");
-    $(".intro-slide-container").removeClass("no-display");
-    setTimeout(function(){
-      $(".intro-slide-container").removeClass("hidden");
-      $("#modal-"+active_modal).removeClass("active");
-      $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
-      active_modal = 1;
-      furthest_visit = 1;
-      $(".reg-menu").children("li").addClass("unvisited");
-      $("#reg-menu-1").removeClass("unvisited");
-    }, 10);
-  }, 500);
-}
 
 function validate_page(page){
   //yes, it should just be one var &&= to all, but that doesn't work somehow
@@ -297,10 +233,6 @@ $( document ).ready(function() {
 		required: true,
 		email: true
 	});
-  //
-  // $("#t1_s1attach").rules("add", {
-  //   required: true
-  // });
 
   $("#t1_s2name").rules("add", {
 		required: true,
@@ -329,9 +261,6 @@ $( document ).ready(function() {
 		email: true
 	});
 
-  // $("#t1_s2attach").rules("add", {
-  //   required: true
-  // });
 
   $("#t1_s3name").rules("add", {
 		required: true,
@@ -356,10 +285,6 @@ $( document ).ready(function() {
 		required: true,
 		email: true
 	});
-
-  // $("#t1_s3attach").rules("add", {
-  //   required: true
-  // });
 
   //TEAM 2
   $("#t2_s1name").rules("add", {
@@ -424,14 +349,6 @@ $( document ).ready(function() {
     }
 	});
 
-  // $("#t2_s1attach").rules("add", {
-  //   required: {
-  //     depends:function(element){
-  //       return (visible_teams >= 2);
-  //     }
-  //   }
-  // });
-
   $("#t2_s2name").rules("add", {
 		required: {
       depends:function(element){
@@ -491,14 +408,6 @@ $( document ).ready(function() {
     }
 	});
 
-  // $("#t2_s2attach").rules("add", {
-  //   required: {
-  //     depends:function(element){
-  //       return (visible_teams >= 2);
-  //     }
-  //   }
-  // });
-
   $("#t2_s3name").rules("add", {
 		required: {
       depends:function(element){
@@ -554,14 +463,6 @@ $( document ).ready(function() {
       }
     }
 	});
-
-  // $("#t2_s3attach").rules("add", {
-  //   required: {
-  //     depends:function(element){
-  //       return (visible_teams >= 2);
-  //     }
-  //   }
-  // });
 
   $("#t3_s1name").rules("add", {
 		required: {
@@ -625,14 +526,6 @@ $( document ).ready(function() {
     }
 	});
 
-  // $("#t3_s1attach").rules("add", {
-  //   required: {
-  //     depends:function(element){
-  //       return (visible_teams == 3);
-  //     }
-  //   }
-  // });
-
   $("#t3_s2name").rules("add", {
 		required: {
       depends:function(element){
@@ -692,14 +585,6 @@ $( document ).ready(function() {
     }
 	});
 
-  // $("#t3_s2attach").rules("add", {
-  //   required: {
-  //     depends:function(element){
-  //       return (visible_teams == 3);
-  //     }
-  //   }
-  // });
-
   $("#t3_s3name").rules("add", {
 		required: {
       depends:function(element){
@@ -756,8 +641,96 @@ $( document ).ready(function() {
     }
 	});
 
+  function showConfimationCollege() {
+    $("#reg-confirm").removeClass("no-display");
+    $(".confirm-buttons").removeClass("no-display");
+    setTimeout(function(){
+      $("#reg-confirm").removeClass("hidden");
+      $(".confirm-buttons").removeClass("hidden");
+      $(".reg-input").addClass("hidden");
+      $(".modal-nav").addClass("hidden");
+      setTimeout(function(){
+        $("#college-input").addClass("no-display");
+        $(".modal-nav").addClass("no-display");
+      }, 500);
+    }, 10);
+  }
+
+  function hideConfimationCollege() {
+    $(".modal-nav").removeClass("no-display");
+    $("#college-input").removeClass("no-display");
+    setTimeout(function(){
+      $(".modal-nav").removeClass("hidden");
+      $("#college-input").removeClass("hidden");
+      $("#reg-confirm").addClass("hidden");
+      $(".confirm-buttons").addClass("hidden");
+      setTimeout(function(){
+        $("#reg-confirm").addClass("no-display");
+        $(".confirm-buttons").addClass("no-display");
+      }, 500);
+    }, 10);
+  }
+
+  function showRegistration(){
+    if (is_college){
+      $("#reg-header").text("COLLEGE DIVISION REGISTRATION");
+      $("#college-qb-select").parent().removeClass("no-display");
+      $("#college-td-select").parent().removeClass("no-display");
+      $("#hs-qb-select").parent().addClass("no-display");
+      $("#hs-ws-select").parent().addClass("no-display");
+    }else {
+      $("#reg-header").text("HIGH SCHOOL DIVISION REGISTRATION");
+      $("#college-qb-select").parent().addClass("no-display");
+      $("#college-td-select").parent().addClass("no-display");
+      $("#hs-qb-select").parent().removeClass("no-display");
+      $("#hs-ws-select").parent().removeClass("no-display");
+    }
+    active_modal = 1;
+    $("#bg-1").removeClass("no-display");
+    $("#registration").removeClass("no-display");
+    $("#modal-"+active_modal).removeClass("no-display");
+    setTimeout(function(){
+      $("#bg-1").removeClass("hidden");
+      $("#registration").removeClass("hidden");
+      $(".intro-slide-container").addClass("no-display");
+      $(".intro-slide-container").addClass("hidden");
+      $("#modal-"+active_modal).removeClass("hidden");
+      $("#modal-"+active_modal).addClass("active");
+      $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").removeClass("hidden-text");
+    }, 50);
+  }
+
+  function hideRegistrationCollege(){
+    $("#bg-1").addClass("hidden");
+    $("#registration").addClass("hidden");
+    $("#modal-"+active_modal).addClass("hidden");
+    setTimeout(function(){
+      $("#bg-1").addClass("no-display");
+      $("#registration").addClass("no-display");
+      $(".intro-slide-container").removeClass("no-display");
+      setTimeout(function(){
+        $(".intro-slide-container").removeClass("hidden");
+        $("#modal-"+active_modal).removeClass("active");
+        $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
+        active_modal = 1;
+        furthest_visit = 1;
+        $(".reg-menu").children("li").addClass("unvisited");
+        $("#reg-menu-1").removeClass("unvisited");
+      }, 10);
+    }, 500);
+  }
+
   $("#college-select").on("click",function(){
-    showRegistrationCollege();
+    is_college = true;
+    showRegistration();
+    if (is_mobile) {
+      alert("We recommend the use of a Laptop/PC when filling up the registration form.")
+    }
+  });
+
+  $("#hs-select").on("click",function(){
+    is_college = false;
+    showRegistration();
     if (is_mobile) {
       alert("We recommend the use of a Laptop/PC when filling up the registration form.")
     }
@@ -863,10 +836,14 @@ $( document ).ready(function() {
   $("#college-qb-select").on("click", function(){
     is_qb = true; //use this to set target URL later.
     has_selected_categ = true;
+    //make appropriate qualification data visible
     $("#quali-qb").css({'opacity' : 1});
     $("#quali-td").css({'opacity' : 0});
+    $("#quali-qb-hs").css({'opacity' : 0});
+    $("#quali-ws").css({'opacity' : 0});
     $(".error-message").css({'opacity' : 0});
     $(".event-data").text("College Quiz Bee")
+    //hold selection
     $("#college-qb-select").addClass("active-choice")
     $("#college-td-select").removeClass("active-choice")
   });
@@ -874,12 +851,52 @@ $( document ).ready(function() {
   $("#college-td-select").on("click", function(){
     is_qb = false; //use this to set target URL later.
     has_selected_categ = true;
+    //make appropriate qualification data visible
     $("#quali-qb").css({'opacity' : 0});
     $("#quali-td").css({'opacity' : 1});
+    $("#quali-qb-hs").css({'opacity' : 0});
+    $("#quali-ws").css({'opacity' : 0});
     $(".error-message").css({'opacity' : 0});
     $(".event-data").text("Technological Design Contest")
+    //hold selection
     $("#college-qb-select").removeClass("active-choice")
     $("#college-td-select").addClass("active-choice")
+  });
+
+  $("#hs-qb-select").on("click", function(){
+    is_qb = true; //use this to set target URL later.
+    has_selected_categ = true;
+    //make appropriate qualification data visible
+    $("#quali-qb-hs").css({'opacity' : 1});
+    $("#quali-td").css({'opacity' : 0});
+    $("#quali-qb").css({'opacity' : 0});
+    $("#quali-ws").css({'opacity' : 0});
+    $(".error-message").css({'opacity' : 0});
+    $(".event-data").text("High School Quiz Bee")
+    //swap student/team reg
+    $("#student-reg").addClass("no-display");
+    $("#team-reg").removeClass("no-display");
+    //hold selection
+    $("#hs-qb-select").addClass("active-choice")
+    $("#hs-ws-select").removeClass("active-choice")
+  });
+
+  $("#hs-ws-select").on("click", function(){
+    is_qb = false; //use this to set target URL later.
+    has_selected_categ = true;
+    //make appropriate qualification data visible
+    $("#quali-qb-hs").css({'opacity' : 0});
+    $("#quali-td").css({'opacity' : 0});
+    $("#quali-qb").css({'opacity' : 0});
+    $("#quali-ws").css({'opacity' : 1});
+    $(".error-message").css({'opacity' : 0});
+    $(".event-data").text("Workshop")
+    //swap student/team reg
+    $("#team-reg").addClass("no-display");
+    $("#student-reg").removeClass("no-display");
+    //hold selection
+    $("#hs-qb-select").removeClass("active-choice")
+    $("#hs-ws-select").addClass("active-choice")
   });
 
   $("#addteam").on('click', function(){

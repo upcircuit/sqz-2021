@@ -44,7 +44,7 @@
             <button class="button-big" id="college-select">COLLEGE
               <a href="javascript:void(0);" class="button-link-bold hidden-text">COLLEGE</a>
             </button>
-            <button class="button-big">HIGH SCHOOL</button>
+            <button class="button-big" id="hs-select">HIGH SCHOOL</button>
           </div>
         </div>
         <!-- college reg form -->
@@ -52,8 +52,7 @@
           action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse"
           method="post" target="hidden-form" novalidate="novalidate">
           <div id="registration" class="hidden no-display">
-            <h1 id="college-reg-header">COLLEGE DIVISION REGISTRATION</h1>
-            <h1 id="hs-reg-header" class="no-display">HIGH SCHOOL DIVISION REGISTRATION</h1>
+            <h1 id="reg-header">COLLEGE DIVISION REGISTRATION</h1>
             <div class="relpos-anchor">
               <div class="flex-container reg-input">
                 <ul class="reg-menu">
@@ -69,8 +68,8 @@
                   <li class="reg-menu-item unvisited" id="reg-menu-4">COACH INFORMATION
                     <a class="reg-menu-bold hidden-text">COACH INFORMATION</a>
                   </li>
-                  <li class="reg-menu-item unvisited" id="reg-menu-5">TEAM INFORMATION
-                    <a class="reg-menu-bold hidden-text">TEAM INFORMATION</a>
+                  <li class="reg-menu-item unvisited" id="reg-menu-5">STUDENT/TEAM INFORMATION
+                    <a class="reg-menu-bold hidden-text">STUDENT/TEAM INFORMATION</a>
                   </li>
                 </ul>
                 <!-- all reg form input slides go into the following div -->
@@ -79,25 +78,25 @@
                     <div class="modal-content">
                       <h1>CATEGORY</h1>
                       <div class="flex-container card-container">
-                        <div class="flex-50 cat-card">
+                        <div class="flex-50 cat-card no-display">
                           <button type="button" id="college-qb-select" class="button-big">QUIZ BEE
                           </button>
                           <p>Teams from top colleges and universities nationwide will compete once more in this year’s EEE Virtual Quiz Show. In this competition, each team's abilities, strategy, and teamwork will be thoroughly tested and only the best will win.</p>
                         </div>
-                        <div class="flex-50 cat-card">
+                        <div class="flex-50 cat-card no-display">
                           <button type="button" id="college-td-select" class="button-big">TECH DECON
                           </button>
                           <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
                         </div>
                         <div class="flex-50 cat-card no-display">
-                          <button type="button" id="highschool-qb-select" class="button-big">QUIZ BEE
+                          <button type="button" id="hs-qb-select" class="button-big">QUIZ BEE
                           </button>
-                          <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
+                          <p>DESCRIPTION OF HS QB</p>
                         </div>
                         <div class="flex-50 cat-card no-display">
-                          <button type="button" id="highschool-ws-select" class="button-big">WORKSHOP
+                          <button type="button" id="hs-ws-select" class="button-big">WORKSHOP
                           </button>
-                          <p>This year’s installment includes a revamped Technological Design Contest wherein students from across the country will be presenting their innovative ideas in the form of project proposals to address a certain national or social issue. The said issue to be tackled will be based on the United Nations' Sustainable Development Goal (SDG) 7: Affordable and Renewable Energy.</p>
+                          <p>DESCRIPTION OF HS WORKSHOP</p>
                         </div>
                       </div>
                       <div class="flex-container card-container error-message">
@@ -117,6 +116,18 @@
                     </div>
                     <div class="modal-content" id="quali-td">
                       <h1>ELIGIBILITY</h1>
+                      <p>&bull; Each team may be made up of one, two, or three student Team Members. All participating Team Members must be currently enrolled in an undergraduate degree program in the field of electrical and electronics engineering (BS Electronics Engineering, BS Computer Engineering, BS Electrical Engineering).</p>
+                      <p>&bull; Eligibility may be verified at any time by the organizers; decisions concerning eligibility made by the Organizers are final. A student may only participate in one Team. Teams may edit their Member information by emailing the Organizers until two weeks before the competition.</p>
+                      <p>&bull; The official language of the competition is English. All competition requirements including registration, correspondence, and project proposal submission, must be accomplished in English. At least one student Team Member must speak fluently, and that member must be present during the event in order to conduct their team's presentation if they are selected as one of the Finalist Teams.</p>
+                    </div>
+                    <div class="modal-content" id="quali-qb-hs">
+                      <h1>QUALIFICATIONS</h1>
+                      <p>&bull; Each team may be made up of one, two, or three student Team Members. All participating Team Members must be currently enrolled in an undergraduate degree program in the field of electrical and electronics engineering (BS Electronics Engineering, BS Computer Engineering, BS Electrical Engineering).</p>
+                      <p>&bull; Eligibility may be verified at any time by the organizers; decisions concerning eligibility made by the Organizers are final. A student may only participate in one Team. Teams may edit their Member information by emailing the Organizers until two weeks before the competition.</p>
+                      <p>&bull; The official language of the competition is English. All competition requirements including registration, correspondence, and project proposal submission, must be accomplished in English. At least one student Team Member must speak fluently, and that member must be present during the event in order to conduct their team's presentation if they are selected as one of the Finalist Teams.</p>
+                    </div>
+                    <div class="modal-content" id="quali-ws">
+                      <h1>DO YOU EVEN NEED TO QUALIFY FOR A WORKSHOP</h1>
                       <p>&bull; Each team may be made up of one, two, or three student Team Members. All participating Team Members must be currently enrolled in an undergraduate degree program in the field of electrical and electronics engineering (BS Electronics Engineering, BS Computer Engineering, BS Electrical Engineering).</p>
                       <p>&bull; Eligibility may be verified at any time by the organizers; decisions concerning eligibility made by the Organizers are final. A student may only participate in one Team. Teams may edit their Member information by emailing the Organizers until two weeks before the competition.</p>
                       <p>&bull; The official language of the competition is English. All competition requirements including registration, correspondence, and project proposal submission, must be accomplished in English. At least one student Team Member must speak fluently, and that member must be present during the event in order to conduct their team's presentation if they are selected as one of the Finalist Teams.</p>
@@ -175,7 +186,7 @@
                     </div>
                   </div>
                   <div class="modal no-display hidden" id="modal-5">
-                    <div class="modal-content">
+                    <div id="team-reg" class="modal-content">
                       <div id="team-1" class="team-input">
                         <h1>TEAM INFORMATION</h1>
                         <h3>STUDENT 1</h3>
@@ -340,6 +351,24 @@
                       </div>
                       <span id="addteam">+ Add Another Team</span>
                       <span id="removeteam">- Remove A Team</span>
+                    </div>
+                    <div id="student-reg" class="no-display modal-content">
+                      <h3>STUDENT</h3>
+                      <div class="flex-container">
+                        <div class="flex-50">
+                          <label for="ws_sname">Name:</label>
+                          <input placeholder="Last Name, First Name, MI" type="text" id="t1_s1name" name="entry.497767286"></input>
+                          <label for="ws_scourse">Year and Course:</label>
+                          <input placeholder="3 - BS Course Name" type="text" id="t1_s1course" name="entry.31399836"></input>
+                        </div>
+                        <div class="flex-50">
+                          <label for="ws_sno">Contact Number:</label>
+                          <input placeholder="09XXYYYZZZZ" type="text" id="t1_s1no" name="entry.1389111026"></input>
+                          <label for="ws_smail">Email Address:</label>
+                          <input placeholder="you@gmail.com" type="text" id="t1_s1mail"name="entry.1880086416"></input>
+                        </div>
+                      </div>
+                      <!--radio buttons here -->
                     </div>
                   </div>
                 </div>
