@@ -357,18 +357,23 @@
                       <div class="flex-container">
                         <div class="flex-50">
                           <label for="ws_sname">Name:</label>
-                          <input placeholder="Last Name, First Name, MI" type="text" id="t1_s1name" name="entry.497767286"></input>
+                          <input placeholder="Last Name, First Name, MI" type="text" id="ws_sname" name="entry.497767286"></input>
                           <label for="ws_scourse">Year and Course:</label>
-                          <input placeholder="3 - BS Course Name" type="text" id="t1_s1course" name="entry.31399836"></input>
+                          <input placeholder="3 - BS Course Name" type="text" id="ws_scourse" name="entry.31399836"></input>
                         </div>
                         <div class="flex-50">
                           <label for="ws_sno">Contact Number:</label>
-                          <input placeholder="09XXYYYZZZZ" type="text" id="t1_s1no" name="entry.1389111026"></input>
+                          <input placeholder="09XXYYYZZZZ" type="text" id="ws_sno" name="entry.1389111026"></input>
                           <label for="ws_smail">Email Address:</label>
-                          <input placeholder="you@gmail.com" type="text" id="t1_s1mail"name="entry.1880086416"></input>
+                          <input placeholder="you@gmail.com" type="text" id="ws_smail" name="entry.1880086416"></input>
                         </div>
                       </div>
                       <!--radio buttons here -->
+                      <h4>Quiz bee participant?</h4>
+                      <input type="checkbox" checked="checked" id="qb_part" name="" value="Yes">
+                      <label for="qb_part">Yes</label>
+                      <input type="checkbox" id="qb_notpart" name="" value="No">
+                      <label for="qb_notpart">No</label>
                     </div>
                   </div>
                 </div>
@@ -635,6 +640,29 @@
                         </tr>
                       </table>
                     </div>
+                    <div class="flex-50 student-data no-display">
+                      <table>
+                        <tr>
+                          <td><h4>STUDENT INFORMATION</h4></td>
+                        </tr>
+                        <tr>
+                          <td>NAME:</td>
+                          <td class="ws_sname-data">NONE</td>
+                        </tr>
+                        <tr>
+                          <td>YEAR AND COURSE:</td>
+                          <td class="ws_scourse-data">NONE</td>
+                        </tr>
+                        <tr>
+                          <td>CONTACT NUMBER:</td>
+                          <td class="ws_sno-data">NONE</td>
+                        </tr>
+                        <tr>
+                          <td>EMAIL:</td>
+                          <td class="ws_smail-data">NONE</td>
+                        </tr>
+                      </table>
+                    </div>
                   </div>
                 </div>
                 <div class="confirm-buttons hidden no-display">
@@ -646,13 +674,8 @@
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
-              <div id="feedback" class="hidden no-display">
-                <p>Thank you for registering for the 24th SquEEEze! We will be sending an email to your coach's email for the confirmation of your registration.
-=======
               <div id="college-feedback" class="hidden no-display">
-                <p>Thank you for registering for the 24th SquEEEze! 
->>>>>>> b95832cb170acef6bb1bb6d123bee1ea9002fc5e
+                <p>Thank you for registering for the 24th SquEEEze!
                   <br><br>
                   We will be sending an email to your coach's email for the confirmation of your registration.
                   <br><br>

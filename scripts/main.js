@@ -27,6 +27,8 @@ var ids = [
   "t3_s1name", "t3_s1course", "t3_s1no", "t3_s1mail",
   "t3_s2name", "t3_s2course", "t3_s2no", "t3_s2mail",
   "t3_s3name", "t3_s3course", "t3_s3no", "t3_s3mail",
+
+  "ws_sname", "ws_scourse", "ws_sno", "ws_smail",
 ]
 
 function validate_page(page){
@@ -46,9 +48,16 @@ function validate_page(page){
       flag &&=temp;
     }
   }else if (page == 5){
-    for (i = 9; i <= 8 + 12*visible_teams; i++){
-      temp = $("#reg-form").data('validator').element("#"+ids[i]);
-      flag &&=temp;
+    if (is_college){
+      for (i = 9; i <= 8 + 12*visible_teams; i++){
+        temp = $("#reg-form").data('validator').element("#"+ids[i]);
+        flag &&=temp;
+      }
+    }else {
+      for (i = 45; i <= 48; i++){
+        temp = $("#reg-form").data('validator').element("#"+ids[i]);
+        flag &&=temp;
+      }
     }
   }
   return flag;
@@ -641,6 +650,38 @@ $( document ).ready(function() {
     }
 	});
 
+  //STUDENT REGISTRATION
+
+    $("#ws_sname").rules("add", {
+  		required: true,
+  		fullname: true,
+  		messages: {
+  			required: "Please enter your Full Name.",
+        fullname: "Please follow the provided format"
+  		}
+  	});
+
+    $("#ws_scourse").rules("add", {
+  		required: true,
+      course:true,
+      messages: {
+  			required: "Please enter your course."
+  		}
+  	});
+
+    $("#ws_sno").rules("add", {
+  		required: true,
+  		phphonenumber: true,
+  		messages: {
+  			phphonenumber: "Please enter a valid contact number in the given format."
+  		}
+  	});
+
+    $("#ws_smail").rules("add", {
+  		required: true,
+  		email: true
+  	});
+
   function showConfimationCollege() {
     $("#reg-confirm").removeClass("no-display");
     $(".confirm-buttons").removeClass("no-display");
@@ -650,7 +691,7 @@ $( document ).ready(function() {
       $(".reg-input").addClass("hidden");
       $(".modal-nav").addClass("hidden");
       setTimeout(function(){
-        $("#college-input").addClass("no-display");
+        $(".reg-input").addClass("no-display");
         $(".modal-nav").addClass("no-display");
       }, 500);
     }, 10);
@@ -658,10 +699,10 @@ $( document ).ready(function() {
 
   function hideConfimationCollege() {
     $(".modal-nav").removeClass("no-display");
-    $("#college-input").removeClass("no-display");
+    $(".reg-input").removeClass("no-display");
     setTimeout(function(){
       $(".modal-nav").removeClass("hidden");
-      $("#college-input").removeClass("hidden");
+      $(".reg-input").removeClass("hidden");
       $("#reg-confirm").addClass("hidden");
       $(".confirm-buttons").addClass("hidden");
       setTimeout(function(){
@@ -718,6 +759,24 @@ $( document ).ready(function() {
         $("#reg-menu-1").removeClass("unvisited");
       }, 10);
     }, 500);
+  }
+
+  function enableWS(){
+    $("#team-reg").addClass("no-display");
+    $("#student-reg").removeClass("no-display");
+    $("#student-reg").find('input').prop('disabled', false);
+    $("#team-reg").find('input').prop('disabled', true);
+    $(".team-data").addClass("no-display");
+    $(".student-data").removeClass("no-display");
+  }
+
+  function disableWS(){
+    $("#student-reg").addClass("no-display");
+    $("#team-reg").removeClass("no-display");
+    $("#team-reg").find('input').prop('disabled', false);
+    $("#student-reg").find('input').prop('disabled', true);
+    $(".student-data").addClass("no-display");
+    $(".team-data").removeClass("no-display");
   }
 
   $("#college-select").on("click",function(){
@@ -846,6 +905,8 @@ $( document ).ready(function() {
     //hold selection
     $("#college-qb-select").addClass("active-choice")
     $("#college-td-select").removeClass("active-choice")
+    //swap student/team reg
+    disableWS();
   });
 
   $("#college-td-select").on("click", function(){
@@ -861,6 +922,9 @@ $( document ).ready(function() {
     //hold selection
     $("#college-qb-select").removeClass("active-choice")
     $("#college-td-select").addClass("active-choice")
+    //swap student/team reg
+    disableWS();
+
   });
 
   $("#hs-qb-select").on("click", function(){
@@ -874,8 +938,7 @@ $( document ).ready(function() {
     $(".error-message").css({'opacity' : 0});
     $(".event-data").text("High School Quiz Bee")
     //swap student/team reg
-    $("#student-reg").addClass("no-display");
-    $("#team-reg").removeClass("no-display");
+    disableWS();
     //hold selection
     $("#hs-qb-select").addClass("active-choice")
     $("#hs-ws-select").removeClass("active-choice")
@@ -892,8 +955,7 @@ $( document ).ready(function() {
     $(".error-message").css({'opacity' : 0});
     $(".event-data").text("Workshop")
     //swap student/team reg
-    $("#team-reg").addClass("no-display");
-    $("#student-reg").removeClass("no-display");
+    enableWS();
     //hold selection
     $("#hs-qb-select").removeClass("active-choice")
     $("#hs-ws-select").addClass("active-choice")
@@ -977,6 +1039,14 @@ $( document ).ready(function() {
       }, 500);
 
     }, 10);
+  });
+
+  $("#qb_part").on("click", function(){
+    $("#qb_notpart").prop("checked", false);
+  });
+
+  $("#qb_notpart").on("click", function(){
+    $("#qb_part").prop("checked", false);
   });
 
   $("#submit").on("click", function(){
