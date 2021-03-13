@@ -5,6 +5,8 @@ var is_mobile = false;
 var is_college = true;
 var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
 var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
+var highschool_ws_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeSLj2_oy6xtJ632HA3FDN65wBQSZYO7rC91FiMaN4TU1GqRg/formResponse";
+var highschool_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeK_Gw5G1nmQ3gFbN2DKmzAcezqmTDwvDwyUszUXJMoBylh7w/formResponse";
 var visible_teams = 1;
 var visible_coach = 1;
 var i;
@@ -1052,11 +1054,20 @@ $( document ).ready(function() {
   $("#submit").on("click", function(){
     //prevent double click
     $("#submit").prop("disabled", true);
-    if (is_qb){
-      $("#reg-form").prop("action", college_qb_action);
+    if(is_college){
+      if (is_qb){
+        $("#reg-form").prop("action", college_qb_action);
+      }else {
+        $("#reg-form").prop("action", college_td_action);
+      }
     }else {
-      $("#reg-form").prop("action", college_td_action);
+      if (is_qb){
+        $("#reg-form").prop("action", highschool_qb_action);
+      }else {
+        $("#reg-form").prop("action", highschool_ws_action);
+      }
     }
+
     if($("#reg-form").valid() &&
         document.getElementById('verifycheck').checked){
       $("#reg-form").submit();
