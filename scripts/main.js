@@ -965,8 +965,10 @@ $( document ).ready(function() {
 
   $("#addteam").on('click', function(){
     if (visible_teams == 3){
+      $("#addteam").hide();
       return;
     }
+    $("#removeteam").show();
     $("#team-" + String(visible_teams+1)).removeClass("no-display");
     $("#team-" + String(visible_teams+1)).find("input").prop("disabled", false);
     visible_teams+=1;
@@ -974,8 +976,10 @@ $( document ).ready(function() {
 
   $("#removeteam").on('click', function(){
     if (visible_teams == 1){
+      $("#removeteam").hide();
       return;
     }
+    $("#addteam").show();
     $("#team-" + String(visible_teams)).addClass("no-display");
     $("#team-" + String(visible_teams)).find("input").prop("disabled", true);
     visible_teams-=1;
@@ -983,8 +987,10 @@ $( document ).ready(function() {
 
   $("#addcoach").on('click', function(){
     if (visible_coach == 2){
+      $("#addcoach").hide();
       return;
     }
+    $("#removecoach").show();
     $("#coach-" + String(visible_coach+1)).removeClass("no-display");
     $("#coach-" + String(visible_coach+1)).find("input").prop('disabled', false);
     visible_coach+=1;
@@ -992,8 +998,10 @@ $( document ).ready(function() {
 
   $("#removecoach").on('click', function(){
     if (visible_coach == 1){
+      $("#removecoach").hide();
       return;
     }
+    $("#addcoach").show();
     $("#coach-" + String(visible_coach)).find("input").prop('disabled', true);
     $("#coach-" + String(visible_coach)).addClass("no-display");
     visible_coach-=1;
