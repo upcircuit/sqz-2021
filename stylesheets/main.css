@@ -643,6 +643,7 @@ a:hover {
   text-align: right;
   box-sizing: border-box;
   cursor:pointer;
+  transition:all 0.3s ease-out;
 }
 
 #removeteam {
@@ -650,12 +651,14 @@ a:hover {
   box-sizing: border-box;
   cursor:pointer;
   display:none;
+  transition:all 0.3s ease-out;
 }
 
 #addcoach {
   text-align: right;
   box-sizing: border-box;
   cursor:pointer;
+  transition:all 0.3s ease-out;
 }
 
 #removecoach {
@@ -663,6 +666,30 @@ a:hover {
   box-sizing: border-box;
   cursor:pointer;
   display:none;
+  transition:all 0.3s ease-out;
+}
+#addteam:hover
+{
+  text-shadow: 2px 2px 10px #ffffff;
+  transition:all 0.3s ease-out;
+}
+
+#removeteam:hover
+{
+  text-shadow: 2px 2px 10px #ffffff;
+  transition:all 0.3s ease-out;
+}
+
+#addcoach:hover
+{
+  text-shadow: 2px 2px 10px #ffffff;
+  transition:all 0.3s ease-out;
+}
+
+#removecoach:hover
+{
+  text-shadow: 2px 2px 10px #ffffff;
+  transition:all 0.3s ease-out;
 }
 
 #reg-confirm {
