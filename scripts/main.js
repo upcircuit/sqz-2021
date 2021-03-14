@@ -3,8 +3,8 @@ var has_selected_categ = false;
 var is_qb = false;
 var is_mobile = false;
 var is_college = true;
-var college_qb_action = "" //"https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
-var college_td_action = "" //"https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
+var college_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScIvbb_-of4rA-LrE1CBiwmv8q17wqXG-zA1shkQ9k9h_JKWA/formResponse";
+var college_td_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScVICy4aNPtTJbcYuoY_k942VUeZvsf_1Ic11IfpLl5OO-dkA/formResponse";
 var highschool_ws_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeSLj2_oy6xtJ632HA3FDN65wBQSZYO7rC91FiMaN4TU1GqRg/formResponse";
 var highschool_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeK_Gw5G1nmQ3gFbN2DKmzAcezqmTDwvDwyUszUXJMoBylh7w/formResponse";
 var visible_teams = 1;
@@ -1051,9 +1051,9 @@ $( document ).ready(function() {
     $("#qb_part").prop("checked", false);
   });
 
-  $("#submit").on("click", function(){
+  $("#submit-button").on("click", function(){
     //prevent double click
-    $("#submit").prop("disabled", true);
+    $("#submit-button").prop("disabled", true);
     if(is_college){
       if (is_qb){
         $("#reg-form").prop("action", college_qb_action);
@@ -1067,10 +1067,14 @@ $( document ).ready(function() {
         $("#reg-form").prop("action", highschool_ws_action);
       }
     }
-
     if($("#reg-form").valid() &&
         document.getElementById('verifycheck').checked){
+
+      $("#verifycheck").prop("disabled", true);
+      console.log( $( "#reg-form" ).serialize());
       $("#reg-form").submit();
+      console.log("test");
+
       //transition here.
       $("#feedback").removeClass("no-display");
       setTimeout(function(){
@@ -1081,7 +1085,7 @@ $( document ).ready(function() {
         }, 500);
       }, 10);
     }else{
-      $("#submit").prop("disabled", false);
+      $("#submit-button").prop("disabled", false);
     }
   });
 });
