@@ -763,6 +763,13 @@ a:hover {
   color: #ba0d12
 }
 
+.error-message-nav {
+  opacity: 0;
+  color: #ba0d12;
+  display:inline-block;
+}
+
+
 .error {
   margin: 0.5em 0;
 }

@@ -11,6 +11,7 @@ var visible_teams = 1;
 var visible_coach = 1;
 var i;
 var furthest_visit = 0;
+var visited = [true, false, false, false, false, false];
 // Summary of Form Details before Submit
 var ids = [
   "schoolname", "schoolad", "schoolno",
@@ -58,7 +59,7 @@ function validate_page(page){
       flag &&=temp;
     }
   }else if (page == 5){
-    if (is_qb){
+    if (is_qb || is_college){
       for (i = 9; i <= 8 + 12*visible_teams; i++){
         temp = $("#reg-form").data('validator').element("#"+ids[i]);
         flag &&=temp;
@@ -842,6 +843,7 @@ $( document ).ready(function() {
     $("#bg-1").addClass("hidden");
     $("#registration").addClass("hidden");
     $("#modal-"+active_modal).addClass("hidden");
+
     setTimeout(function(){
       $("#bg-1").addClass("no-display");
       $("#registration").addClass("no-display");
@@ -851,9 +853,11 @@ $( document ).ready(function() {
         $("#modal-"+active_modal).removeClass("active");
         $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
         active_modal = 1;
-        furthest_visit = 1;
+        furthest_visit = 0;
+        has_selected_categ = false;
+        visited = [true, false, false, false, false, false];
         $(".reg-menu").children("li").addClass("unvisited");
-        $("#reg-menu-1").removeClass("unvisited");
+        $("#reg-menu-0").removeClass("unvisited");
       }, 10);
     }, 500);
   }
@@ -863,6 +867,7 @@ $( document ).ready(function() {
     $("#student-reg").removeClass("no-display");
     $("#student-reg").find('input').prop('disabled', false);
     $("#team-reg").find('input').prop('disabled', true);
+    $("#modal-4").find('input').prop('disabled', true);
     $(".team-data").addClass("no-display");
     $(".student-data").removeClass("no-display");
   }
@@ -873,6 +878,7 @@ $( document ).ready(function() {
     //ONLY enable the first team.
     $("#team-1").find('input').prop('disabled', false);
     $("#student-reg").find('input').prop('disabled', true);
+    $("#coach-1").find('input').prop('disabled', false);
     $(".student-data").addClass("no-display");
     $(".team-data").removeClass("no-display");
   }
@@ -915,6 +921,20 @@ $( document ).ready(function() {
         $(".event-data").text("High School Workshop")
       }
     }
+  }
+
+  function updateSummary(){
+    for (i = 0; i < ids.length; i++) {
+      if (!$("#"+ids[i]).val() || document.getElementById(ids[i]).disabled) {
+        $("."+ids[i]+"-label").hide();
+        $("."+ids[i]+"-data").hide();
+      } else {
+        $("."+ids[i]+"-label").show();
+        $("."+ids[i]+"-data").show();
+      }
+      $("."+ids[i]+"-data").text($("#"+ids[i]).val());
+    }
+    return;
   }
 
   $("#college-select").on("click",function(){
@@ -960,45 +980,49 @@ $( document ).ready(function() {
         return;
       }
       //update summary page
-      for (i = 0; i < ids.length; i++) {
-        if (!$("#"+ids[i]).val() || document.getElementById(ids[i]).disabled) {
-          $("."+ids[i]+"-label").hide();
-          $("."+ids[i]+"-data").hide();
-        } else {
-          $("."+ids[i]+"-label").show();
-          $("."+ids[i]+"-data").show();
-        }
-        $("."+ids[i]+"-data").text($("#"+ids[i]).val());
-      }
+      updateSummary();
       //case: going to confirmation
       if (active_modal==5){
-        showConfimationCollege();
+        if ((!is_college && !is_qb) || (
+            visited.every(function(x){return x;}) && (is_qb || is_college))) {
+          showConfimationCollege();
+          $(".error-message-nav").css({'opacity' : 0});
+        }else{
+          $(".error-message-nav").css({'opacity' : 1});
+        }
         return;
+      }
+      //case: workshop
+      var j = 1;
+      if (!is_college && !is_qb && active_modal==3){
+        j++;
       }
       //prevent double click
       $(".next").prop("disabled", true);
       //update reg menu
-      $("#reg-menu-"+String(active_modal+1)).children(".reg-menu-bold").removeClass("hidden-text");
+      $("#reg-menu-"+String(active_modal+j)).children(".reg-menu-bold").removeClass("hidden-text");
       $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
       //push down current active
       $("#modal-"+String(active_modal)).addClass("phase-out");
       $("#modal-"+String(active_modal)).removeClass("active");
       //elevate hidden next page and enable
-      $("#modal-"+String(active_modal+1)).addClass("active");
-      $("#modal-"+String(active_modal+1)).removeClass("no-display");
+      $("#modal-"+String(active_modal+j)).addClass("active");
+      $("#modal-"+String(active_modal+j)).removeClass("no-display");
       setTimeout(function(){
-        $("#modal-"+String(active_modal+1)).removeClass("hidden");
+        $("#modal-"+String(active_modal+j)).removeClass("hidden");
         //disable non-visible formerly active page
         $("#modal-"+String(active_modal)).addClass("hidden");
         $("#modal-"+String(active_modal)).removeClass("phase-out");
 
         setTimeout(function(){
           $("#modal-"+String(active_modal)).addClass("no-display");
-          active_modal +=1;
+          active_modal +=j;
+          visited[active_modal] = true;
           $(".next").prop("disabled", false);
           //update reg menu visit locations
           furthest_visit = Math.max(active_modal, furthest_visit);
           $("#reg-menu-"+active_modal).removeClass("unvisited");
+          console.log(active_modal);
         }, 500);
 
       }, 10);
@@ -1012,26 +1036,35 @@ $( document ).ready(function() {
       $(".back").prop("disabled", false);
       return;
     }
+    //case: workshop
+    var j = 1;
+    if (!is_college && !is_qb && active_modal==5){
+      j++;
+    }
+    updateSummary();
     //prevent double click
     $(".back").prop("disabled", true);
     //update reg menu
-    $("#reg-menu-"+String(active_modal-1)).children(".reg-menu-bold").removeClass("hidden-text");
+    $("#reg-menu-"+String(active_modal-j)).children(".reg-menu-bold").removeClass("hidden-text");
     $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
     //push down current active
     $("#modal-"+String(active_modal)).addClass("phase-out");
     $("#modal-"+String(active_modal)).removeClass("active");
     //elevate hidden next page and enable
-    $("#modal-"+String(active_modal-1)).addClass("active");
-    $("#modal-"+String(active_modal-1)).removeClass("no-display");
+    $("#modal-"+String(active_modal-j)).addClass("active");
+    $("#modal-"+String(active_modal-j)).removeClass("no-display");
     setTimeout(function(){
-      $("#modal-"+String(active_modal-1)).removeClass("hidden");
+      $("#modal-"+String(active_modal-j)).removeClass("hidden");
       //disable non-visible formerly active page
       $("#modal-"+String(active_modal)).addClass("hidden");
       $("#modal-"+String(active_modal)).removeClass("phase-out");
       setTimeout(function(){
         $("#modal-"+String(active_modal)).addClass("no-display");
-        active_modal -=1;
+        active_modal -=j;
         $(".back").prop("disabled", false);
+        furthest_visit = Math.max(active_modal, furthest_visit);
+        $("#reg-menu-"+active_modal).removeClass("unvisited");
+        visited[active_modal] = true;
       }, 500);
     }, 10);
   });
@@ -1165,8 +1198,14 @@ $( document ).ready(function() {
     if (item_no > furthest_visit){
       return;
     }
+    //do not go to coach if workshop
+    if (!is_college && !is_qb && item_no==4){
+      return;
+    }
     //prevent double click
     reg_menu_click = true;
+    //update SUMMARY
+    updateSummary();
     //update reg menu
     $("#reg-menu-"+String(item_no)).children(".reg-menu-bold").removeClass("hidden-text");
     $("#reg-menu-"+String(active_modal)).children(".reg-menu-bold").addClass("hidden-text");
@@ -1186,6 +1225,9 @@ $( document ).ready(function() {
         $("#modal-"+String(active_modal)).addClass("no-display");
         active_modal = parseInt(item_no);
         reg_menu_click = false;
+        furthest_visit = Math.max(active_modal, furthest_visit);
+        $("#reg-menu-"+active_modal).removeClass("unvisited");
+        visited[active_modal] = true;
       }, 500);
 
     }, 10);
