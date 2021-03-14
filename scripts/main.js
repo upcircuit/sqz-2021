@@ -10,7 +10,7 @@ var highschool_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeK_Gw5
 var visible_teams = 1;
 var visible_coach = 1;
 var i;
-var furthest_visit = 1;
+var furthest_visit = 0;
 // Summary of Form Details before Submit
 var ids = [
   "schoolname", "schoolad", "schoolno",
@@ -870,7 +870,8 @@ $( document ).ready(function() {
   function disableWS(){
     $("#student-reg").addClass("no-display");
     $("#team-reg").removeClass("no-display");
-    $("#team-reg").find('input').prop('disabled', false);
+    //ONLY enable the first team.
+    $("#team-1").find('input').prop('disabled', false);
     $("#student-reg").find('input').prop('disabled', true);
     $(".student-data").addClass("no-display");
     $(".team-data").removeClass("no-display");
@@ -960,7 +961,7 @@ $( document ).ready(function() {
       }
       //update summary page
       for (i = 0; i < ids.length; i++) {
-        if (!$("#"+ids[i]).val()) {
+        if (!$("#"+ids[i]).val() || document.getElementById(ids[i]).disabled) {
           $("."+ids[i]+"-label").hide();
           $("."+ids[i]+"-data").hide();
         } else {
