@@ -940,7 +940,15 @@ $( document ).ready(function() {
     $(".nav-header").hide();
   }
 
+  $("#dataprivacy").on("click", function(){
+    $(".error-message-priv").css({'opacity' : 0});
+  });
+
   $(".next").on("click", function(){
+    if (active_modal==0 &&   !document.getElementById('dataprivacy').checked){
+      $(".error-message-priv").css({'opacity' : 1});
+      return;
+    }
     if (active_modal==1 && has_selected_categ==false){
       $(".error-message").css({'opacity' : 1});
     } else {

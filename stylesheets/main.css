@@ -649,6 +649,7 @@ a:hover {
   text-align: right;
   box-sizing: border-box;
   cursor:pointer;
+  display:none;
 }
 
 #addcoach {
@@ -661,6 +662,7 @@ a:hover {
   text-align: right;
   box-sizing: border-box;
   cursor:pointer;
+  display:none;
 }
 
 #reg-confirm {
@@ -723,6 +725,14 @@ a:hover {
 }
 
 .error, .error-message p {
+  color: #ba0d12
+}
+
+.error-message-priv {
+  opacity: 0;
+}
+
+.error-priv, .error-message-priv p {
   color: #ba0d12
 }
 
