@@ -141,11 +141,11 @@
                     <div class="modal-content">
                       <h1>SCHOOL INFORMATION</h1>
                       <label for="schoolname">School Name</label>
-                      <input placeholder="University of ..., etc." type="text" id="schoolname" name="entry.2049534640"></input>
+                      <input onkeyup='saveInput(this);' placeholder="University of ..., etc." type="text" id="schoolname" name="entry.2049534640"></input>
                       <label for="schoolad">School Address</label>
-                      <input placeholder="Street, City, Province" type="text" id="schoolad" name="entry.1821648462"></input>
+                      <input onkeyup='saveInput(this);' onkeyup='saveInput(this);' placeholder="Street, City, Province" type="text" id="schoolad" name="entry.1821648462"></input>
                       <label for="schoolno">School Number/Fax</label>
-                      <input placeholder="02 XXXXYYYY or ZZZ XXXYYYY" type="text" id="schoolno" name="entry.1652273826"></input>
+                      <input onkeyup='saveInput(this);' placeholder="02 XXXXYYYY or ZZZ XXXYYYY" type="text" id="schoolno" name="entry.1652273826"></input>
                     </div>
                   </div>
                   <div class="modal no-display hidden" id="modal-4">
@@ -156,13 +156,13 @@
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="c1name">Name:</label>
-                            <input placeholder="Last Name, First Name, MI" type="text" id="c1name" name="entry.1229630823"></input>
+                            <input onkeyup='saveInput(this);' placeholder="Last Name, First Name, MI" type="text" id="c1name" name="entry.1229630823"></input>
                             <label for="c1no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="c1no" name="entry.1612026445"></input>
+                            <input onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="c1no" name="entry.1612026445"></input>
                           </div>
                           <div class="flex-50">
                             <label for="c1mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="c1mail" name="entry.1321410288"></input>
+                            <input onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="c1mail" name="entry.1321410288"></input>
                           </div>
                         </div>
                       </div>
@@ -171,18 +171,18 @@
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="c2name">Name:</label>
-                            <input placeholder="Last Name, First Name, MI" type="text" id="c2name" name="entry.1694757799"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="Last Name, First Name, MI" type="text" id="c2name" name="entry.1694757799"></input>
                             <label for="c2no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="c2no" name="entry.1823997648"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="c2no" name="entry.1823997648"></input>
                           </div>
                           <div class="flex-50">
                             <label for="c2mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="c2mail" name="entry.292351539"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="c2mail" name="entry.292351539"></input>
                           </div>
                         </div>
                       </div>
                       <span id="addcoach">+ Add Another Coach</span>
-                      <span id="removecoach">- Remove A Coach</span>
+                      <span id="removecoach" style="display:none">- Remove A Coach</span>
                     </div>
                   </div>
                   <div class="modal no-display hidden" id="modal-5">
@@ -193,53 +193,53 @@
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t1_s1name">Name:</label>
-                            <input placeholder="Last Name, First Name, MI" type="text" id="t1_s1name" name="entry.497767286"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="Last Name, First Name, MI" type="text" id="t1_s1name" name="entry.497767286"></input>
                             <label for="t1_s1course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t1_s1course" name="entry.31399836"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t1_s1course" name="entry.31399836"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t1_s1no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t1_s1no" name="entry.1389111026"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t1_s1no" name="entry.1389111026"></input>
                             <label for="t1_s1mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t1_s1mail"name="entry.1880086416"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t1_s1mail"name="entry.1880086416"></input>
                           </div>
                         </div>
                         <!-- <label for="t1_s1attach" class="upload-button button-small">Upload Scanned School ID</label>
-                        <input type="file" id="t1_s1attach" name="entry.1990082488"></input> -->
+                        <input onkeyup='saveInput(this);' type="file" id="t1_s1attach" name="entry.1990082488"></input> -->
                         <h3>STUDENT 2</h3>
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t1_s2name">Name:</label>
-                            <input placeholder="Last Name, First Name, MI" type="text" id="t1_s2name" name="entry.1296149886"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="Last Name, First Name, MI" type="text" id="t1_s2name" name="entry.1296149886"></input>
                             <label for="t1_s2course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t1_s2course" name="entry.517176879"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t1_s2course" name="entry.517176879"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t1_s2no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t1_s2no" name="entry.368127506"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t1_s2no" name="entry.368127506"></input>
                             <label for="t1_s2mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t1_s2mail" name="entry.48592523"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t1_s2mail" name="entry.48592523"></input>
                           </div>
                         </div>
                         <!-- <label for="t1_s2attach" class="upload-button button-small">Upload Scanned School ID</label>
-                        <input type="file" id="t1_s2attach" name="entry.278320788"></input> -->
+                        <input onkeyup='saveInput(this);' type="file" id="t1_s2attach" name="entry.278320788"></input> -->
                         <h3>STUDENT 3</h3>
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t1_s3name">Name:</label>
-                            <input placeholder="Last Name, First Name, MI" type="text" id="t1_s3name" name="entry.522965291"></input>
+                            <input onkeyup='saveInput(this);' placeholder="Last Name, First Name, MI" type="text" id="t1_s3name" name="entry.522965291"></input>
                             <label for="t1_s3course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t1_s3course" name="entry.2120230022"></input>
+                            <input onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t1_s3course" name="entry.2120230022"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t1_s3no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t1_s3no" name="entry.1543726684"></input>
+                            <input onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t1_s3no" name="entry.1543726684"></input>
                             <label for="t1_s3mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t1_s3mail" name="entry.455014131"></input>
+                            <input onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t1_s3mail" name="entry.455014131"></input>
                           </div>
                         </div>
                         <!-- <label for="t1_s3attach" class="upload-button button-small">Upload Scanned School ID</label> -->
-                        <!-- <input type="file" id="t1_s3attach" name="entry.2101063035"></input> -->
+                        <!-- <input onkeyup='saveInput(this);' type="file" id="t1_s3attach" name="entry.2101063035"></input> -->
                       </div>
                       <div id="team-2" class="team-input no-display">
                         <h1>TEAM 2 INFORMATION</h1>
@@ -247,53 +247,53 @@
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t2_s1name">Name:</label>
-                            <input placeholder="Last Name, First Name, MI" type="text" id="t2_s1name" name="entry.1787871543"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="Last Name, First Name, MI" type="text" id="t2_s1name" name="entry.1787871543"></input>
                             <label for="t2_s1course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t2_s1course" name="entry.919255285"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t2_s1course" name="entry.919255285"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t2_s1no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t2_s1no" name="entry.1120998672"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t2_s1no" name="entry.1120998672"></input>
                             <label for="t2_s1mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t2_s1mail"name="entry.425396455"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t2_s1mail"name="entry.425396455"></input>
                           </div>
                         </div>
                         <!-- <label for="t2_s1attach" class="upload-button button-small">Upload Scanned School ID</label> -->
-                        <!-- <input type="file" id="t2_s1attach" name="entry.872571123"></input> -->
+                        <!-- <input onkeyup='saveInput(this);' type="file" id="t2_s1attach" name="entry.872571123"></input> -->
                         <h3>STUDENT 2</h3>
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t2_s2name">Name:</label>
-                            <input type="text" placeholder="Last Name, First Name, MI" id="t2_s2name" name="entry.1557996973"></input>
+                            <input disabled onkeyup='saveInput(this);' type="text" placeholder="Last Name, First Name, MI" id="t2_s2name" name="entry.1557996973"></input>
                             <label for="t2_s2course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t2_s2course" name="entry.137912384"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t2_s2course" name="entry.137912384"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t2_s2no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t2_s2no" name="entry.883648645"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t2_s2no" name="entry.883648645"></input>
                             <label for="t2_s2mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t2_s2mail" name="entry.1524484625"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t2_s2mail" name="entry.1524484625"></input>
                           </div>
                         </div>
                         <!-- <label for="t2_s2attach" class="upload-button button-small">Upload Scanned School ID</label> -->
-                        <!-- <input type="file" id="t2_s2attach" name="entry.865501927"></input> -->
+                        <!-- <input onkeyup='saveInput(this);' type="file" id="t2_s2attach" name="entry.865501927"></input> -->
                         <h3>STUDENT 3</h3>
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t2_s3name">Name:</label>
-                            <input type="text" placeholder="Last Name, First Name, MI" id="t2_s3name" name="entry.2063127305"></input>
+                            <input disabled onkeyup='saveInput(this);' type="text" placeholder="Last Name, First Name, MI" id="t2_s3name" name="entry.2063127305"></input>
                             <label for="t2_s3course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t2_s3course" name="entry.1380933259"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t2_s3course" name="entry.1380933259"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t2_s3no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t2_s3no" name="entry.1215080701"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t2_s3no" name="entry.1215080701"></input>
                             <label for="t2_s3mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t2_s3mail" name="entry.1464805540"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t2_s3mail" name="entry.1464805540"></input>
                           </div>
                         </div>
                         <!-- <label for="t2_s3attach" class="upload-button button-small">Upload Scanned School ID</label> -->
-                        <!-- <input type="file" id="t2_s3attach" name="entry.335994304"></input> -->
+                        <!-- <input onkeyup='saveInput(this);' type="file" id="t2_s3attach" name="entry.335994304"></input> -->
                       </div>
                       <div id="team-3" class="team-input no-display">
                         <h1>TEAM 3 INFORMATION</h1>
@@ -301,79 +301,79 @@
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t3_s1name">Name:</label>
-                            <input type="text" placeholder="Last Name, First Name, MI" id="t3_s1name" name="entry.683317077"></input>
+                            <input disabled onkeyup='saveInput(this);' type="text" placeholder="Last Name, First Name, MI" id="t3_s1name" name="entry.683317077"></input>
                             <label for="t3_s1course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t3_s1course" name="entry.2040053651"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t3_s1course" name="entry.2040053651"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t3_s1no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t3_s1no" name="entry.769420929"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t3_s1no" name="entry.769420929"></input>
                             <label for="t3_s1mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t3_s1mail"name="entry.942321118"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t3_s1mail"name="entry.942321118"></input>
                           </div>
                         </div>
                         <!-- <label for="t3_s1attach" class="upload-button button-small">Upload Scanned School ID</label> -->
-                        <!-- <input type="file" id="t3_s1attach" name="entry.382035801"></input> -->
+                        <!-- <input onkeyup='saveInput(this);' type="file" id="t3_s1attach" name="entry.382035801"></input> -->
                         <h3>STUDENT 2</h3>
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t3_s2name">Name:</label>
-                            <input type="text" placeholder="Last Name, First Name, MI" id="t3_s2name" name="entry.1351815566"></input>
+                            <input disabled onkeyup='saveInput(this);' type="text" placeholder="Last Name, First Name, MI" id="t3_s2name" name="entry.1351815566"></input>
                             <label for="t3_s2course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t3_s2course" name="entry.536435643"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t3_s2course" name="entry.536435643"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t3_s2no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t3_s2no" name="entry.1924055303"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t3_s2no" name="entry.1924055303"></input>
                             <label for="t3_s2mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t3_s2mail" name="entry.797323407"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t3_s2mail" name="entry.797323407"></input>
                           </div>
                         </div>
                         <!-- <label for="t3_s2attach" class="upload-button button-small">Upload Scanned School ID</label> -->
-                        <!-- <input type="file" id="t3_s2attach" name="entry.948989382"></input> -->
+                        <!-- <input onkeyup='saveInput(this);' type="file" id="t3_s2attach" name="entry.948989382"></input> -->
                         <h3>STUDENT 3</h3>
                         <div class="flex-container">
                           <div class="flex-50">
                             <label for="t3_s3name">Name:</label>
-                            <input type="text" placeholder="Last Name, First Name, MI" id="t3_s3name" name="entry.434224587"></input>
+                            <input disabled onkeyup='saveInput(this);' type="text" placeholder="Last Name, First Name, MI" id="t3_s3name" name="entry.434224587"></input>
                             <label for="t3_s3course">Year and Course:</label>
-                            <input placeholder="3 - BS Course Name" type="text" id="t3_s3course" name="entry.1954562207"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="3 - BS Course Name" type="text" id="t3_s3course" name="entry.1954562207"></input>
                           </div>
                           <div class="flex-50">
                             <label for="t3_s3no">Contact Number:</label>
-                            <input placeholder="09XXYYYZZZZ" type="text" id="t3_s3no" name="entry.137562992"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="t3_s3no" name="entry.137562992"></input>
                             <label for="t3_s3mail">Email Address:</label>
-                            <input placeholder="you@gmail.com" type="text" id="t3_s3mail" name="entry.1216725466"></input>
+                            <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="t3_s3mail" name="entry.1216725466"></input>
                           </div>
                         </div>
                         <!-- <label for="t3_s3attach" class="upload-button button-small">Upload Scanned School ID</label> -->
-                        <!-- <input type="file" id="t3_s3attach" name="entry.348738223"></input> -->
+                        <!-- <input onkeyup='saveInput(this);' type="file" id="t3_s3attach" name="entry.348738223"></input> -->
                       </div>
                       <span id="addteam">+ Add Another Team</span>
-                      <span id="removeteam">- Remove A Team</span>
+                      <span id="removeteam" style="display:none">- Remove A Team</span>
                     </div>
                     <div id="student-reg" class="no-display modal-content">
                       <h3>STUDENT</h3>
                       <div class="flex-container">
                         <div class="flex-50">
                           <label for="ws_sname">Name:</label>
-                          <input placeholder="Last Name, First Name, MI" type="text" id="ws_sname" name="entry.497767286"></input>
+                          <input disabled onkeyup='saveInput(this);' placeholder="Last Name, First Name, MI" type="text" id="ws_sname" name="entry.497767286"></input>
                           <label for="ws_scourse">Year and Course:</label>
-                          <input placeholder="3 - BS Course Name" type="text" id="ws_scourse" name="entry.31399836"></input>
+                          <input disabled onkeyup='saveInput(this);' placeholder="11 - Strand Name" type="text" id="ws_scourse" name="entry.31399836"></input>
                         </div>
                         <div class="flex-50">
                           <label for="ws_sno">Contact Number:</label>
-                          <input placeholder="09XXYYYZZZZ" type="text" id="ws_sno" name="entry.1389111026"></input>
+                          <input disabled onkeyup='saveInput(this);' placeholder="09XXYYYZZZZ" type="text" id="ws_sno" name="entry.1389111026"></input>
                           <label for="ws_smail">Email Address:</label>
-                          <input placeholder="you@gmail.com" type="text" id="ws_smail" name="entry.1880086416"></input>
+                          <input disabled onkeyup='saveInput(this);' placeholder="you@gmail.com" type="text" id="ws_smail" name="entry.1880086416"></input>
                         </div>
                       </div>
                       <!--radio buttons here -->
                       <h4>Quiz bee participant?</h4>
-                      <input type="checkbox" checked="checked" id="qb_part" name="entry.2012143911" value="Yes">
+                      <input disabled type="checkbox" checked="checked" id="qb_part" name="entry.2012143911" value="Yes">
                       <label for="qb_part">Yes</label>
                       <input type="checkbox" id="qb_notpart" name="entry.2012143911" value="No">
-                      <label for="qb_notpart">No</label>
+                      <label disabled for="qb_notpart">No</label>
                     </div>
                   </div>
                 </div>

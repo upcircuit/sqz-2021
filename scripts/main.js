@@ -65,7 +65,27 @@ function validate_page(page){
   return flag;
 }
 
+function saveInput(element){
+  localStorage.setItem(element.id, element.value);
+}
+
+function getSavedInput (e_id){
+  if (!localStorage.getItem(e_id)) {
+      return "";
+  }
+  return localStorage.getItem(e_id);
+}
+
+function returnInputs(){
+  var i = 0;
+  for (i = 0; i < ids.length; i++){
+    $("#"+ids[i]).val(getSavedInput(ids[i]));
+  }
+}
+
 $( document ).ready(function() {
+
+  returnInputs();
 
   $.validator.addMethod( "lettersonly", function( value, element ) {
   	return this.optional( element ) || /^[a-z]+$/i.test( value );
@@ -99,6 +119,11 @@ $( document ).ready(function() {
 
   $.validator.addMethod("course", function( value, element ) {
     return this.optional( element ) || /^[0-9][ ][-][ ][B][A-Z]?[ ][a-zA-Z ]+$/i.test( value );
+  }, "Please enter your course as shown."
+  );
+
+  $.validator.addMethod("strand", function( value, element ) {
+    return this.optional( element ) || /^^Grade (11|12)[ ][-][ ][a-zA-z]+$/i.test( value );
   }, "Please enter your course as shown."
   );
 
@@ -665,7 +690,7 @@ $( document ).ready(function() {
 
     $("#ws_scourse").rules("add", {
   		required: true,
-      course:true,
+      strand:true,
       messages: {
   			required: "Please enter your course."
   		}
@@ -965,31 +990,35 @@ $( document ).ready(function() {
 
   $("#addteam").on('click', function(){
     if (visible_teams == 3){
-      $("#addteam").hide();
       return;
     }
     $("#removeteam").show();
     $("#team-" + String(visible_teams+1)).removeClass("no-display");
     $("#team-" + String(visible_teams+1)).find("input").prop("disabled", false);
     visible_teams+=1;
+    if (visible_teams == 3){
+      $("#addteam").hide();
+    }
   });
 
   $("#removeteam").on('click', function(){
     if (visible_teams == 1){
-      $("#removeteam").hide();
       return;
     }
     $("#addteam").show();
     $("#team-" + String(visible_teams)).addClass("no-display");
     $("#team-" + String(visible_teams)).find("input").prop("disabled", true);
     visible_teams-=1;
+    if (visible_teams == 1){
+      $("#removeteam").hide();
+    }
   });
 
   $("#addcoach").on('click', function(){
     if (visible_coach == 2){
-      $("#addcoach").hide();
       return;
     }
+    $("#addcoach").hide();
     $("#removecoach").show();
     $("#coach-" + String(visible_coach+1)).removeClass("no-display");
     $("#coach-" + String(visible_coach+1)).find("input").prop('disabled', false);
@@ -998,9 +1027,9 @@ $( document ).ready(function() {
 
   $("#removecoach").on('click', function(){
     if (visible_coach == 1){
-      $("#removecoach").hide();
       return;
     }
+    $("#removecoach").hide();
     $("#addcoach").show();
     $("#coach-" + String(visible_coach)).find("input").prop('disabled', true);
     $("#coach-" + String(visible_coach)).addClass("no-display");
