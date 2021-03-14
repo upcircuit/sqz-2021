@@ -69,6 +69,11 @@ function saveInput(element){
   localStorage.setItem(element.id, element.value);
 }
 
+// function saveCat(){
+//   localStorage.setItem("division", is_college);
+//   localStorage.setItem("event", is_qb);
+// }
+
 function getSavedInput (e_id){
   if (!localStorage.getItem(e_id)) {
       return "";
@@ -806,6 +811,29 @@ $( document ).ready(function() {
     $(".team-data").removeClass("no-display");
   }
 
+  function setQualiOpacity(op_qb, op_td, op_hsqb, op_ws){
+    $("#quali-qb").css({'opacity' : op_qb});
+    $("#quali-td").css({'opacity' : op_td});
+    $("#quali-qb-hs").css({'opacity' : op_hsqb});
+    $("#quali-ws").css({'opacity' : op_ws});
+  }
+
+  function setEventText(){
+    if(is_college){
+      if(is_qb){
+        $(".event-data").text("College Quiz Bee")
+      }else{
+        $(".event-data").text("College Technological Design Contest")
+      }
+    }else{
+      if(is_qb){
+        $(".event-data").text("High School Quiz Bee")
+      }else{
+        $(".event-data").text("High School Workshop")
+      }
+    }
+  }
+
   $("#college-select").on("click",function(){
     is_college = true;
     showRegistration();
@@ -923,12 +951,9 @@ $( document ).ready(function() {
     is_qb = true; //use this to set target URL later.
     has_selected_categ = true;
     //make appropriate qualification data visible
-    $("#quali-qb").css({'opacity' : 1});
-    $("#quali-td").css({'opacity' : 0});
-    $("#quali-qb-hs").css({'opacity' : 0});
-    $("#quali-ws").css({'opacity' : 0});
+    setQualiOpacity(1, 0, 0, 0);
+    setEventText();
     $(".error-message").css({'opacity' : 0});
-    $(".event-data").text("College Quiz Bee")
     //hold selection
     $("#college-qb-select").addClass("active-choice")
     $("#college-td-select").removeClass("active-choice")
@@ -940,12 +965,9 @@ $( document ).ready(function() {
     is_qb = false; //use this to set target URL later.
     has_selected_categ = true;
     //make appropriate qualification data visible
-    $("#quali-qb").css({'opacity' : 0});
-    $("#quali-td").css({'opacity' : 1});
-    $("#quali-qb-hs").css({'opacity' : 0});
-    $("#quali-ws").css({'opacity' : 0});
+    setQualiOpacity(0, 1, 0, 0);
+    setEventText();
     $(".error-message").css({'opacity' : 0});
-    $(".event-data").text("Technological Design Contest")
     //hold selection
     $("#college-qb-select").removeClass("active-choice")
     $("#college-td-select").addClass("active-choice")
@@ -958,12 +980,9 @@ $( document ).ready(function() {
     is_qb = true; //use this to set target URL later.
     has_selected_categ = true;
     //make appropriate qualification data visible
-    $("#quali-qb-hs").css({'opacity' : 1});
-    $("#quali-td").css({'opacity' : 0});
-    $("#quali-qb").css({'opacity' : 0});
-    $("#quali-ws").css({'opacity' : 0});
+    setQualiOpacity(0, 0, 1, 0);
+    setEventText();
     $(".error-message").css({'opacity' : 0});
-    $(".event-data").text("High School Quiz Bee")
     //swap student/team reg
     disableWS();
     //hold selection
@@ -975,12 +994,9 @@ $( document ).ready(function() {
     is_qb = false; //use this to set target URL later.
     has_selected_categ = true;
     //make appropriate qualification data visible
-    $("#quali-qb-hs").css({'opacity' : 0});
-    $("#quali-td").css({'opacity' : 0});
-    $("#quali-qb").css({'opacity' : 0});
-    $("#quali-ws").css({'opacity' : 1});
+    setQualiOpacity(0, 0, 0, 1);
+    setEventText();
     $(".error-message").css({'opacity' : 0});
-    $(".event-data").text("Workshop")
     //swap student/team reg
     enableWS();
     //hold selection
