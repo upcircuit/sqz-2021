@@ -78,7 +78,7 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod( "phlandline", function( value, element ) {
-  	return this.optional( element ) || /^[0][2][ ]\d{8}|\d{3}[ ]\d{7}$/i.test( value );
+  	return this.optional( element ) || /^[0][2][ ]\d{8}$|\d{3}[ ]\d{7}$/i.test( value );
     }, "Please enter a phone number in the given PH format."
   );
 
@@ -968,6 +968,7 @@ $( document ).ready(function() {
       return;
     }
     $("#team-" + String(visible_teams+1)).removeClass("no-display");
+    $("#team-" + String(visible_teams+1)).find("input").prop("disabled", false);
     visible_teams+=1;
   });
 
@@ -976,7 +977,7 @@ $( document ).ready(function() {
       return;
     }
     $("#team-" + String(visible_teams)).addClass("no-display");
-    $("#team-" + String(visible_teams)).find("input").val('');
+    $("#team-" + String(visible_teams)).find("input").prop("disabled", true);
     visible_teams-=1;
   });
 
@@ -985,6 +986,7 @@ $( document ).ready(function() {
       return;
     }
     $("#coach-" + String(visible_coach+1)).removeClass("no-display");
+    $("#coach-" + String(visible_coach+1)).find("input").prop('disabled', false);
     visible_coach+=1;
   });
 
@@ -992,7 +994,7 @@ $( document ).ready(function() {
     if (visible_coach == 1){
       return;
     }
-    $("#coach-" + String(visible_coach)).find("input").val('');
+    $("#coach-" + String(visible_coach)).find("input").prop('disabled', true);
     $("#coach-" + String(visible_coach)).addClass("no-display");
     visible_coach-=1;
   });
