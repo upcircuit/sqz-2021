@@ -382,7 +382,7 @@ a:hover {
   text-align: center;
 }
 
-.registration-container {
+div.registration-container {
   height: 100vh;
   position: relative;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 99.99%, rgba(255, 255, 255, 0) 100%), url("../images/registration-bg.jpg");
@@ -392,17 +392,21 @@ a:hover {
   background-size: cover;
 }
 
+div.mechanics-container {
+  width: 100%;
+  height: 100vh;
+}
+
 .bg-div {
   height: 100%;
   width: 100%;
   background-color: #222222;
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
   transition: opacity 0.5s ease-out;
 }
-.bg-div img {
+.ckt-logo-bg {
   transition: opacity 0.5s ease-out;
   position: fixed;
   opacity: 0.05;
@@ -415,6 +419,13 @@ a:hover {
   -ms-transform: rotate(-30deg);
   -o-transform: rotate(-30deg);
   transform: rotate(-30deg);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  user-drag: none; 
+  -webkit-user-drag: none;
 }
 
 .intro-slide-container {
