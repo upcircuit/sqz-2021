@@ -123,7 +123,7 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod("strand", function( value, element ) {
-    return this.optional( element ) || /^^Grade (11|12)[ ][-][ ][a-zA-z]+$/i.test( value );
+    return this.optional( element ) || /^(11|12)[ ][-][ ][a-zA-z]+$/i.test( value );
   }, "Please enter your course as shown."
   );
 
