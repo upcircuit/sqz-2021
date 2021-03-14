@@ -758,7 +758,7 @@ $( document ).ready(function() {
       $("#hs-qb-select").parent().removeClass("no-display");
       $("#hs-ws-select").parent().removeClass("no-display");
     }
-    active_modal = 1;
+    active_modal = 0;
     $("#bg-1").removeClass("no-display");
     $("#registration").removeClass("no-display");
     $("#modal-"+active_modal).removeClass("no-display");
@@ -913,7 +913,7 @@ $( document ).ready(function() {
   });
 
   $(".back").on("click", function(){
-    if (active_modal==1){
+    if (active_modal==0){
       $(".back").prop("disabled", true);
       hideRegistrationCollege();
       $(".back").prop("disabled", false);
