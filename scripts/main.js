@@ -33,6 +33,14 @@ var ids = [
   "ws_sname", "ws_scourse", "ws_sno", "ws_smail",
 ]
 
+var year_ids = [
+  "t1_s1course", "t1_s2course", "t1_s3course",
+
+  "t2_s1course", "t2_s2course", "t2_s3course",
+
+  "t3_s1course", "t3_s2course", "t3_s3course",
+]
+
 function validate_page(page){
   //yes, it should just be one var &&= to all, but that doesn't work somehow
   var temp = true;
@@ -50,7 +58,7 @@ function validate_page(page){
       flag &&=temp;
     }
   }else if (page == 5){
-    if (is_college){
+    if (is_qb){
       for (i = 9; i <= 8 + 12*visible_teams; i++){
         temp = $("#reg-form").data('validator').element("#"+ids[i]);
         flag &&=temp;
@@ -256,7 +264,16 @@ $( document ).ready(function() {
 
   $("#t1_s1course").rules("add", {
 		required: true,
-    course:true,
+    course:{
+      depends:function(element){
+        return (is_college);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college);
+      }
+    },
     messages: {
 			required: "Please enter your course."
 		}
@@ -286,7 +303,16 @@ $( document ).ready(function() {
 
   $("#t1_s2course").rules("add", {
 		required: true,
-    course:true
+    course:{
+      depends:function(element){
+        return (is_college);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college);
+      }
+    }
 	});
 
   $("#t1_s2no").rules("add", {
@@ -314,7 +340,16 @@ $( document ).ready(function() {
 
   $("#t1_s3course").rules("add", {
 		required: true,
-    course:true
+    course:{
+      depends:function(element){
+        return (is_college);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college);
+      }
+    }
 	});
 
   $("#t1_s3no").rules("add", {
@@ -353,7 +388,12 @@ $( document ).ready(function() {
     },
     course:{
       depends:function(element){
-        return (visible_teams >= 2);
+        return (is_college && visible_teams >= 2);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college && visible_teams >= 2);
       }
     },
     messages: {
@@ -415,7 +455,12 @@ $( document ).ready(function() {
     },
     course:{
       depends:function(element){
-        return (visible_teams >= 2);
+        return (is_college && visible_teams >= 2);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college && visible_teams >= 2);
       }
     }
 	});
@@ -474,7 +519,12 @@ $( document ).ready(function() {
     },
     course:{
       depends:function(element){
-        return (visible_teams >= 2);
+        return (is_college && visible_teams >= 2);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college && visible_teams >= 2);
       }
     }
 	});
@@ -530,7 +580,12 @@ $( document ).ready(function() {
     },
     course:{
       depends:function(element){
-        return (visible_teams == 3);
+        return (is_college && visible_teams >= 3);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college && visible_teams >= 3);
       }
     },
     messages: {
@@ -592,7 +647,12 @@ $( document ).ready(function() {
     },
     course:{
       depends:function(element){
-        return (visible_teams == 3);
+        return (is_college && visible_teams >= 3);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college && visible_teams >= 3);
       }
     }
 	});
@@ -651,7 +711,12 @@ $( document ).ready(function() {
     },
     course:{
       depends:function(element){
-        return (visible_teams == 3);
+        return (is_college && visible_teams >= 3);
+      }
+    },
+    strand:{
+      depends:function(element){
+        return (!is_college && visible_teams >= 3);
       }
     }
 	});
@@ -811,6 +876,23 @@ $( document ).ready(function() {
     $(".team-data").removeClass("no-display");
   }
 
+  function setYearInputText(){
+    var place = "";
+    var header = "";
+    if (is_college){
+      place = "2 - BS Course Name";
+      header = "Year and Course:";
+    }else{
+      place = "## - Strand Name e.g. 11 - STEM";
+      header = "Grade Level and Strand:";
+    }
+    var i = 0;
+    for(i = 0; i < year_ids.length; i++){
+      $("#"+year_ids[i]).prop("placeholder", place);
+      $("label[for="+year_ids[i]+"]").text(header
+      );
+    }
+  }
   function setQualiOpacity(op_qb, op_td, op_hsqb, op_ws){
     $("#quali-qb").css({'opacity' : op_qb});
     $("#quali-td").css({'opacity' : op_td});
@@ -837,6 +919,7 @@ $( document ).ready(function() {
   $("#college-select").on("click",function(){
     is_college = true;
     showRegistration();
+    setYearInputText();
     if (is_mobile) {
       alert("We recommend the use of a Laptop/PC when filling up the registration form.")
     }
@@ -845,6 +928,7 @@ $( document ).ready(function() {
   $("#hs-select").on("click",function(){
     is_college = false;
     showRegistration();
+    setYearInputText();
     if (is_mobile) {
       alert("We recommend the use of a Laptop/PC when filling up the registration form.")
     }
