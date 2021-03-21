@@ -9,6 +9,7 @@ var highschool_ws_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeSLj2_
 var highschool_qb_action = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeK_Gw5G1nmQ3gFbN2DKmzAcezqmTDwvDwyUszUXJMoBylh7w/formResponse";
 var visible_teams = 1;
 var visible_coach = 1;
+var visible_students = [1,1,1];
 var i;
 var furthest_visit = 0;
 var visited = [true, false, false, false, false, false];
@@ -121,11 +122,6 @@ $( document ).ready(function() {
     }, "Please enter an address in the given format."
   );
 
-  $.validator.addMethod( "studentnumber", function( value, element ) {
-  	return this.optional( element ) || /^[2][0]\d{2}-\d{5}$/i.test( value );
-    }, "Please enter a student number in the given format."
-  );
-
   $.validator.addMethod( "fullname", function( value, element ) {
   	return this.optional( element ) || /^[a-z 0-9.]+[,][ ][a-z 0-9.]+[,][ ][a-z 0-9.]+$/i.test( value );
     }, "Please enter your full name as shown, with commas and spaces to separate."
@@ -138,7 +134,7 @@ $( document ).ready(function() {
 
   $.validator.addMethod("strand", function( value, element ) {
     return this.optional( element ) || /^(11|12)[ ][-][ ][a-zA-z]+$/i.test( value );
-  }, "Please enter your course as shown."
+  }, "Please enter your strand as shown."
   );
 
   $("#reg-form").validate({
@@ -274,10 +270,7 @@ $( document ).ready(function() {
       depends:function(element){
         return (!is_college);
       }
-    },
-    messages: {
-			required: "Please enter your course."
-		}
+    }
 	});
 
   $("#t1_s1no").rules("add", {
@@ -937,6 +930,33 @@ $( document ).ready(function() {
     return;
   }
 
+  function setTeamReg(){
+    if (is_college && !is_qb){
+      $(".addstudent").show();
+      $(".removestudent").show();
+      if (visited[5]){
+        return;
+      }
+      $("#t1_s2").find("input").prop("disabled", true);
+      $("#t1_s2").hide();
+      $("#t1_s3").find("input").prop("disabled", true);
+      $("#t1_s3").hide();
+    }else{
+      $(".addstudent").hide();
+      $(".removestudent").hide();
+      //just reveal all
+      visible_students = [3, 3, 3];
+      var i = 0;
+      var j = 0;
+      for(i = 1; i <= 3; i++ ){
+        for(j = 1; j <= 3; j++){
+          $("#t"+i+"_s"+j).show();
+          $("#t"+i+"_s"+j).find("input").prop("disabled", false);
+        }
+      }
+    }
+  }
+
   $("#college-select").on("click",function(){
     is_college = true;
     showRegistration();
@@ -997,6 +1017,9 @@ $( document ).ready(function() {
       if (!is_college && !is_qb && active_modal==3){
         j++;
       }
+      if(active_modal+j == 5){
+        setTeamReg();
+      }
       //prevent double click
       $(".next").prop("disabled", true);
       //update reg menu
@@ -1022,7 +1045,6 @@ $( document ).ready(function() {
           //update reg menu visit locations
           furthest_visit = Math.max(active_modal, furthest_visit);
           $("#reg-menu-"+active_modal).removeClass("unvisited");
-          console.log(active_modal);
         }, 500);
 
       }, 10);
@@ -1071,6 +1093,7 @@ $( document ).ready(function() {
 
   $(".back-confirm").on("click", function(){
     hideConfimationCollege();
+    setTeamReg();
   });
 
   $("#college-qb-select").on("click", function(){
@@ -1130,6 +1153,45 @@ $( document ).ready(function() {
     $("#hs-ws-select").addClass("active-choice")
   });
 
+  $(".addstudent").on('click', function(){
+    console.log(visible_students);
+    var t = $(this).prop("id");
+    t_str = String(t).slice(0, 4);
+    t_num = String(t).slice(1,2)-1
+    if (visible_students[t_num] ==3){
+      return;
+    }
+    visible_students[t_num]++;
+    $("#"+t_str+visible_students[t_num]).find("input").prop('disabled', false);
+    $("#"+t_str+visible_students[t_num]).show();
+
+    if(visible_students[t_num] > 1){
+      $("#removestudent").show();
+    }
+    if(visible_students[t_num] == 3){
+      $("#addstudent").hide();
+    }
+  });
+
+  $(".removestudent").on("click", function(){
+    console.log(visible_students);
+    var t = $(this).prop("id");
+    t_str = String(t).slice(0, 4);
+    t_num = String(t).slice(1,2)-1
+    if (visible_students[t_num] ==1){
+      return;
+    }
+    $("#"+t_str+visible_students[t_num]).find("input").prop('disabled', true);
+    $("#"+t_str+visible_students[t_num]).hide();
+    visible_students[t_num]--;
+    if(visible_students[t_num] == 1){
+      $("#removestudent").hide();
+    }
+    if(visible_students[t_num] < 3){
+      $("#addstudent").show();
+    }
+  });
+
   $("#addteam").on('click', function(){
     if (visible_teams == 3){
       return;
@@ -1137,6 +1199,24 @@ $( document ).ready(function() {
     $("#removeteam").show();
     $("#team-" + String(visible_teams+1)).removeClass("no-display");
     $("#team-" + String(visible_teams+1)).find("input").prop("disabled", false);
+    if(is_college && !is_qb){
+      //for tech decon
+      var k = 0;
+      for(k= 3; k > visible_students[visible_teams]; k--){
+        $("#t"+String(visible_teams+1)+"_s"+k).find("input").prop("disabled", true);
+        $("#t"+String(visible_teams+1)+"_s"+k).hide();
+      }
+      $(".addstudent").show();
+      $(".removestudent").show();
+    }else{
+      //for everything else
+      var k = 0;
+      for(k = 1; k <= 3; k++){
+        $("#t"+String(visible_teams+1)+"_s"+k).show();
+      }
+      $(".addstudent").hide();
+      $(".removestudent").hide();
+    }
     visible_teams+=1;
     if (visible_teams == 3){
       $("#addteam").hide();
@@ -1202,6 +1282,10 @@ $( document ).ready(function() {
     if (!is_college && !is_qb && item_no==4){
       return;
     }
+    //set up team reg if active modal==5
+    if(item_no == 5){
+      setTeamReg();
+    }
     //prevent double click
     reg_menu_click = true;
     //update SUMMARY
@@ -1263,7 +1347,6 @@ $( document ).ready(function() {
       $("#verifycheck").prop("disabled", true);
       console.log( $( "#reg-form" ).serialize());
       $("#reg-form").submit();
-      console.log("test");
 
       //transition here.
       $("#feedback").removeClass("no-display");
