@@ -108,8 +108,8 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod( "phphonenumber", function( value, element ) {
-  	return this.optional( element ) || /^[0][9]\d{9}$/i.test( value );
-    }, "Please enter a phone number in the given PH format."
+  	return this.optional( element ) || /^[0][9]\d{9}|([N][/][A])$/i.test( value );
+  }, "Please enter a phone number in the given PH format, N/A otherwise."
   );
 
   $.validator.addMethod( "phlandline", function( value, element ) {
