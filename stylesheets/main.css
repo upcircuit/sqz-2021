@@ -579,6 +579,7 @@ a:hover {
   right:3vw;
   padding: 0 1em 0 0;
   margin-left: 2em;
+  z-index:4;
 }
 .modal-nav button {
   margin: 1em;
