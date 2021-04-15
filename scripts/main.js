@@ -139,7 +139,11 @@ $( document ).ready(function() {
 
   $.validator.addMethod("grade", function( value, element ) {
     return this.optional( element ) || /^Grade[ ](7|8|9|10|11|12)$/i.test( value );
+<<<<<<< HEAD
   }, "Please enter your grade level as shown."
+=======
+  }, "Please enter your grade level as shown. Use two digits for grade number."
+>>>>>>> daa3a19696d13cc89832ee9a7b7b7907f1217690
   );
   $("#reg-form").validate({
 		wrapper:"div",
