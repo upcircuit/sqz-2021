@@ -137,6 +137,10 @@ $( document ).ready(function() {
   }, "Please enter your strand as shown."
   );
 
+  $.validator.addMethod("grade", function( value, element ) {
+    return this.optional( element ) || /^Grade[ ][0-9][0-9]$/i.test( value );
+  }, "Please enter your grade level as shown. Use two digits for grade number."
+  );
   $("#reg-form").validate({
 		wrapper:"div",
 		errorPlacement:function(error, element) {
@@ -754,9 +758,9 @@ $( document ).ready(function() {
 
     $("#ws_scourse").rules("add", {
   		required: true,
-      strand:true,
+      grade:true,
       messages: {
-  			required: "Please enter your course."
+  			required: "Please enter your grade level."
   		}
   	});
 
