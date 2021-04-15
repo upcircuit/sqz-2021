@@ -138,7 +138,7 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod("grade", function( value, element ) {
-    return this.optional( element ) || /^Grade[ ][0-9][0-9]$/i.test( value );
+    return this.optional( element ) || /^Grade[ ](7|8|9|10|11|12)$/i.test( value );
   }, "Please enter your grade level as shown. Use two digits for grade number."
   );
   $("#reg-form").validate({
