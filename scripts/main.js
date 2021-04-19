@@ -123,7 +123,7 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod( "fullname", function( value, element ) {
-  	return this.optional( element ) || /^[a-z 0-9.]+[,][ ][a-z 0-9.]+[,][ ][a-z 0-9.]+$/i.test( value );
+  	return this.optional( element ) || /^[a-z 0-9.ñ]+[,][ ][a-z 0-9.ñ]+[,][ ][a-z 0-9.ñ]?$/i.test( value );
     }, "Please enter your full name as shown, with commas and spaces to separate."
   );
 
@@ -139,11 +139,7 @@ $( document ).ready(function() {
 
   $.validator.addMethod("grade", function( value, element ) {
     return this.optional( element ) || /^Grade[ ](7|8|9|10|11|12)$/i.test( value );
-<<<<<<< HEAD
   }, "Please enter your grade level as shown."
-=======
-  }, "Please enter your grade level as shown. Use two digits for grade number."
->>>>>>> daa3a19696d13cc89832ee9a7b7b7907f1217690
   );
   $("#reg-form").validate({
 		wrapper:"div",
