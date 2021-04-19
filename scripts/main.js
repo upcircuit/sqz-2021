@@ -103,7 +103,7 @@ $( document ).ready(function() {
   returnInputs();
 
   $.validator.addMethod( "lettersonly", function( value, element ) {
-  	return this.optional( element ) || /^[a-z]+$/i.test( value );
+  	return this.optional( element ) || /^[a-zñ]+$/i.test( value );
     }, "Letters only please."
   );
 
@@ -118,12 +118,12 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod( "address", function( value, element ) {
-  	return this.optional( element ) || /^[a-z 0-9.]+[,][ ][a-z 0-9.]+[,][ ][a-z 0-9.]+$/i.test( value );
+  	return this.optional( element ) || /^.+[,][ ].+[,][ ].+$/i.test( value );
     }, "Please enter an address in the given format."
   );
 
   $.validator.addMethod( "fullname", function( value, element ) {
-  	return this.optional( element ) || /^[a-z 0-9.ñ]+[,][ ][a-z 0-9.ñ]+[,]?[ ]?[a-z 0-9.ñ]?$/i.test( value );
+  	return this.optional( element ) || /^.+[,][ ].+[,]?[ ]?.?$/i.test( value );
     }, "Please enter your full name as shown, with commas and spaces to separate."
   );
 
