@@ -113,8 +113,8 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod( "phlandline", function( value, element ) {
-  	return this.optional( element ) || /^[0][2][ ]\d{8}$|\d{3}[ ]\d{7}$/i.test( value );
-    }, "Please enter a phone number in the given PH format."
+  	return this.optional( element ) || /(^[0][2][ ]\d{8}$|\d{3}[ ]\d{7}$)|(^[0][9]\d{9}|([N][/][A])$)/i.test( value );
+    }, "Please enter a phone number in the given format."
   );
 
   $.validator.addMethod( "address", function( value, element ) {
