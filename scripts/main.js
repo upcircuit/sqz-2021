@@ -123,7 +123,7 @@ $( document ).ready(function() {
   );
 
   $.validator.addMethod( "fullname", function( value, element ) {
-  	return this.optional( element ) || /^[a-z 0-9.ñ]+[,][ ][a-z 0-9.ñ]+[,][ ][a-z 0-9.ñ]?$/i.test( value );
+  	return this.optional( element ) || /^[a-z 0-9.ñ]+[,][ ][a-z 0-9.ñ]+[,]?[ ]?[a-z 0-9.ñ]?$/i.test( value );
     }, "Please enter your full name as shown, with commas and spaces to separate."
   );
 
